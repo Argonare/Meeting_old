@@ -38,4 +38,5 @@ public interface UserInfoMapper {
 
     List<UserInfoReturn> selectUserinfoByNameReturn(@Param("name") String name);
     List<UserInfoReturn> selectUserinfoByUsernameReturn(@Param("username") String username);
+
 }

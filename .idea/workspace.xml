@@ -6,365 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5316ccd-bfac-4735-b49f-0fc70ae88bb6" name="Default Changelist" comment="会议修改基本完成">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Meeting.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/1.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/meeting/bean/MeetingRoomReturn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/meeting/bean/MeetingRoomReturn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/meeting/bean/UserInfoReturn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/meeting/bean/UserInfoReturn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/meeting/controller/DepartmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/meeting/controller/DepartmentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/meeting/controller/MeetingRoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/meeting/controller/MeetingRoomController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/meeting/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/meeting/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/meeting/dao/DepartmentMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/meeting/dao/DepartmentMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/meeting/dao/MeetingRoomMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/meeting/dao/MeetingRoomMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/meeting/dao/UserInfoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/meeting/dao/UserInfoMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/meeting/service/DepartmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/meeting/service/DepartmentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/meeting/service/MeetingRoomService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/meeting/service/MeetingRoomService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/meeting/service/UserInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/meeting/service/UserInfoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/DepartmentMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/DepartmentMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/MeetingRoomMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/MeetingRoomMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/UserInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/UserInfoMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/insertMeetinginfoIframe.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/insertMeetinginfoIframe.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/insertUserinfoIframe.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/insertUserinfoIframe.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/newhoutai.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/newhoutai.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/updateMeetinginfoIframe.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/updateMeetinginfoIframe.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/updateUserinfoIframe.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/updateUserinfoIframe.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/js/meeting.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/meeting.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/applicationContext.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/Department.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/DepartmentExample$Criteria.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/DepartmentExample$Criterion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/DepartmentExample$GeneratedCriteria.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/DepartmentExample.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/DepartmentReturn.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/LogTable.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/LogTableExample$Criteria.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/LogTableExample$Criterion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/LogTableExample$GeneratedCriteria.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/LogTableExample.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingInfo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingInfoExample$Criteria.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingInfoExample$Criterion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingInfoExample$GeneratedCriteria.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingInfoExample.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingInfoRetrun.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingRoom.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingRoomExample$Criteria.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingRoomExample$Criterion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingRoomExample$GeneratedCriteria.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingRoomExample.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingRoomReturn.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingSignin.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingSigninExample$Criteria.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingSigninExample$Criterion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingSigninExample$GeneratedCriteria.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingSigninExample.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingTeam.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingTeamExample$Criteria.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingTeamExample$Criterion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingTeamExample$GeneratedCriteria.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingTeamExample.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/Msg.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/UserInfo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/UserInfoExample$Criteria.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/UserInfoExample$Criterion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/UserInfoExample$GeneratedCriteria.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/UserInfoExample.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/UserInfoReturn.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/controller/DepartmentController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/controller/JumpPageController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/controller/LogTableController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/controller/MeetingInfoController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/controller/MeetingRoomController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/controller/MeetingSgninController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/controller/MeetingTeamController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/controller/UserController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/dao/DepartmentMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/dao/LogTableMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/dao/MeetingInfoMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/dao/MeetingRoomMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/dao/MeetingSigninMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/dao/MeetingTeamMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/dao/UserInfoMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/service/DepartmentService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/service/LogTableService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/service/MeetingInfoService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/service/MeetingRoomService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/service/MeetingSigninService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/service/MeetingTeamService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/service/UserInfoService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/test/MBGTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/utils/getGuestUser.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/utils/login_filter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/dbconfig.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/mapper/DepartmentMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/mapper/LogTableMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/mapper/MeetingInfoMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/mapper/MeetingRoomMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/mapper/MeetingSigninMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/mapper/MeetingTeamMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/mapper/UserInfoMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/mybatis-config.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/dispatcherServlet-servlet.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/lib/aspectjweaver-1.8.9.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/lib/c3p0-0.9.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/lib/classmate-1.3.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/lib/commons-logging-1.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/lib/fastjson-1.2.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/lib/gson-2.8.5.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/lib/hamcrest-core-1.3.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/lib/hibernate-validator-5.4.1.Final.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/lib/jackson-annotations-2.8.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/lib/jackson-core-2.8.8.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/lib/jackson-databind-2.8.8.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/lib/jboss-logging-3.3.0.Final.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/lib/jsqlparser-0.9.5.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/lib/jstl-1.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/lib/junit-4.12.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/lib/mybatis-3.4.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/lib/mybatis-generator-core-1.3.5.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/lib/mybatis-spring-1.3.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/lib/mysql-connector-java-5.1.41.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/lib/pagehelper-5.0.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/lib/spring-aop-4.3.7.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/lib/spring-aspects-4.3.7.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/lib/spring-beans-4.3.7.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/lib/spring-context-4.3.7.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/lib/spring-core-4.3.7.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/lib/spring-expression-4.3.7.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/lib/spring-jdbc-4.3.7.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/lib/spring-test-4.3.7.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/lib/spring-tx-4.3.7.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/lib/spring-web-4.3.7.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/lib/spring-webmvc-4.3.7.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/lib/validation-api-1.1.0.Final.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/views/findAll.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/views/houtai.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/views/insertDepartmentIfame.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/views/insertMeetingRoomIframe.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/views/insertMeetinginfoIframe.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/views/insertUserinfoIframe.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/views/newhoutai.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/views/qrcode.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/views/qrcode_success.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/views/signinInfoIframe.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/views/updateDepartmentIframe.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/views/updateMeetingRoomIframe.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/views/updateMeetinginfoIframe.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/views/updateUserinfoIframe.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/web.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/index.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/bootstrap/css/bootstrap-theme.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/bootstrap/css/bootstrap-theme.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/bootstrap/css/bootstrap-theme.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/bootstrap/css/bootstrap-theme.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/bootstrap/css/bootstrap.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/bootstrap/css/bootstrap.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/bootstrap/css/bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/bootstrap/css/bootstrap.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/bootstrap/css/bootstrap_tagsinput.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/bootstrap/fonts/glyphicons-halflings-regular.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/bootstrap/fonts/glyphicons-halflings-regular.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/bootstrap/fonts/glyphicons-halflings-regular.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/bootstrap/fonts/glyphicons-halflings-regular.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/bootstrap/fonts/glyphicons-halflings-regular.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/bootstrap/js/bootstrap-tagsinput.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/bootstrap/js/bootstrap.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/bootstrap/js/bootstrap.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/bootstrap/js/npm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/css/layui.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/css/layui.mobile.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/css/modules/code.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/css/modules/laydate/default/laydate.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/css/modules/layer/default/icon-ext.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/css/modules/layer/default/icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/css/modules/layer/default/layer.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/css/modules/layer/default/loading-0.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/css/modules/layer/default/loading-1.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/css/modules/layer/default/loading-2.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/font/iconfont.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/font/iconfont.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/font/iconfont.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/font/iconfont.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/font/iconfont.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/0.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/1.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/10.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/11.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/12.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/13.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/14.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/15.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/16.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/17.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/18.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/19.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/2.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/20.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/21.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/22.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/23.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/24.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/25.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/26.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/27.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/28.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/29.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/3.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/30.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/31.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/32.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/33.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/34.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/35.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/36.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/37.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/38.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/39.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/4.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/40.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/41.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/42.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/43.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/44.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/45.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/46.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/47.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/48.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/49.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/5.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/50.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/51.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/52.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/53.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/54.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/55.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/56.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/57.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/58.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/59.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/6.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/60.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/61.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/62.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/63.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/64.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/65.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/66.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/67.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/68.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/69.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/7.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/70.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/71.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/8.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/images/face/9.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/lay/modules/carousel.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/lay/modules/code.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/lay/modules/colorpicker.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/lay/modules/element.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/lay/modules/flow.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/lay/modules/form.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/lay/modules/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/lay/modules/laydate.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/lay/modules/layedit.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/lay/modules/layer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/lay/modules/laypage.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/lay/modules/laytpl.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/lay/modules/mobile.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/lay/modules/rate.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/lay/modules/slider.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/lay/modules/table.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/lay/modules/transfer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/lay/modules/tree.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/lay/modules/upload.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/lay/modules/util.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/layui.all.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/layui/layui.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/mycss/layui/admin.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/css/mycss/layui/login.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/js/jquery-3.0.0.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/js/meeting.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/static/js/xlsx.core.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/applicationContext.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/Department.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/DepartmentExample$Criteria.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/DepartmentExample$Criterion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/DepartmentExample$GeneratedCriteria.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/DepartmentExample.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/DepartmentReturn.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/LogTable.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/LogTableExample$Criteria.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/LogTableExample$Criterion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/LogTableExample$GeneratedCriteria.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/LogTableExample.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingInfo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingInfoExample$Criteria.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingInfoExample$Criterion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingInfoExample$GeneratedCriteria.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingInfoExample.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingInfoRetrun.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingRoom.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingRoomExample$Criteria.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingRoomExample$Criterion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingRoomExample$GeneratedCriteria.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingRoomExample.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingRoomReturn.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingSignin.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingSigninExample$Criteria.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingSigninExample$Criterion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingSigninExample$GeneratedCriteria.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingSigninExample.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingTeam.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingTeamExample$Criteria.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingTeamExample$Criterion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingTeamExample$GeneratedCriteria.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingTeamExample.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/Msg.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/UserInfo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/UserInfoExample$Criteria.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/UserInfoExample$Criterion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/UserInfoExample$GeneratedCriteria.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/UserInfoExample.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/UserInfoReturn.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/controller/DepartmentController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/controller/JumpPageController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/controller/LogTableController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/controller/MeetingInfoController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/controller/MeetingRoomController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/controller/MeetingSgninController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/controller/MeetingTeamController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/controller/UserController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/dao/DepartmentMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/dao/LogTableMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/dao/MeetingInfoMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/dao/MeetingRoomMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/dao/MeetingSigninMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/dao/MeetingTeamMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/dao/UserInfoMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/service/DepartmentService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/service/LogTableService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/service/MeetingInfoService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/service/MeetingRoomService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/service/MeetingSigninService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/service/MeetingTeamService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/service/UserInfoService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/test/MBGTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/utils/getGuestUser.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/utils/login_filter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dbconfig.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/DepartmentMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/LogTableMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/MeetingInfoMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/MeetingRoomMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/MeetingSigninMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/MeetingTeamMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/UserInfoMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mybatis-config.xml" beforeDir="false" />
-    </list>
+    <list default="true" id="d5316ccd-bfac-4735-b49f-0fc70ae88bb6" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -413,8 +55,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/updateMeetinginfoIframe.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="190" column="19" selection-start-line="190" selection-start-column="19" selection-end-line="190" selection-end-column="19" />
+            <state relative-caret-position="177">
+              <caret line="186" selection-start-line="186" selection-end-line="187" />
               <folding>
                 <element signature="n#style#0;n#span#0;n#div#0;n#!!top" expanded="true" />
               </folding>
@@ -548,7 +190,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="825" />
     <option name="y" value="156" />
     <option name="width" value="1934" />
@@ -568,6 +210,11 @@
             <path>
               <item name="Meeting" type="b2602c69:ProjectViewProjectNode" />
               <item name="Meeting" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Meeting" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Meeting" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -729,7 +376,7 @@
       <workItem from="1562586212563" duration="15128000" />
       <workItem from="1562668509970" duration="43000" />
       <workItem from="1562668592454" duration="2301000" />
-      <workItem from="1562670950926" duration="77000" />
+      <workItem from="1562670950926" duration="342000" />
     </task>
     <task id="LOCAL-00001" summary="船新版本">
       <created>1562588385579</created>
@@ -773,15 +420,21 @@
       <option name="project" value="LOCAL" />
       <updated>1562657521844</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="7.9">
+      <created>1562671172342</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1562671172342</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17549000" />
+    <option name="totallyTimeSpent" value="17814000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27144772" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -826,7 +479,8 @@
     <MESSAGE value="船新版本" />
     <MESSAGE value="会议修改完成" />
     <MESSAGE value="会议修改基本完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="会议修改基本完成" />
+    <MESSAGE value="7.9" />
+    <option name="LAST_COMMIT_MESSAGE" value="7.9" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/pom.xml">
@@ -1235,8 +889,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/updateMeetinginfoIframe.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="190" column="19" selection-start-line="190" selection-start-column="19" selection-end-line="190" selection-end-column="19" />
+        <state relative-caret-position="177">
+          <caret line="186" selection-start-line="186" selection-end-line="187" />
           <folding>
             <element signature="n#style#0;n#span#0;n#div#0;n#!!top" expanded="true" />
           </folding>

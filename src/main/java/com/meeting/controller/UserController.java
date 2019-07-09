@@ -182,4 +182,6 @@ public class UserController {
         List<UserInfoReturn> list = userInfoService.selectUserinfoByUsernameReturn(username);
         return Msg.success().add("userInfo", list.get(0));
     }
+
+
 }
