@@ -109,4 +109,6 @@
 <script src="${APP_PATH}/static/js/jquery-3.0.0.min.js"></script>
 <script src="${APP_PATH}/static/css/layui/layui.js"></script>
 <script src="${APP_PATH}/static/js/meeting.js"></script>
+<script src="${APP_PATH}/static/css/bootstrap/js/bootstrap-tagsinput.js"></script>
+<script src="${APP_PATH}/static/css/bootstrap/js/bootstrap.js"></script>
 </html>

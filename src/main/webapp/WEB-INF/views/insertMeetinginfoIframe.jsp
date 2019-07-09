@@ -309,10 +309,6 @@
             $("#qcode_refresh").val(this.checked)
         });
 
-
-        var data1 =[{"id":1210,"username":"1716143221","name":"王贵","departName":"电子信息工程学院"}
-        ,{"id":1209,"username":"1716143221","name":"王贵","departName":"电子信息工程学院"}]
-
         table.render({//因为leftTable需要用到rightTable中的数据所以需要先创建rightTable
             elem: '#rightTable'
             ,id:"rightTable"

@@ -147,7 +147,7 @@ function userinfo_table() {
                 ,{field:'username', title: '工号'}
                 ,{field:'name', title: '姓名'}
                 ,{field:'departName', title: '部门名称'}
-                ,{field:'wechar', title: '微信号'}
+                // ,{field:'wechar', title: '微信号'}
                 ,{field:'phone', title: '手机号'} //minWidth：局部定义当前单元格的最小宽度，layui 2.2.1 新增
                 ,{fixed: 'right', title:'操作', toolbar: '#userinfo_barDemo', width:150,align:'center'}
             ]]
@@ -222,38 +222,24 @@ function userinfo_table() {
                                 success:function (data) {
                                     if (data.code==100){
                                         $.ajax({
-                                            url:APP_PATH+"/userInfo/checkUpdateUserinfoWechar",
+                                            url:APP_PATH+"/userInfo/updateUser",
                                             data:{
+                                                id:id,
+                                                username:username,
                                                 wechar:wechar,
-                                                userinfo:id_depart
+                                                name:name,
+                                                phone:phone,
+                                                departId:departId,
+                                                type:type
                                             },
                                             type:"POST",
-                                            success:function (data) {
-                                                if (data.code==100){
-                                                    $.ajax({
-                                                        url:APP_PATH+"/userInfo/updateUser",
-                                                        data:{
-                                                            id:id,
-                                                            username:username,
-                                                            wechar:wechar,
-                                                            name:name,
-                                                            phone:phone,
-                                                            departId:departId,
-                                                            type:type
-                                                        },
-                                                        type:"POST",
-                                                        success:function (res) {
-                                                            if (res.code==100){
-                                                                layer.close(index);
-                                                                aa();
-                                                                layer.msg(res.extend.msg,{icon:1});
-                                                            }else if(res.code==200){
-                                                                layer.msg(res.extend.msg,{icon:5});
-                                                            }
-                                                        }
-                                                    });
-                                                }else if(data.code==200){
-                                                    layer.msg("微信号已存在",{icon:5})
+                                            success:function (res) {
+                                                if (res.code==100){
+                                                    layer.close(index);
+                                                    aa();
+                                                    layer.msg(res.extend.msg,{icon:1});
+                                                }else if(res.code==200){
+                                                    layer.msg(res.extend.msg,{icon:5});
                                                 }
                                             }
                                         });
@@ -328,7 +314,7 @@ function userinfo_table() {
                                 var body = layer.getChildFrame('body', index);
                                 var iframeWin = window[layero.find('iframe')[0]['name']]; //得到iframe页的窗口对象，执行iframe页的方法：
                                 var username =  body.find("#LAY-user-login-username").val();
-                                var wechar=  body.find("#LAY-user-login-wechat").val();
+                                // var wechar=  body.find("#LAY-user-login-wechat").val();
                                 var name=  body.find("#LAY-user-login-name").val();
                                 var phone =  body.find("#LAY-user-login-phone").val();
                                 var departId = body.find("#dept_select").parent().find(".layui-this").attr("lay-value");
@@ -342,48 +328,37 @@ function userinfo_table() {
                                     data:"username="+username,
                                     type:"POST",
                                     success:function (data) {
+
                                         if (data.code==100){
                                             $.ajax({
-                                                url:APP_PATH+"/userInfo/checkAddUserInfoWeChate",
-                                                data: "wechar="+wechar,
+                                                url:APP_PATH+"/userInfo/checkAddUserInfoPhone",
+                                                data:"phone="+phone,
                                                 type:"POST",
                                                 success:function (data) {
                                                     if (data.code==100){
                                                         $.ajax({
-                                                            url:APP_PATH+"/userInfo/checkAddUserInfoPhone",
-                                                            data:"phone="+phone,
-                                                            type:"POST",
-                                                            success:function (data) {
-                                                                if (data.code==100){
-                                                                    $.ajax({
-                                                                        url: APP_PATH + "/userInfo/insertUser",
-                                                                        data: {
-                                                                            username: username,
-                                                                            wechar: wechar,
-                                                                            name: name,
-                                                                            phone: phone,
-                                                                            departId: departId,
-                                                                            type: type
-                                                                        },
-                                                                        type: "POST",
-                                                                        success: function (res) {
-                                                                            if (res.code == 100) {
-                                                                                layer.close(index);
-                                                                                aa();
-                                                                                layer.msg(res.extend.msg, {icon: 1});
-                                                                            } else if (res.code == 200) {
-                                                                                layer.msg(res.extend.msg, {icon: 5});
-                                                                            }
-                                                                        }
-                                                                    });
-                                                                }else if(data.code==200){
-
-                                                                    layer.msg("手机号已存在",{icon:5})
+                                                            url: APP_PATH + "/userInfo/insertUser",
+                                                            data: {
+                                                                username: username,
+                                                                // wechar: wechar,
+                                                                name: name,
+                                                                phone: phone,
+                                                                departId: departId,
+                                                                type: type
+                                                            },
+                                                            type: "POST",
+                                                            success: function (res) {
+                                                                if (res.code == 100) {
+                                                                    layer.close(index);
+                                                                    aa();
+                                                                    layer.msg(res.extend.msg, {icon: 1});
+                                                                } else if (res.code == 200) {
+                                                                    layer.msg(res.extend.msg, {icon: 5});
                                                                 }
                                                             }
                                                         });
                                                     }else if(data.code==200){
-                                                        layer.msg("微信号已存在",{icon:5})
+                                                        layer.msg("手机号已存在",{icon:5})
                                                     }
                                                 }
                                             });
@@ -468,6 +443,8 @@ function meetinginfo_table(){
                 });
             }
             else if(layEvent === 'edit'){ //编辑
+                var dep=data.deptName
+                console.log(data)
                 layui.use('layer',function (obj) {
                     var layer = layui.layer;
                     // layer.msg('hello');
@@ -487,7 +464,7 @@ function meetinginfo_table(){
                             $(body).find("#meetingName").val(data.name);
                             $(body).find("#date1").val(getDate(data.startTime));
                             $(body).find("#date2").val(getDate(data.endTime));
-                            $(body).find("#meetingIntro").val(data.intro);
+                            $(body).find("#tagsinputval").val("add",dep);
                         },
                         yes:function (index,layero) {
                             var body = layer.getChildFrame('body', index);
@@ -1146,7 +1123,6 @@ function deptinfo_table() {
                                         }
                                     }
                                 });
-
                             }
                         })
                     });

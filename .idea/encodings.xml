@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding">
-    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+  <component name="Encoding" defaultCharsetForPropertiesFiles="GBK">
+    <file url="file://$PROJECT_DIR$" charset="GBK" />
     <file url="file://$PROJECT_DIR$/mbg.xml" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/meeting/bean/DepartmentReturn.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/meeting/bean/MeetingInfoRetrun.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/meeting/bean/MeetingRoomReturn.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/meeting/bean/MeetingRoomReturn.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/meeting/bean/Msg.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/meeting/bean/UserInfoReturn.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/meeting/controller/JumpPageController.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/meeting/test/MBGTest.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/meeting/test/MapperTest.java" charset="GBK" />
@@ -23,10 +19,9 @@
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/index.jsp" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/static" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/static/css" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/webapp/static/css/bootstrap" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/webapp/static/font" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/webapp/static/imgs" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/static/js" charset="GBK" />
+    <file url="PROJECT" charset="GBK" />
   </component>
 </project>

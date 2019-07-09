@@ -13,9 +13,21 @@ public class UserInfoReturn {
 
     private String phone;
 
-    private String wechat_token;
+    private String wechar;
 
     private String departName;
+
+    public UserInfoReturn() {
+    }
+
+    public UserInfoReturn(Integer id, String username, String name, String phone, String wechar, String departName) {
+        this.id = id;
+        this.username = username;
+        this.name = name;
+        this.phone = phone;
+        this.wechar = wechar;
+        this.departName = departName;
+    }
 
     @Override
     public String toString() {
@@ -24,7 +36,7 @@ public class UserInfoReturn {
                 ", username='" + username + '\'' +
                 ", name='" + name + '\'' +
                 ", phone='" + phone + '\'' +
-                ", wechat_token='" + wechat_token + '\'' +
+                ", wechar='" + wechar + '\'' +
                 ", departName='" + departName + '\'' +
                 '}';
     }
@@ -61,12 +73,12 @@ public class UserInfoReturn {
         this.phone = phone;
     }
 
-    public String getWechat_token() {
-        return wechat_token;
+    public String getWechar() {
+        return wechar;
     }
 
-    public void setWechat_token(String wechat_token) {
-        this.wechat_token = wechat_token;
+    public void setWechar(String wechar) {
+        this.wechar = wechar;
     }
 
     public String getDepartName() {

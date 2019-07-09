@@ -5,6 +5,7 @@ import com.meeting.bean.MeetingRoomExample;
 import java.util.List;
 
 import com.meeting.bean.MeetingRoomReturn;
+import com.meeting.bean.UserInfo;
 import org.apache.ibatis.annotations.Param;
 
 public interface MeetingRoomMapper {
@@ -30,5 +31,9 @@ public interface MeetingRoomMapper {
 
     int updateByPrimaryKey(MeetingRoom record);
 
+    List<MeetingRoomReturn> selectFullMeetingRoom();
+
     List<MeetingRoomReturn> selectMeetingRoomReturn();
+
+    Integer selectByNameByID(UserInfo userInfo);
 }

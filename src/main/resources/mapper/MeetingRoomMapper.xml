@@ -194,7 +194,19 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
 
-  <select id="selectMeetingRoomReturn" resultType="com.meeting.bean.MeetingRoomReturn">
-      select meeting_room.id as id,address,name from meeting_room,user_info where meeting_room.delete_flag = 0 and user_info.id=meeting_room.user_id
+  <!--********************************************************************************-->
+  <select id="selectFullMeetingRoom" resultType="com.meeting.bean.MeetingRoomReturn">
+      select meeting_room.id,meeting_room.address,user_info.`name` as adminName,user_info.phone as adminPhone
+      from meeting_room,user_info
+      where meeting_room.user_id = user_info.id and meeting_room.`delete_flag` = 0
     </select>
+
+  <select id="selectMeetingRoomReturn" resultType="com.meeting.bean.MeetingRoomReturn">
+      select id,address from meeting_room where delete_flag = 0
+    </select>
+
+  <!-- 根据管理员工号查询ID-->
+  <select id="selectByNameByID" parameterType="com.meeting.bean.UserInfo" resultType="int">
+    select id from user_info where username=#{username,jdbcType=VARCHAR}
+  </select>
 </mapper>

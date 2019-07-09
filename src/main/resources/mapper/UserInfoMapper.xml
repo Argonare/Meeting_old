@@ -88,7 +88,7 @@
     </if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from user_info
     where id = #{id,jdbcType=INTEGER}
@@ -104,12 +104,12 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.meeting.bean.UserInfo">
-    insert into user_info (id, username, password, 
-      name, phone, wechat_token, 
+    insert into user_info (id, username, password,
+      name, phone, wechat_token,
       type, depart_id, delete_flag
       )
-    values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
-      #{name,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{wechatToken,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
+      #{name,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{wechatToken,jdbcType=VARCHAR},
       #{type,jdbcType=INTEGER}, #{departId,jdbcType=INTEGER}, #{deleteFlag,jdbcType=BIT}
       )
   </insert>
@@ -272,6 +272,30 @@
       delete_flag = #{deleteFlag,jdbcType=BIT}
     where id = #{id,jdbcType=INTEGER}
   </update>
+<!--************************************************************-->
+    <select id="selectUserReturn" resultType="com.meeting.bean.UserInfoReturn">
+      SELECT user_info.id,
+              user_info.`username`,
+              user_info.`name`,
+              user_info.`phone`,
+              department.`name` AS departName
+      FROM user_info,department
+      WHERE user_info.`depart_id` = department.`id` and user_info.delete_flag = 0
+      ORDER BY user_info.id DESC
+    </select>
+
+
+    <select id="checkUserinfoByPhone" resultType="com.meeting.bean.UserInfo">
+      SELECT * FROM user_info	WHERE user_info.phone=#{phone,jdbcType=VARCHAR}
+    </select>
+
+  <select id="getUidByUsername" resultType="int">
+    SELECT id FROM user_info WHERE username =#{username,jdbcType=VARCHAR}
+  </select>
+
+  <select id="selectUserinfoByNameReturn" resultType="com.meeting.bean.UserInfoReturn">
+      select id,username,name from user_info where name = #{name,jdbcType=INTEGER}
+    </select>
   <select id="selectUserinfoByUsernameReturn" resultType="com.meeting.bean.UserInfoReturn">
       select id,username,name from user_info where username = #{username,jdbcType=INTEGER}
     </select>

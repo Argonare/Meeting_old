@@ -1,8 +1,5 @@
 package com.meeting.bean;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-
-@JsonInclude(JsonInclude.Include.NON_NULL)
 public class MeetingRoomReturn {
     private Integer id;
 
@@ -10,14 +7,7 @@ public class MeetingRoomReturn {
 
     private String adminName;
 
-    public MeetingRoomReturn() {
-    }
-
-    public MeetingRoomReturn(Integer id, String address, String adminName) {
-        this.id = id;
-        this.address = address;
-        this.adminName = adminName;
-    }
+    private String adminPhone;
 
     @Override
     public String toString() {
@@ -25,6 +15,7 @@ public class MeetingRoomReturn {
                 "id=" + id +
                 ", address='" + address + '\'' +
                 ", adminName='" + adminName + '\'' +
+                ", adminPhone='" + adminPhone + '\'' +
                 '}';
     }
 
@@ -52,4 +43,21 @@ public class MeetingRoomReturn {
         this.adminName = adminName;
     }
 
+    public String getAdminPhone() {
+        return adminPhone;
+    }
+
+    public void setAdminPhone(String adminPhone) {
+        this.adminPhone = adminPhone;
+    }
+
+    public MeetingRoomReturn() {
+    }
+
+    public MeetingRoomReturn(Integer id, String address, String adminName, String adminPhone) {
+        this.id = id;
+        this.address = address;
+        this.adminName = adminName;
+        this.adminPhone = adminPhone;
+    }
 }
