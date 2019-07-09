@@ -20,12 +20,12 @@
                         <input type="text" name="userId" id="LAY-user-login-username" lay-verify="required" placeholder="工号" class="layui-input">
                     </div>
                 </div>
-                <div class="layui-form-item">
-                    <label class="layui-form-label">微信号：</label>
-                    <div class="layui-input-block">
-                        <input type="text"  name="userPwd" id="LAY-user-login-wechat" lay-verify="required" placeholder="微信号"  class="layui-input">
-                    </div>
-                </div>
+                <%--<div class="layui-form-item">--%>
+                    <%--<label class="layui-form-label">微信号：</label>--%>
+                    <%--<div class="layui-input-block">--%>
+                        <%--<input type="text"  name="userPwd" id="LAY-user-login-wechat" lay-verify="required" placeholder="微信号"  class="layui-input">--%>
+                    <%--</div>--%>
+                <%--</div>--%>
                 <div class="layui-form-item">
                     <label class="layui-form-label">姓名：</label>
                     <div class="layui-input-block">

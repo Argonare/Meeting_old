@@ -178,4 +178,13 @@
       delete_flag = #{deleteFlag,jdbcType=BIT}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <!--**************************************************自定义**************************************************-->
+  <select id="selectDeptReturn" resultType="com.meeting.bean.DepartmentReturn">
+    select id,name from department where delete_flag=0
+  </select>
+
+  <select id="checkUpdateDepartmentName" resultType="com.meeting.bean.Department">
+  SELECT * FROM department WHERE department.name=#{name,jdbcType=VARCHAR} and department.delete_flag = 0
+  </select>
 </mapper>
