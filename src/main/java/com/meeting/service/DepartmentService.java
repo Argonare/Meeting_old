@@ -1,9 +1,11 @@
 package com.meeting.service;
 
 
+
 import com.meeting.bean.Department;
 import com.meeting.bean.DepartmentExample;
 import com.meeting.bean.DepartmentReturn;
+
 import com.meeting.dao.DepartmentMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,6 +13,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
+
 public class DepartmentService  {
 
     @Autowired
@@ -54,5 +57,8 @@ public class DepartmentService  {
             }
         }
         return false;
+        
+    public Department selectByPrimaryKey(Integer id) {
+        return departmentMapper.selectByPrimaryKey(id);
     }
-}
+

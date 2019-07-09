@@ -407,8 +407,7 @@ function meetinginfo_table(){
                 {type:'numbers', title: '序号'}
                 ,{type: 'checkbox'}
                 ,{field:'name', title: '会议名称'}
-                ,{field:'intro', title: '会议简介'} //minWidth：局部定义当前单元格的最小宽度，layui 2.2.1 新增
-                // ,{field:'deptName', title: '部门名称'}
+               ,{field:'deptName', title: '部门名称'}
                 ,{field:'address', title: '会议地点'}
                 // ,{field:'type', title: '会议类型'}
                 ,{field:'startTime', title: '开始时间', templet : "<div id='stratTime_td'>{{layui.util.toDateString(d.startTime, 'yyyy年MM月dd日HH点mm分')}}</div>"}
