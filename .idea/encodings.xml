@@ -3,6 +3,7 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/mbg.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/meeting/bean/Msg.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/meeting/controller/JumpPageController.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/meeting/test/MBGTest.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/meeting/test/MapperTest.java" charset="GBK" />
