@@ -272,4 +272,7 @@
       delete_flag = #{deleteFlag,jdbcType=BIT}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <select id="selectUserinfoByUsernameReturn" resultType="com.meeting.bean.UserInfoReturn">
+      select id,username,name from user_info where username = #{username,jdbcType=INTEGER}
+    </select>
 </mapper>

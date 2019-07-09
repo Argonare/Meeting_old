@@ -2,6 +2,7 @@ package com.meeting.service;
 
 import com.meeting.bean.UserInfo;
 import com.meeting.bean.UserInfoExample;
+import com.meeting.bean.UserInfoReturn;
 import com.meeting.dao.UserInfoMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,5 +23,8 @@ public class UserInfoService {
         }else{
             return false;
         }
+    }
+    public List<UserInfoReturn> selectUserinfoByUsernameReturn(String username) {
+        return userInfoMapper.selectUserinfoByUsernameReturn(username);
     }
 }

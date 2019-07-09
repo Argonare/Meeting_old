@@ -3,6 +3,8 @@ package com.meeting.dao;
 import com.meeting.bean.UserInfo;
 import com.meeting.bean.UserInfoExample;
 import java.util.List;
+
+import com.meeting.bean.UserInfoReturn;
 import org.apache.ibatis.annotations.Param;
 
 public interface UserInfoMapper {
@@ -27,4 +29,6 @@ public interface UserInfoMapper {
     int updateByPrimaryKeySelective(UserInfo record);
 
     int updateByPrimaryKey(UserInfo record);
+
+    List<UserInfoReturn> selectUserinfoByUsernameReturn(@Param("username") String username);
 }

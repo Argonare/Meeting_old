@@ -3,6 +3,8 @@ package com.meeting.dao;
 import com.meeting.bean.MeetingRoom;
 import com.meeting.bean.MeetingRoomExample;
 import java.util.List;
+
+import com.meeting.bean.MeetingRoomReturn;
 import org.apache.ibatis.annotations.Param;
 
 public interface MeetingRoomMapper {
@@ -27,4 +29,6 @@ public interface MeetingRoomMapper {
     int updateByPrimaryKeySelective(MeetingRoom record);
 
     int updateByPrimaryKey(MeetingRoom record);
+
+    List<MeetingRoomReturn> selectMeetingRoomReturn();
 }

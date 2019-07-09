@@ -2,6 +2,7 @@ package com.meeting.service;
 
 import com.meeting.bean.MeetingRoom;
 import com.meeting.bean.MeetingRoomExample;
+import com.meeting.bean.MeetingRoomReturn;
 import com.meeting.dao.MeetingRoomMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,5 +22,15 @@ public class MeetingRoomService {
     }
     public MeetingRoom selectByPrimaryKey(Integer id){
         return meetingRoomMapper.selectByPrimaryKey(id);
+    }
+    public List<MeetingRoom> findAllMeetingRoom() {
+        MeetingRoomExample meetingRoomExample = new MeetingRoomExample();
+        MeetingRoomExample.Criteria criteria = meetingRoomExample.createCriteria();
+        criteria.andDeleteFlagEqualTo(false);
+        return meetingRoomMapper.selectByExample(meetingRoomExample);
+    }
+
+    public List<MeetingRoomReturn> selectMeetingRoomReturn() {
+        return meetingRoomMapper.selectMeetingRoomReturn();
     }
 }
