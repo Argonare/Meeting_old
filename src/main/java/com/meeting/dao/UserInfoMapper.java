@@ -37,4 +37,6 @@ public interface UserInfoMapper {
     int getUidByUsername(@Param("username") String username);//获取用户名
 
     List<UserInfoReturn> selectUserinfoByNameReturn(@Param("name") String name);
+    List<UserInfoReturn> selectUserinfoByUsernameReturn(@Param("username") String username);
+
 }

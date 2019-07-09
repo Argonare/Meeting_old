@@ -102,4 +102,7 @@ public class UserInfoService {
     public List<UserInfoReturn> selectUserinfoByNameReturn(String name) {
         return userInfoMapper.selectUserinfoByNameReturn(name);
     }
+    public List<UserInfoReturn> selectUserinfoByUsernameReturn(String username) {
+        return userInfoMapper.selectUserinfoByUsernameReturn(username);
+    }
 }

@@ -170,4 +170,18 @@ public class UserController {
             return Msg.success();
         return Msg.fail();
     }
+    /**
+     * 登录
+     * @param session
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/getUsername.do")
+    public Msg getUsername(HttpSession session){
+        String username= (String) session.getAttribute("username");
+        List<UserInfoReturn> list = userInfoService.selectUserinfoByUsernameReturn(username);
+        return Msg.success().add("userInfo", list.get(0));
+    }
+
+
 }

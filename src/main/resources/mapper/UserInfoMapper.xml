@@ -296,4 +296,7 @@
   <select id="selectUserinfoByNameReturn" resultType="com.meeting.bean.UserInfoReturn">
       select id,username,name from user_info where name = #{name,jdbcType=INTEGER}
     </select>
+  <select id="selectUserinfoByUsernameReturn" resultType="com.meeting.bean.UserInfoReturn">
+      select id,username,name from user_info where username = #{username,jdbcType=INTEGER}
+    </select>
 </mapper>

@@ -82,5 +82,21 @@ public class MeetingRoomService {
         MeetingRoom meetingRoom = new MeetingRoom();
         meetingRoom.setDeleteFlag(true);
         return meetingRoomMapper.updateByExampleSelective(meetingRoom, meetingRoomExample);
+    }
+
+    public boolean updateMeetingRoom(MeetingRoom meetingRoom, MeetingRoomExample example) {
+        if (meetingRoomMapper.updateByExampleSelective(meetingRoom, example)==1)
+            return true;
+        else
+            return false;
+    }
+
+    public int deleteMeetingRoom(List<Integer> del_ids) {
+        MeetingRoomExample meetingRoomExample = new MeetingRoomExample();
+        MeetingRoomExample.Criteria criteria = meetingRoomExample.createCriteria();
+        criteria.andIdIn(del_ids);
+        MeetingRoom meetingRoom = new MeetingRoom();
+        meetingRoom.setDeleteFlag(true);
+        return meetingRoomMapper.updateByExampleSelective(meetingRoom, meetingRoomExample);
 
 }

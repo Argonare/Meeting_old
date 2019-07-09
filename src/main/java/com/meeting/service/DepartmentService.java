@@ -14,7 +14,7 @@ import java.util.List;
 
 @Service
 
-public class DepartmentService  {
+public class DepartmentService {
 
     @Autowired
     DepartmentMapper departmentMapper;
@@ -24,7 +24,7 @@ public class DepartmentService  {
     }
 
     public boolean insertDepartment(Department department) {
-        if (departmentMapper.insert(department)==1)
+        if (departmentMapper.insert(department) == 1)
             return true;
         else
             return false;
@@ -36,29 +36,31 @@ public class DepartmentService  {
         criteria.andNameEqualTo(departName);
         criteria.andDeleteFlagEqualTo(false);
         long count = departmentMapper.countByExample(departmentExample);
-        return count==0;
+        return count == 0;
     }
-
     public boolean updateDepartment(Department department, DepartmentExample example) {
-        if (departmentMapper.updateByExampleSelective(department, example)==1)
+        if (departmentMapper.updateByExampleSelective(department, example) == 1)
             return true;
         else
             return false;
     }
 
-    public boolean checkUpdateDepartmentName(String name,String department) {
-        Integer id=departmentMapper.checkUpdateDepartmentName(department).get(0).getId();
-        List<Department> departments=departmentMapper.checkUpdateDepartmentName(name);
-        if (departments.size()==0)
+    public boolean checkUpdateDepartmentName(String name, String department) {
+        Integer id = departmentMapper.checkUpdateDepartmentName(department).get(0).getId();
+        List<Department> departments = departmentMapper.checkUpdateDepartmentName(name);
+        if (departments.size() == 0)
             return true;
-        for( Department lis:departments){
-            if (lis.getId()==id){
+        for (Department lis : departments) {
+            if (lis.getId() == id) {
                 return true;
             }
         }
         return false;
-        
+    }
+
     public Department selectByPrimaryKey(Integer id) {
         return departmentMapper.selectByPrimaryKey(id);
     }
+}
+
 

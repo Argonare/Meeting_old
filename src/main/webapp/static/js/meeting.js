@@ -443,6 +443,8 @@ function meetinginfo_table(){
                 });
             }
             else if(layEvent === 'edit'){ //编辑
+                var dep=data.deptName
+                console.log(data)
                 layui.use('layer',function (obj) {
                     var layer = layui.layer;
                     // layer.msg('hello');
@@ -462,7 +464,7 @@ function meetinginfo_table(){
                             $(body).find("#meetingName").val(data.name);
                             $(body).find("#date1").val(getDate(data.startTime));
                             $(body).find("#date2").val(getDate(data.endTime));
-                            $(body).find("#meetingIntro").val(data.intro);
+                            $(body).find("#tagsinputval").val("add",dep);
                         },
                         yes:function (index,layero) {
                             var body = layer.getChildFrame('body', index);
