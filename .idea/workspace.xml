@@ -7,8 +7,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d5316ccd-bfac-4735-b49f-0fc70ae88bb6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/file/会议签到人员表模板.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/meeting/service/MeetingRoomService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/meeting/service/MeetingRoomService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/insertMeetinginfoIframe.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/insertMeetinginfoIframe.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/js/meeting.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/meeting.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -46,26 +49,34 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="java" value="1" />
+          <entry key="js" value="1" />
+          <entry key="jsp" value="1" />
           <entry key="properties" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="JAVA" value="1" />
+          <entry key="JSP" value="1" />
+          <entry key="JavaScript" value="1" />
           <entry key="Properties" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="java" value="1" />
+          <entry key="js" value="1256" />
+          <entry key="jsp" value="215" />
           <entry key="properties" value="4" />
-          <entry key="txt" value="13" />
+          <entry key="txt" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JAVA" value="1" />
-          <entry key="PLAIN_TEXT" value="13" />
+          <entry key="JSP" value="215" />
+          <entry key="JavaScript" value="1256" />
+          <entry key="PLAIN_TEXT" value="14" />
           <entry key="Properties" value="4" />
         </counts>
       </usages-collector>
@@ -73,13 +84,39 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/service/MeetingRoomService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="429">
-              <caret line="85" column="4" selection-start-line="85" selection-start-column="4" selection-end-line="85" selection-end-column="4" />
+            <state relative-caret-position="583">
+              <caret line="80" column="34" selection-start-line="80" selection-start-column="34" selection-end-line="80" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/static/js/meeting.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="352">
+              <caret line="688" column="33" selection-start-line="688" selection-start-column="33" selection-end-line="688" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/insertMeetinginfoIframe.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-8">
+              <caret line="174" selection-start-line="174" selection-end-line="174" />
+              <folding>
+                <element signature="n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#2;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#div#0;n#div#2;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#a#0;n#div#0;n#div#2;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -111,6 +148,9 @@
       <find>console.</find>
       <find>getUserInfoReturnRight</find>
       <find>findAllMeetingInfo</find>
+      <find>insertMeeting</find>
+      <find>validate_MeetingInfo</find>
+      <find>insertM</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -144,7 +184,6 @@
         <option value="$PROJECT_DIR$/src/main/resources/mapper/DepartmentMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/meeting/service/DepartmentService.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/insertMeetinginfoIframe.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/newhoutai.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/updateMeetinginfoIframe.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/meeting/service/MeetingInfoService.java" />
@@ -160,9 +199,10 @@
         <option value="$PROJECT_DIR$/src/main/java/com/meeting/dao/UserInfoMapper.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/UserInfoMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/meeting/controller/MeetingInfoController.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/static/js/meeting.js" />
         <option value="$PROJECT_DIR$/src/main/resources/dbconfig.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/meeting/service/MeetingRoomService.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/static/js/meeting.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/insertMeetinginfoIframe.jsp" />
       </list>
     </option>
   </component>
@@ -214,10 +254,9 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="410" />
-    <option name="y" value="121" />
-    <option name="width" value="1933" />
-    <option name="height" value="1093" />
+    <option name="x" value="-8" />
+    <option name="width" value="1268" />
+    <option name="height" value="876" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -233,17 +272,6 @@
               <item name="Meeting" type="b2602c69:ProjectViewProjectNode" />
               <item name="Meeting" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Meeting" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Meeting" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Meeting" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Meeting" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -257,7 +285,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1562726560473" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1562747233474" />
     <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Meeting" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -268,20 +296,20 @@
     <property name="settings.editor.selected.configurable" value="File.Encoding" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\Meeting-Meeting\src\main\webapp" />
-      <recent name="E:\Meeting-Meeting\src\main\webapp\static" />
-      <recent name="E:\Meeting\src\main\webapp\static" />
-      <recent name="E:\Meeting\src\main\webapp" />
-      <recent name="E:\Meeting\src\main\java\com\meeting\utils" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Meeting\src\main\webapp\static\css" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.meeting.bean" />
       <recent name="com.meeting.controller" />
       <recent name="com.meeting.test" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\Meeting\src\main\webapp\static\css" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\IdeaProjects\Meeting\src\main\webapp\static" />
+      <recent name="E:\Meeting-Meeting\src\main\webapp" />
+      <recent name="E:\Meeting-Meeting\src\main\webapp\static" />
+      <recent name="E:\Meeting\src\main\webapp\static" />
+      <recent name="E:\Meeting\src\main\webapp" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -409,7 +437,7 @@
       <workItem from="1562668509970" duration="43000" />
       <workItem from="1562668592454" duration="2301000" />
       <workItem from="1562670950926" duration="5274000" />
-      <workItem from="1562725776159" duration="761000" />
+      <workItem from="1562725776159" duration="13965000" />
     </task>
     <task id="LOCAL-00001" summary="船新版本">
       <created>1562588385579</created>
@@ -474,17 +502,23 @@
       <option name="project" value="LOCAL" />
       <updated>1562726387382</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="xph">
+      <created>1562726612250</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1562726612250</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23507000" />
+    <option name="totallyTimeSpent" value="36711000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2153518" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2153518" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -494,7 +528,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49930844" weight="0.33002833" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49930844" visible="true" weight="0.27006507" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -504,7 +538,7 @@
       <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49932975" weight="0.3253796" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50067025" side_tool="true" weight="0.38243628" />
-      <window_info active="true" anchor="bottom" id="Messages" order="12" visible="true" weight="0.31019524" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.31019524" />
       <window_info anchor="bottom" id="Java Enterprise" order="13" />
       <window_info anchor="bottom" id="Database Changes" order="14" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="15" weight="0.18271954" />
@@ -520,6 +554,43 @@
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info anchor="right" id="Bean Validation" order="9" weight="0.3297587" />
     </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2153518" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="UI Designer" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info id="Web" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49930844" visible="true" weight="0.27114967" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Application Servers" order="7" weight="0.32956153" />
+      <window_info anchor="bottom" id="Spring" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49932975" weight="0.3253796" />
+      <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50067025" side_tool="true" weight="0.38243628" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.31019524" />
+      <window_info anchor="bottom" id="Java Enterprise" order="13" />
+      <window_info anchor="bottom" id="Database Changes" order="14" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="15" weight="0.18271954" />
+      <window_info anchor="right" id="Maven Projects" order="0" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="4" weight="0.3297587" />
+      <window_info anchor="right" id="Palette" order="5" />
+      <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="right" id="Database" order="7" weight="0.3297587" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+      <window_info anchor="right" id="Theme Preview" order="9" />
+      <window_info anchor="right" id="Bean Validation" order="10" weight="0.3297587" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -781,13 +852,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/insertMeetinginfoIframe.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3780">
-          <caret line="135" column="26" selection-start-line="122" selection-start-column="20" selection-end-line="135" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
@@ -907,13 +971,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/static/js/meeting.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10274">
-          <caret line="467" column="41" selection-start-line="467" selection-start-column="40" selection-end-line="467" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/controller/MeetingInfoController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
@@ -933,10 +990,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/service/MeetingRoomService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="85" column="4" selection-start-line="85" selection-start-column="4" selection-end-line="85" selection-end-column="4" />
+        <state relative-caret-position="583">
+          <caret line="80" column="34" selection-start-line="80" selection-start-column="34" selection-end-line="80" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/static/js/meeting.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="688" column="33" selection-start-line="688" selection-start-column="33" selection-end-line="688" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/insertMeetinginfoIframe.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8">
+          <caret line="174" selection-start-line="174" selection-end-line="174" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#2;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#2;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#a#0;n#div#0;n#div#2;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
