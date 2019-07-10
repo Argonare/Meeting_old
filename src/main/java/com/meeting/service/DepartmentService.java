@@ -19,7 +19,7 @@ public class DepartmentService {
     @Autowired
     DepartmentMapper departmentMapper;
 
-    public List<DepartmentReturn> selectDeptReturn() {
+    public List<DepartmentReturn> selectDeptReturn(){
         return departmentMapper.selectDeptReturn();
     }
 
@@ -38,7 +38,6 @@ public class DepartmentService {
         long count = departmentMapper.countByExample(departmentExample);
         return count == 0;
     }
-
     public boolean updateDepartment(Department department, DepartmentExample example) {
         if (departmentMapper.updateByExampleSelective(department, example) == 1)
             return true;
@@ -63,4 +62,5 @@ public class DepartmentService {
         return departmentMapper.selectByPrimaryKey(id);
     }
 }
+
 
