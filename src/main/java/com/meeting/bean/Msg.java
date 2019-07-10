@@ -4,28 +4,28 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Í¨ÓÃµÄ·µ»ØÀà
+ * é€šç”¨çš„è¿”å›ç±»
  * @author Administrator
  *
  */
 public class Msg {
-	//×´Ì¬Âë 	100-³É¹¦	200-Ê§°Ü
+	//çŠ¶æ€ç  	100-æˆåŠŸ	200-å¤±è´¥
 	private int code;
-	//ÌáÊ¾ĞÅÏ¢ 
+	//æç¤ºä¿¡æ¯ 
 	private String msg;
-	//·µ»Ø¸øä¯ÀÀÆ÷µÄÊı¾İ
+	//è¿”å›ç»™æµè§ˆå™¨çš„æ•°æ®
 	private Map<String, Object> extend =new HashMap<String, Object>();
 	
 	public static Msg success() {
 		Msg result = new Msg();
 		result.setCode(100);
-		result.setMsg("´¦Àí³É¹¦£¡");
+		result.setMsg("å¤„ç†æˆåŠŸï¼");
 		return result;
 	}
 	public static Msg fail() {
 		Msg result = new Msg();
 		result.setCode(200);
-		result.setMsg("´¦ÀíÊ§°Ü£¡");
+		result.setMsg("å¤„ç†å¤±è´¥ï¼");
 		return result;
 	}
 	

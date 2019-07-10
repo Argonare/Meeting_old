@@ -9,9 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/meetingRoom")
@@ -151,5 +153,22 @@ public class MeetingRoomController {
             return Msg.success();
         else
             return Msg.fail();
+    }
+    //返回二维码的网址
+    @ResponseBody
+    @RequestMapping(value = "/getPrcode",method = RequestMethod.GET)
+    public Msg getPrcode(HttpServletRequest request){
+        return Msg.success().add("url", request.getLocalAddr()+":"+request.getLocalPort()+"/qrcode_success");//传入目标网址的url
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/refresh_qrcode")
+    public Msg refresh_qrcode(HttpSession session, String meeting_id){
+        try {
+            Map guestList= (Map) session.getServletContext().getAttribute("guestList");
+            return Msg.success().add("meeting",guestList.get(meeting_id));
+        }catch (NullPointerException e){
+            return Msg.fail().add("meeting","还没有人签到");
+        }
     }
 }

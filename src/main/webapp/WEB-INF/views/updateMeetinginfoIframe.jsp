@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="${APP_PATH}/static/css/layui/css/layui.css">
     <link rel="stylesheet" href="${APP_PATH}/static/css/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="${APP_PATH}/static/css/bootstrap/css/bootstrap_tagsinput.css">
-    <link rel="stylesheet" href="${APP_PATH}/static/css/layui/css/inputTags.css">
     <style>
         .box {
             width: 500px;
@@ -80,7 +79,7 @@
                     <div  class="layui-form-item box">
                         <label class="layui-form-label">会议部门：</label>
                         <div class="layui-input-block tagsinput-primary" style="width: 450px">
-                            <input name="tagsinput" id="tagsinputval" class=" layui-input" data-role="tagsinput" readonly="true"/>
+                            <input name="tagsinput" id="tagsinputval" class="layui-input" data-role="tagsinput" readonly="true"/>
                         </div>
                         <div style="margin-left: 110px;" id="meeting_box">
                             <div id="big_box">
@@ -173,7 +172,6 @@
 <script src="${APP_PATH}/static/js/jquery-3.0.0.min.js"></script>
 <script src="${APP_PATH}/static/css/bootstrap/js/bootstrap-tagsinput.js"></script>
 <script src="${APP_PATH}/static/css/bootstrap/js/bootstrap.js"></script>
-<script src="${APP_PATH}/static/css/layui/inputTags.js"></script>
 <%--<script type="text/html" id="leftTable_barDemo" lay-fi>--%>
 <%--<a class="layui-btn layui-btn-xs" lay-event="add">添加</a>--%>
 <%--</script>--%>
@@ -181,6 +179,10 @@
 <%--<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>--%>
 <%--</script>--%>
 <script>
+    function child(obj) {
+        $("#tagsinputval").tagsinput('add',obj.replace(/\"/g, ""));
+        // $("#hid_rec").val(obj);
+    }
     $(".box").mouseover(function(){
         $("#big_box").show();
     });

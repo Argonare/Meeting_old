@@ -383,9 +383,8 @@ function userinfo_table() {
 //********************************会议信息*********************************
 function meetinginfo_table(){
     //用户表格
-    layui.use(['table','inputTags'], function aa() {
+    layui.use(['table'], function aa() {
         var table = layui.table;
-        var inputTags = layui.inputTags;
         table.render({
             elem: '#demo',
             url:APP_PATH+"/meetingInfo/findAllMeetingInfo",
@@ -444,6 +443,7 @@ function meetinginfo_table(){
                 });
             }
             else if(layEvent === 'edit'){ //编辑
+                var dep=data.deptName
                 layui.use('layer',function (obj) {
                     var layer = layui.layer;
                     // layer.msg('hello');
@@ -462,24 +462,11 @@ function meetinginfo_table(){
                             $(body).find("#meetingName").val(data.name);
                             $(body).find("#date1").val(getDate(data.startTime));
                             $(body).find("#date2").val(getDate(data.endTime));
-                            var dep=data.deptName
-                            // $(body).find("#tagsinputval").tagsinput("add","aaa,bbb");
-                            inputTags.render({
-                                elem:'#tagsinputval',
-                                content: [dep],
-                                aldaBtn: true,
-                                done: function(value){
-                                    console.log(value)
-                                }
-                            })
-
-
-                            // $(body).find("#tagsinputval").tagsinput("add",dep);
+                            iframeWin.child(JSON.stringify(data.deptName))
                         },
                         yes:function (index,layero) {
                             var body = layer.getChildFrame('body', index);
                             var iframeWin = window[layero.find('iframe')[0]['name']]; //得到iframe页的窗口对象，执行iframe页的方法：
-
                             //发送ajax所需要的参数
                             var ids = [];//参加会议人员的id集合
                             var meetingName,meetingDept,meetingAddressId,date1,date2,meetingIntro;//会议名称,会议部门id，会议地点id，开始时间，结束时间,会议简介

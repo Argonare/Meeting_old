@@ -15,6 +15,9 @@
         margin-left: -15px;
         margin-right: -15px;
     }
+    .layui-table-view .layui-table-box .layui-table-body{
+        height: 100%;
+    }
 </style>
 <body>
 <table class="layui-hide" id="test" lay-filter="test"></table>
