@@ -27,4 +27,8 @@ public interface MeetingInfoMapper {
     int updateByPrimaryKeySelective(MeetingInfo record);
 
     int updateByPrimaryKey(MeetingInfo record);
+
+    List<MeetingInfo>findAllMeetingInfo();
+
+    List<Integer>  selectMeetingInfoSelected(int meetingId);
 }

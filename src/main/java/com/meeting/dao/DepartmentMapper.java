@@ -3,9 +3,13 @@ package com.meeting.dao;
 import com.meeting.bean.Department;
 import com.meeting.bean.DepartmentExample;
 import java.util.List;
+
+import com.meeting.bean.DepartmentReturn;
 import org.apache.ibatis.annotations.Param;
 
 public interface DepartmentMapper {
+    List<DepartmentReturn> selectDeptReturn();
+
     long countByExample(DepartmentExample example);
 
     int deleteByExample(DepartmentExample example);
@@ -27,4 +31,6 @@ public interface DepartmentMapper {
     int updateByPrimaryKeySelective(Department record);
 
     int updateByPrimaryKey(Department record);
+
+    List<Department> checkUpdateDepartmentName(String name);
 }

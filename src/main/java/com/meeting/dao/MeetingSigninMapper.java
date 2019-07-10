@@ -27,4 +27,6 @@ public interface MeetingSigninMapper {
     int updateByPrimaryKeySelective(MeetingSignin record);
 
     int updateByPrimaryKey(MeetingSignin record);
+
+    int deleteByUidMeetingid(MeetingSignin delMeetingSignin);//根据MeetingSignin的信息删除信息
 }

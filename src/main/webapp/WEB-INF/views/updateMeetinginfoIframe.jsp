@@ -11,6 +11,52 @@
     <title>创建会议</title>
     <%pageContext.setAttribute("APP_PATH", request.getContextPath());%>
     <link rel="stylesheet" href="${APP_PATH}/static/css/layui/css/layui.css">
+    <link rel="stylesheet" href="${APP_PATH}/static/css/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="${APP_PATH}/static/css/bootstrap/css/bootstrap_tagsinput.css">
+    <style>
+        .box {
+            width: 500px;
+            margin: auto;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+        .tagsinput-primary .bootstrap-tagsinput {
+            min-height: 38px;
+            border-color: #e6e6e6;
+            margin-bottom: 15px;
+        }
+        .bootstrap-tagsinput{
+            width: 100%;
+        }
+        .bootstrap-tagsinput .label-info {
+            border-radius: 4px;
+            background-color: #1abc9c;
+            color: #fff;
+            font-size: 13px;
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            vertical-align: middle;
+            overflow: hidden;
+            margin: 0 5px 5px 0;
+            padding: 6px 10px 6px 14px;
+            transition: .25s linear;
+        }
+        .layui-form-label{
+            width: 100px;
+        }
+        .box_div{
+            background-color: #1abc9c;
+            margin:5px;
+            padding: 7px;
+            float: left;
+        }
+        #big_box{
+            width:450px;
+            min-height: 10%;
+            border-radius: 2px;
+            display: none
+        }
+    </style>
 </head>
 <body>
 <%--<button id="asd">aaaaaaaaaaaaaaaaaaaa</button>--%>
@@ -30,11 +76,14 @@
                         </div>
                     </div>
 
-                    <div class="layui-form-item">
+                    <div  class="layui-form-item box">
                         <label class="layui-form-label">会议部门：</label>
-                        <div class="layui-input-block" style="width: 450px">
-                            <select name="city" lay-verify="required" id="dept_select">
-                            </select>
+                        <div class="layui-input-block tagsinput-primary" style="width: 450px">
+                            <input name="tagsinput" id="tagsinputval" class=" layui-input" data-role="tagsinput" readonly="true"/>
+                        </div>
+                        <div style="margin-left: 110px;" id="meeting_box">
+                            <div id="big_box">
+                            </div>
                         </div>
                     </div>
 
@@ -48,22 +97,36 @@
 
                     <div class="layui-form-item">
                         <label class="layui-form-label">开始时间：</label>
-                        <div class="layui-input-inline">
+                        <div class="layui-input-block" style="">
                             <input type="text" name="date" id="date1" lay-verify="date" placeholder="yyyy-MM-dd HH-mm-ss" autocomplete="off" class="layui-input">
                         </div>
-                        <div class="layui-form-mid layui-word-aux">选择开始时间</div>
+                        <%--                        <div class="layui-form-mid layui-word-aux">选择开始时间</div>--%>
                     </div>
                     <div class="layui-form-item">
                         <label class="layui-form-label">结束时间：</label>
-                        <div class="layui-input-inline">
+                        <div class="layui-input-block">
                             <input type="text" name="date" id="date2" lay-verify="date" placeholder="yyyy-MM-dd HH-mm-ss" autocomplete="off" class="layui-input">
                         </div>
-                        <div class="layui-form-mid layui-word-aux">选择结束时间</div>
+                        <%--                        <div class="layui-form-mid layui-word-aux">选择结束时间</div>--%>
                     </div>
                     <div class="layui-form-item">
                         <label class="layui-form-label">会议简介：</label>
                         <div class="layui-input-block" style="width: 450px">
                             <textarea id="meetingIntro" name="desc" placeholder="请输入简介" class="layui-textarea"></textarea>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">二维码自动刷新</label>
+                        <div class="layui-input-block">
+                            <input type="checkbox" checked="" name="rqcode" lay-skin="switch" lay-filter="switchTest" lay-text="是|否" >
+                        </div>
+                        <input type="text" style="display: none;" id="qcode_refresh" value="true">
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">自定义人员</label>
+                        <div class="layui-input-block">
+                            <input type="radio" name="team" value="是" title="是" checked="">
+                            <input type="radio" name="team" value="否" title="否">
                         </div>
                     </div>
                 </form>
@@ -107,6 +170,8 @@
 </body>
 <script src="${APP_PATH}/static/css/layui/layui.js"></script>
 <script src="${APP_PATH}/static/js/jquery-3.0.0.min.js"></script>
+<script src="${APP_PATH}/static/css/bootstrap/js/bootstrap-tagsinput.js"></script>
+<script src="${APP_PATH}/static/css/bootstrap/js/bootstrap.js"></script>
 <%--<script type="text/html" id="leftTable_barDemo" lay-fi>--%>
 <%--<a class="layui-btn layui-btn-xs" lay-event="add">添加</a>--%>
 <%--</script>--%>
@@ -114,6 +179,12 @@
 <%--<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>--%>
 <%--</script>--%>
 <script>
+    $(".box").mouseover(function(){
+        $("#big_box").show();
+    });
+    $(".box").mouseleave(function(){
+        $("#big_box").hide();
+    });
     //会议地点下拉框加载
     $.ajax({
         url:"${APP_PATH}/meetingRoom/findAllMeetingRoom",
@@ -126,7 +197,6 @@
             }
         }
     })
-
     //会议人员（加载部门列表）
     $.ajax({
         url:"${APP_PATH}/department/findAllDept",
@@ -134,13 +204,17 @@
         async:false,
         success:function (res) {
             var depts = res.extend.depts;
+            var context="";
             for(var i=0 ; i<depts.length ; i++){
-                $("<option></option>").attr("value",depts[i].id).text(depts[i].name).appendTo("#dept_select");
-                $("<option></option>").text(depts[i].name).appendTo("#dept_select1");
+                // $("<div></div>").attr("value",)
+                context+="<div class=\"box_div tag label label-info\"><span style='cursor: pointer;' class='click_span'>"+depts[i].name+"</span></div>"
             }
+            $("#big_box").html(context);
         }
     })
-
+    $(".click_span").click(function () {
+        $("#tagsinputval").tagsinput('add',$(this).html());
+    })
     var rightTableData =[];
     $.ajax({
         url:"${APP_PATH}/meetingInfo/getUserInfoReturnRight",
