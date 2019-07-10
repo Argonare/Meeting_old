@@ -12,7 +12,7 @@
 //@RunWith(SpringJUnit4ClassRunner.class)
 //@ContextConfiguration(locations = {"classpath:applicationContext.xml"})
 //public class MapperTest {
-//    //ÅúÁ¿Ê¹ÓÃ¿ÉÒÔÖ´ĞĞÅúÁ¿²Ù×÷µÄsqlSession
+//    //æ‰¹é‡ä½¿ç”¨å¯ä»¥æ‰§è¡Œæ‰¹é‡æ“ä½œçš„sqlSession
 //    @Autowired
 //    SqlSession sqlSession;
 //
@@ -101,7 +101,7 @@
 //        meetingRoom.setDeleteFlag(false);
 //        for (int i=0;i<20;i++){
 //            long t=System.currentTimeMillis();
-//            meetingRoom.setAddress(i+"½ÌÑ§Â¥"+i);
+//            meetingRoom.setAddress(i+"æ•™å­¦æ¥¼"+i);
 //            meetingRoom.setUserId(i);
 //            meetingRoom.setInsertUid(i);
 //            meetingRoom.setInsetTime(t);

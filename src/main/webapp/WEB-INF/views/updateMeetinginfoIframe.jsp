@@ -79,7 +79,7 @@
                     <div  class="layui-form-item box">
                         <label class="layui-form-label">会议部门：</label>
                         <div class="layui-input-block tagsinput-primary" style="width: 450px">
-                            <input name="tagsinput" id="tagsinputval" class=" layui-input" data-role="tagsinput" readonly="true"/>
+                            <input name="tagsinput" id="tagsinputval" class="layui-input" data-role="tagsinput" readonly="true"/>
                         </div>
                         <div style="margin-left: 110px;" id="meeting_box">
                             <div id="big_box">
@@ -179,6 +179,10 @@
 <%--<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>--%>
 <%--</script>--%>
 <script>
+    function child(obj) {
+        $("#tagsinputval").tagsinput('add',obj.replace(/\"/g, ""));
+        // $("#hid_rec").val(obj);
+    }
     $(".box").mouseover(function(){
         $("#big_box").show();
     });

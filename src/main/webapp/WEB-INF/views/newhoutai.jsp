@@ -14,6 +14,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>会议系统</title>
     <link rel="stylesheet" href="${APP_PATH}/static/css/layui/css/layui.css">
+<%--    <link rel="stylesheet" href="${APP_PATH}/static/css/bootstrap/css/bootstrap_tagsinput.css">--%>
+
 </head>
 <body class="layui-layout-body">
     <div id="APP_PATH" style="display: none;">${APP_PATH}</div>
@@ -108,7 +110,9 @@
 <!-- =======================================================JS代码======================================================-->
 <script src="${APP_PATH}/static/js/jquery-3.0.0.min.js"></script>
 <script src="${APP_PATH}/static/css/layui/layui.js"></script>
+<%--<script src="${APP_PATH}/static/css/bootstrap/js/bootstrap.js"></script>--%>
+<%--<script src="${APP_PATH}/static/css/bootstrap/js/bootstrap-tagsinput.js"></script>--%>
 <script src="${APP_PATH}/static/js/meeting.js"></script>
-<script src="${APP_PATH}/static/css/bootstrap/js/bootstrap-tagsinput.js"></script>
-<script src="${APP_PATH}/static/css/bootstrap/js/bootstrap.js"></script>
+
+
 </html>

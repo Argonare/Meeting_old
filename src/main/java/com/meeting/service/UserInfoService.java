@@ -112,4 +112,7 @@ public class UserInfoService {
     public List<UserInfoReturn> findAllByExample(String username,String name, String departName) {
         return userInfoMapper.findAllByExample(username,name,departName);
     }
+    public UserInfo selectUser(Integer id) {
+        return userInfoMapper.selectByPrimaryKey(id);
+    }
 }
