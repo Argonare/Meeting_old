@@ -8,6 +8,9 @@ import com.meeting.bean.UserInfoReturn;
 import org.apache.ibatis.annotations.Param;
 
 public interface UserInfoMapper {
+
+    Integer selectMaxId();
+
     long countByExample(UserInfoExample example);
 
     int deleteByExample(UserInfoExample example);
@@ -37,6 +40,9 @@ public interface UserInfoMapper {
     int getUidByUsername(@Param("username") String username);//获取用户名
 
     List<UserInfoReturn> selectUserinfoByNameReturn(@Param("name") String name);
+
     List<UserInfoReturn> selectUserinfoByUsernameReturn(@Param("username") String username);
+
+    List<UserInfoReturn> findAllByExample(@Param("username") String username,@Param("name") String name,@Param("departName") String departName);
 
 }

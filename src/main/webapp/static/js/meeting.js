@@ -444,7 +444,7 @@ function meetinginfo_table(){
             }
             else if(layEvent === 'edit'){ //编辑
                 var dep=data.deptName
-                console.log(data)
+                console.log(dep)
                 layui.use('layer',function (obj) {
                     var layer = layui.layer;
                     // layer.msg('hello');
@@ -459,12 +459,13 @@ function meetinginfo_table(){
                             var body = layer.getChildFrame('body', index);
                             var iframeWin = window[layero.find('iframe')[0]['name']]; //得到iframe页的窗口对象，执行iframe页的方法：
                             iframeWin.method;
-                            console.log(data);
                             $(body).find("#meetingId").text(data.id);
                             $(body).find("#meetingName").val(data.name);
                             $(body).find("#date1").val(getDate(data.startTime));
                             $(body).find("#date2").val(getDate(data.endTime));
-                            $(body).find("#tagsinputval").val("add",dep);
+                            // $(body).find("#tagsinputval").tagsinput("add",dep);
+                            console.log(dep)
+                            console.log($("#tagsinputval").val())
                         },
                         yes:function (index,layero) {
                             var body = layer.getChildFrame('body', index);
@@ -500,6 +501,7 @@ function meetinginfo_table(){
                                 ids.push(id);
                             }
                             //提交创建会议的信息
+                            console.log(data)
                             $.ajax({
                                 url:APP_PATH+"/meetingInfo/updateMeetingInfoAndSignin",
                                 type:"POST"

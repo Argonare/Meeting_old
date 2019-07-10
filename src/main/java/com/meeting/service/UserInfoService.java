@@ -105,4 +105,11 @@ public class UserInfoService {
     public List<UserInfoReturn> selectUserinfoByUsernameReturn(String username) {
         return userInfoMapper.selectUserinfoByUsernameReturn(username);
     }
+    public Integer selectMaxId() {
+        return userInfoMapper.selectMaxId();
+    }
+
+    public List<UserInfoReturn> findAllByExample(String username,String name, String departName) {
+        return userInfoMapper.findAllByExample(username,name,departName);
+    }
 }

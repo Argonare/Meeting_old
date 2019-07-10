@@ -299,4 +299,25 @@
   <select id="selectUserinfoByUsernameReturn" resultType="com.meeting.bean.UserInfoReturn">
       select id,username,name from user_info where username = #{username,jdbcType=INTEGER}
     </select>
+  <select id="selectMaxId" resultType="int">
+    select max(id) from user_info
+  </select>
+  <select id="findAllByExample" resultType="com.meeting.bean.UserInfoReturn">
+    select user_info.`id`,user_info.`username`,user_info.`name`,department.`name` as departName
+    from user_info,department
+    <where>
+      user_info.`depart_id` = department.`id`
+      and user_info.`delete_flag` = 0
+      <if test="username != null and username !=''">
+        and user_info.`username`= #{username,jdbcType=VARCHAR}
+      </if>
+      <if test="name != null and name !=''">
+        and user_info.`name` like "%"#{name,jdbcType=VARCHAR}"%"
+      </if>
+      <if test="departName != null and departName !=''">
+        and department.`name`= #{departName,jdbcType=VARCHAR}
+      </if>
+    </where>
+    ORDER BY user_info.id DESC
+  </select>
 </mapper>

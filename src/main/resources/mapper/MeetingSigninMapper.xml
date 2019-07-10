@@ -255,4 +255,9 @@
       delete_flag = #{deleteFlag,jdbcType=BIT}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <update id="deleteByUidMeetingid" parameterType="com.meeting.bean.MeetingSignin">
+     update meeting_signin
+     set delete_flag=#{deleteFlag,jdbcType=BIT},delete_time=#{deleteTime,jdbcType=INTEGER},delete_uid=#{deleteUid,jdbcType=INTEGER}
+    WHERE user_id =#{userId,jdbcType=INTEGER} AND meeting_id=#{meetingId,jdbcType=INTEGER}
+  </update>
 </mapper>
