@@ -1,6 +1,7 @@
 package com.meeting.bean;
 
 public class MeetingInfoRetrun {
+    private Integer id;
     private String name;
     private Long startTime;
     private Long endTime;
@@ -10,12 +11,21 @@ public class MeetingInfoRetrun {
     @Override
     public String toString() {
         return "MeetingInfoRetrun{" +
-                "name='" + name + '\'' +
+                "id=" + id +
+                ", name='" + name + '\'' +
                 ", startTime=" + startTime +
                 ", endTime=" + endTime +
                 ", deptName='" + deptName + '\'' +
                 ", address='" + address + '\'' +
                 '}';
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -57,5 +67,4 @@ public class MeetingInfoRetrun {
     public void setAddress(String address) {
         this.address = address;
     }
-
 }

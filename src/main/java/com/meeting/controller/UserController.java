@@ -182,4 +182,15 @@ public class UserController {
         List<UserInfoReturn> list = userInfoService.selectUserinfoByUsernameReturn(username);
         return Msg.success().add("userInfo", list.get(0));
     }
+    @ResponseBody
+    @RequestMapping(value = "/findAllByExample")
+    public Msg findAllByExample(@RequestParam(value="name",defaultValue = "")String name
+            ,@RequestParam(value="departName",defaultValue = "")String departName
+            ,@RequestParam(value = "username",defaultValue = "")String username
+            ,@RequestParam(value="page",defaultValue="1")Integer pn){
+        PageHelper.startPage(pn,10);
+        List<UserInfoReturn> list = userInfoService.findAllByExample(username,name,departName);
+        PageInfo page = new PageInfo(list,1);
+        return Msg.success().add("userInfoReturn",page);
+    }
 }

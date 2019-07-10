@@ -307,5 +307,7 @@
   <select id="findAllMeetingInfo" resultType="com.meeting.bean.MeetingInfo">
     select * from meeting_info
   </select>
-
+  <select id="selectMeetingInfoSelected" resultType="int">
+        SELECT user_id FROM meeting_signin WHERE meeting_id=#{meetingId} and delete_flag = 0
+  </select>
 </mapper>

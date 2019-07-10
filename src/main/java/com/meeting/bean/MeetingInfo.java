@@ -5,6 +5,23 @@ public class MeetingInfo {
 
     private String name;
 
+    @Override
+    public String toString() {
+        return "MeetingInfo{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", departIds='" + departIds + '\'' +
+                ", type=" + type +
+                ", insertUsername='" + insertUsername + '\'' +
+                ", startTime=" + startTime +
+                ", endTime=" + endTime +
+                ", roomId=" + roomId +
+                ", deleteFlag=" + deleteFlag +
+                ", lateTime=" + lateTime +
+                ", refreshQcode=" + refreshQcode +
+                '}';
+    }
+
     private String departIds;
 
     private Integer type;
