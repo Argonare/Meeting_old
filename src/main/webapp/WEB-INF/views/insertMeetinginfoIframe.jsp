@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="${APP_PATH}/static/css/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="${APP_PATH}/static/css/bootstrap/css/bootstrap_tagsinput.css">
     <style>
+        a{text-decoration: none;}
         .box {
             width: 500px;
             margin: auto;
@@ -61,11 +62,11 @@
 <body>
 <div class="layui-tab">
     <ul class="layui-tab-title">
-        <li class="layui-this">会议信息</li>
-        <li>人员管理</li>
+        <li class="layui-this" id="title_HuiYiXinXi">会议信息</li>
+        <li id="tiele_RenYuanGuanLi">人员管理</li>
     </ul>
     <div class="layui-tab-content">
-        <div class="layui-tab-item layui-show">
+        <div id="content_HuiYiXinXi" class="layui-tab-item layui-show">
             <div style="width: 500px;margin-top:10px;margin: 0 auto;">
                 <form class="layui-form" action="">
                     <div class="layui-form-item">
@@ -114,12 +115,12 @@
                         </div>
 <%--                        <div class="layui-form-mid layui-word-aux">选择结束时间</div>--%>
                     </div>
-                    <div class="layui-form-item">
-                        <label class="layui-form-label">会议简介：</label>
-                        <div class="layui-input-block" style="width: 450px">
-                            <textarea id="meetingIntro" name="desc" placeholder="请输入简介" class="layui-textarea"></textarea>
-                        </div>
-                    </div>
+                    <%--<div class="layui-form-item">--%>
+                        <%--<label class="layui-form-label">会议简介：</label>--%>
+                        <%--<div class="layui-input-block" style="width: 450px">--%>
+                            <%--<textarea id="meetingIntro" name="desc" placeholder="请输入简介" class="layui-textarea"></textarea>--%>
+                        <%--</div>--%>
+                    <%--</div>--%>
                     <div class="layui-form-item">
                         <label class="layui-form-label">二维码自动刷新</label>
                         <div class="layui-input-block">
@@ -128,16 +129,16 @@
                         <input type="text" style="display: none;" id="qcode_refresh" value="true">
                     </div>
                     <div class="layui-form-item">
-                        <label class="layui-form-label">自定义人员</label>
-                        <div class="layui-input-block">
-                            <input type="radio" name="team" value="是" title="是" checked="">
-                            <input type="radio" name="team" value="否" title="否">
+                        <label class="layui-form-label">会议模式：</label>
+                        <div class="layui-input-block" id="meetingTypeSelect">
+                            <input type="radio" name="team" value="1" title="普通会议" checked="">
+                            <input type="radio" name="team" value="2" title="讲座形式会议">
                         </div>
                     </div>
                 </form>
             </div>
         </div>
-        <div class="layui-tab-item" style="margin: 0 auto;">
+        <div id="content_RenYuanGuanLi" class="layui-tab-item" style="margin: 0 auto;">
             <div id="leftDiv" style="/*background-color: red;*/width:45%;float: left">
                 <div style="width: 100%;height: 40px;padding-top: 5px">
                     <div style="float:left;margin-left: 10px"><input id="usernameIpt" class="layui-input" type="text" autocomplete="off" style="width: 120px;height: 38px" placeholder="工号"></div>
@@ -165,9 +166,13 @@
             </div>
             <div id="rightDiv" style="/*background-color: blue;*/width: 45%;float: left">
                 <div style="width: 100%;height: 40px;padding-top: 5px">
-                    <input type="file" id="excel-file">
+                    <input type="file" id="excel-file" style="float: left">
+                    <a href="${APP_PATH}/static/file/会议签到人员表模板.xlsx"><div class="layui-btn layui-btn-sm" style="float: left">文件模板</div></a>
                 </div>
+                <%--<a href="${APP_PATH}/static/file/会议签到人员表模板.xlsx"><i class="layui-icon" style="font-size: 30px">&#xe601;</i></a>--%>
+
                 <table id="rightTable" lay-filter="rightTable"></table>
+
                 <%--<button onclick="getUsernameIptVal()">testBtn</button>--%>
             </div>
         </div>
@@ -217,6 +222,7 @@
             for(var i=0 ; i<depts.length ; i++){
                 // $("<div></div>").attr("value",)
                 context+="<div class=\"box_div tag label label-info\"><span style='cursor: pointer;' class='click_span'>"+depts[i].name+"</span></div>"
+                $("<option></option>").text(depts[i].name).appendTo("#dept_select1");
             }
             $("#big_box").html(context);
         }

@@ -88,25 +88,6 @@ function  validate_Department() {
     }
     return true;
 }
-//校验MeetingInfo会议表
-function validate_MeetingInfo() {
-    var body = layer.getChildFrame('body');
-
-    var meetingName = $(body).find("#meetingName").val();//会议名称
-    var regmeetingName=/^[\u4e00-\u9fa5_a-zA-Z0-9]+$/;//中文+数字+英文正则表达式
-    if (!regmeetingName.test(meetingName)){
-        alert("输入的会议名称错误，请重新输入");
-        return false;
-    }
-
-    var meetingIntro = $(body).find("#meetingIntro").val();//会议简介
-    var regmeetingIntro=/^[\u4e00-\u9fa5_a-zA-Z0-9]+$/;//中文+数字+英文正则表达式
-    if (!regmeetingIntro.test(meetingIntro)){
-        alert("输入的会议简介错误，请重新输入");
-        return false;
-    }
-    return true;
-}
 
 //将时间戳格式化
 function getDate(val) {
@@ -632,22 +613,53 @@ function meetinginfo_table(){
 
                                 //发送ajax所需要的参数
                                 var ids = [];//参加会议人员的id集合
-                                var meetingName,meetingDept,meetingAddressId,date1,date2,meetingIntro;//会议名称,会议部门id，会议地点id，开始时间，结束时间,会议简介
+                                var meetingName,meetingDeptNames = [],meetingAddressId,date1,date2,meetingType;//会议名称,会议部门名称集合，会议地点id，开始时间，结束时间,会议类型
 
                                 //（**************获取会议信息开始***************
-                                meetingName = $(body).find("#meetingName").val();//会议名称
-                                // meetingDept= body.find("#dept_select").parent().find(".layui-this").attr("lay-value");//会议地点id
-                                meetingDept=$(body).find("#tagsinputval").val()
+                                var meetingName = $(body).find("#meetingName").val();//获取会议名称
+                                if(meetingName.length == 0){//会议名称校验
+                                    layer.msg("会议名称不能为空！",{icon:5});
+                                    return false;
+                                }
+
+                                var bootstrap_tagsinput = $(body).find(".bootstrap-tagsinput").children("span");//会议部门名称集合
+                                for(var i =0 ; i<bootstrap_tagsinput.length ;i++){
+                                    // console.log(bootstrap_tagsinput[i].innerText);
+                                    meetingDeptNames.push(bootstrap_tagsinput[i].innerText);
+                                }
+                                if(meetingDeptNames.length == 0){//会议部门校验
+                                    layer.msg("请选择会议面向的部门！",{icon:5});
+                                    return false;
+                                }
+
                                 meetingAddressId = body.find("#address_select").parent().find(".layui-this").attr("lay-value");//会议地点id
-                                meetingIntro = $(body).find("#meetingIntro").val();//会议简介
+
                                 date1 =$(body).find("#date1").val();
+                                if(date1.length == 0){//开始时间校验
+                                    layer.msg("请选择开始时间！",{icon:5});
+                                    return false;
+                                }
                                 date2 =$(body).find("#date2").val();
+                                if(date2.length == 0){//结束时间校验
+                                    layer.msg("请选择结束时间！",{icon:5});
+                                    return false;
+                                }
                                 //将格式化的时间转为时间戳
                                 date1 = Date.parse(date1)//开始时间
                                 date2 = Date.parse(date2)//结束时间
-                                var qcode_refresh=$(body).find("#qcode_refresh").val();;
+                                if(date1>date2){//时间段的校验
+                                    layer.msg("结束时间能早于开始时间！",{icon:5});
+                                    return false;
+                                }
+                                var qcode_refresh=$(body).find("#qcode_refresh").val();//获取二维码是否刷新
 
-                                console.log(meetingDept)
+                                var meetingTypeSelect = $(body).find("#meetingTypeSelect").children();
+                                for(var i=1 ;i<meetingTypeSelect.length ;i+=2){
+                                    if(meetingTypeSelect[i].className.indexOf("layui-form-radioed")!= -1){
+                                        meetingType=meetingTypeSelect[i-1].value;//获得会议类型
+                                        break;
+                                    }
+                                }
                                 //***************获取会议信息结束**************）
 
                                 //（***************获取参会人员id开始**************
@@ -660,34 +672,42 @@ function meetinginfo_table(){
                                     var id = divIds[i].innerText;
                                     ids.push(id);
                                 }
-                                if (!validate_MeetingInfo()){
-                                    return false;
+
+                                if(meetingType == 1 && ids.length ==0){
+                                    layer.msg("请选择，参加会议的人员名单",{icon:5});
+                                    $(body).find(".layui-tab-title .layui-this").removeClass("layui-this");
+                                    $(body).find(".layui-tab-content .layui-show").removeClass("layui-show");
+
+                                    $(body).find("#tiele_RenYuanGuanLi").addClass("layui-this");
+                                    $(body).find("#content_RenYuanGuanLi").addClass("layui-show");
+
+                                    return;
                                 }
-                                console.log(ids);
-                                //提交创建会议的信息
-                                $.ajax({
-                                    url:APP_PATH+"/meetingInfo/insertMeetingInfo",
-                                    type:"POST"
-                                    ,data:{
-                                        ids:ids,
-                                        name:meetingName,
-                                        departName:meetingDept,
-                                        roomId:meetingAddressId,
-                                        startTime:date1,
-                                        endTime:date2,
-                                        meetingIntro:meetingIntro,
-                                        qcode_refresh:qcode_refresh
-                                    }
-                                    ,success(res){
-                                        if(res.code==100){
-                                            layer.close(index);
-                                            aa();
-                                            layer.msg("创建成功",{icon:1});
-                                        }else{
-                                            layer.msg("创建失败",{icon:5});
-                                        }
-                                    }
-                                })
+                                // console.log(ids);
+                                // //提交创建会议的信息
+                                // $.ajax({
+                                //     url:APP_PATH+"/meetingInfo/insertMeetingInfo",
+                                //     type:"POST"
+                                //     ,data:{
+                                //         ids:ids,
+                                //         name:meetingName,
+                                //         departName:meetingDept,
+                                //         roomId:meetingAddressId,
+                                //         startTime:date1,
+                                //         endTime:date2,
+                                //         meetingIntro:meetingIntro,
+                                //         qcode_refresh:qcode_refresh
+                                //     }
+                                //     ,success(res){
+                                //         if(res.code==100){
+                                //             layer.close(index);
+                                //             aa();
+                                //             layer.msg("创建成功",{icon:1});
+                                //         }else{
+                                //             layer.msg("创建失败",{icon:5});
+                                //         }
+                                //     }
+                                // })
                             }
                         });
                     });
