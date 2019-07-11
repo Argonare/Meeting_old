@@ -58,6 +58,9 @@
 </body>
 <script src="${APP_PATH}/static/css/layui/layui.js"></script>
 <script src="${APP_PATH}/static/js/jquery-3.0.0.min.js"></script>
+<script src="${APP_PATH}/static/js/xlsx.core.min.js"></script>
+<script src="${APP_PATH}/static/css/bootstrap/js/bootstrap-tagsinput.js"></script>
+<script src="${APP_PATH}/static/css/bootstrap/js/bootstrap.js"></script>
 <script>
     //会议地点下拉框加载
     $.ajax({
@@ -86,14 +89,16 @@
         }
     })
 
-    var rightTableData =[];
+    var rightTableData = [];
     $.ajax({
         url:"${APP_PATH}/meetingTeam/getMeetingTeamRight",
         data:{teamId:window.location.toString().split('=')[1]},
         success:function (res) {
             // console.log("meetingId:"+$("#meetingId").text());
             if(res.code == 100){
-                rightTableData = res.extend.userInfoReturnRight
+                rightTableData =res.extend.getMeetingTeamRight;
+                // layui.table.reload("rightTable", {data :res.extend.getMeetingTeamRight});
+                // layui.table.reload("leftTable");
             }
         }
     })
@@ -155,11 +160,14 @@
             ,parseData:function(res){
                 var leftTableData = res.extend.userInfoReturn.list;
                 var rightTableData = layui.table.cache.rightTable;
-                for (var i =0 ; i<leftTableData.length ; i++){
-                    for(var j = 0 ; j<rightTableData.length; j++){
-                        if(leftTableData[i].id==rightTableData[j].id){//rightTableData中已有数据
-                            leftTableData[i].LAY_CHECKED=true;//将复选框置为选中状态
-                            leftTableData[i].flag = 1;//并标记为1，表示是因为rightTableData中已有数据而选中
+
+                if (leftTableData != undefined && rightTableData != undefined){
+                    for (var i =0 ;i<leftTableData.length ; i++){
+                        for(var j = 0 ;j<rightTableData.length; j++){
+                            if(leftTableData[i].id==rightTableData[j].id){//rightTableData中已有数据
+                                leftTableData[i].LAY_CHECKED=true;//将复选框置为选中状态
+                                leftTableData[i].flag = 1;//并标记为1，表示是因为rightTableData中已有数据而选中
+                            }
                         }
                     }
                 }

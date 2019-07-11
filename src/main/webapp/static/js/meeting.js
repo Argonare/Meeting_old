@@ -88,7 +88,19 @@ function  validate_Department() {
     }
     return true;
 }
+//^[a-zA-Z0-9\u4e00-\u9fa5]+$
+//校验MeetingTeam会议小组表
+function validate_MeetingTeam() {
+    var body = layer.getChildFrame('body');
 
+    var TeamName = $(body).find("#meetingTeanUsername").val();
+    var regTeamName =/^[\u4e00-\u9fa50-9a-zA-Z]+$/;//中文正则表达式
+    if (!regTeamName.test(TeamName)) {
+        alert("输入的小组名称错误，请重新输入");
+        return false;
+    }
+    return true;
+}
 //将时间戳格式化
 function getDate(val) {
     var time = new Date(val);
@@ -503,44 +515,6 @@ function meetinginfo_table(){
                                     }
                                 }
                             })
-                            // var body = layer.getChildFrame('body', index);
-                            // var iframeWin = window[layero.find('iframe')[0]['name']]; //得到iframe页的窗口对象，执行iframe页的方法：
-                            //
-                            // //数据准备
-                            // var meetingId = data.id;
-                            // var meetingName = $(body).find("#meetingName").val();
-                            // var startTime = $(body).find("#date1").val();
-                            // var endTime = $(body).find("#date2").val();
-                            // var meetingIntro = $(body).find("#meetingIntro").val();
-                            // startTime = Date.parse(startTime);
-                            // endTime = Date.parse(endTime);
-                            //
-                            // var ids = [];
-                            // for (var i=0 ;i<iframeWin.rightData.length;i++){
-                            //     var id = iframeWin.rightData[i].id;
-                            //     ids.push(id);
-                            // }
-                            // console.log(ids);
-                            // $.ajax({
-                            //     url:APP_PATH+"/updateMeetingInfoAndSignin",
-                            //     type:"POST",
-                            //     data:{
-                            //         id:meetingId,
-                            //         name:meetingName,
-                            //         startTime:startTime,
-                            //         endTime:endTime,
-                            //         intro:meetingIntro,
-                            //         ids:ids
-                            //     },
-                            //     success:function (res) {
-                            //         if (res.code == 100){
-                            //             layer.close(index);
-                            //             layer.msg("修改成功",{icon:1});
-                            //         } else{
-                            //             layer.msg("修改失败",{icon:5});
-                            //         }
-                            //     }
-                            // })
                         }
                     });
                 });
@@ -1236,7 +1210,7 @@ function teaminfo_table() {
             var layEvent = obj.event; //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）
             var tr = obj.tr; //获得当前行 tr 的DOM对象
             if(layEvent === 'del'){ //删除
-                layer.confirm('真的要删除小组:'+ data.username+"吗?",function (index) {
+                layer.confirm('真的要删除小组:'+ data.name+"吗?",function (index) {
                     $.ajax({
                         url:APP_PATH+'/meetingTeam/deleteMeetingTeam',
                         type:"POST",
@@ -1261,7 +1235,76 @@ function teaminfo_table() {
                         type:2,
                         btn:['保存','取消'],
                         content:APP_PATH+'/jumpPage/updateMeetingTeamIframe?teamId='+data.id,
-                        area: ['1260px', '80%']
+                        area: ['1260px', '80%'],
+                        success: function(layero, index){
+                            var body = layer.getChildFrame('body', index);
+                            var iframeWin = window[layero.find('iframe')[0]['name']]; //得到iframe页的窗口对象，执行iframe页的方法：
+                            iframeWin.method;
+                            $(body).find("#teamId").text(data.id);
+                            $(body).find("#meetingTeanUsername").val(data.name);
+                            // iframeWin.child(JSON.stringify(data.deptName))
+                        },
+
+                        yes:function (index,layero) {
+                            var body = layer.getChildFrame('body', index);
+                            var iframeWin = window[layero.find('iframe')[0]['name']]; //得到iframe页的窗口对象，执行iframe页的方法：
+                            //发送ajax所需要的参数
+                            var ids="";//参加会议人员的id集合
+                            var meetingTeanUsername
+
+                            meetingTeanUsername = $(body).find("#meetingTeanUsername").val();
+
+                            var rightTable = body.find("tbody:eq(2)");//获得右边的表格
+                            // var t= $(rightTable).find("[data-field='id'] div").text();
+                            var divIds= $(rightTable).find("[data-field='id'] div");//获取所有储存id的div
+
+                            //遍历每一个div将其内容取值
+                            for(var i=0 ; i<divIds.length ;i++){
+                                // console.log(divIds[i]);
+                                var id = divIds[i].innerText;
+                                if (i !=0 ){
+                                    ids+=','+id;
+                                }else{
+                                    ids = id;
+                                }
+                            }
+                            if (!validate_MeetingTeam()){
+                                return false;
+                            }
+                            $.ajax({
+                                url:APP_PATH+"/meetingTeam/checkUpdateMeetingTeamName",
+                                type:"POST",
+                                data:{
+                                    id:data.id,
+                                    name:meetingTeanUsername
+                                },
+                                success:function (res) {
+                                    if (res.code==100){
+                                        $.ajax({
+                                            url:APP_PATH+"/meetingTeam/updateMeetingTeam",
+                                            type:"POST",
+                                            data:{
+                                                id:data.id,
+                                                memberIds:ids,
+                                                name:meetingTeanUsername
+                                            },
+                                            success(res){
+                                                if(res.code==100){
+                                                    layer.close(index);
+                                                    // alert("1");
+                                                    bb();
+                                                    layer.msg("编辑成功",{icon:1});
+                                                }else{
+                                                    layer.msg("编辑失败",{icon:5});
+                                                }
+                                            }
+                                        });
+                                    }else{
+                                        layer.msg("小组名已存在",{icon:5})
+                                    }
+                                }
+                            });
+                        }
                     });
                 });
             }
@@ -1307,6 +1350,9 @@ function teaminfo_table() {
                                     } else{
                                         ids += ','+id;
                                     }
+                                }
+                                if (!validate_MeetingTeam()){
+                                    return false;
                                 }
                                 // console.log(ids)
                                 $.ajax({
