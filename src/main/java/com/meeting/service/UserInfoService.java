@@ -140,10 +140,16 @@ public class UserInfoService {
         //根据usernames查询用户的详细信息
         UserInfoExample example = new UserInfoExample();
         UserInfoExample.Criteria criteria = example.createCriteria();
-        List<Integer> username_integer = new ArrayList<>();
+        List<Integer> username_integer = new ArrayList<Integer>();
         for(int i=0 ;i<usernames.length ;i++){
-            username_integer.add(Integer.valueOf(usernames[i]));
+            try{
+                Integer username = Integer.valueOf(usernames[i]);
+                username_integer.add(username);
+            }catch (Exception e){
+                e.printStackTrace();
+            }
         }
+        if(username_integer.isEmpty())return new ArrayList<UserInfoReturn>();
         criteria.andIdIn(username_integer);
         criteria.andDeleteFlagEqualTo(false);
         List<UserInfo> userInfoList = userInfoMapper.selectByExample(example);
@@ -152,11 +158,11 @@ public class UserInfoService {
         DepartmentExample.Criteria departmentCriteria = departmentExample.createCriteria();
         departmentCriteria.andDeleteFlagEqualTo(false);
         List<Department> departmentList = departmentMapper.selectByExample(departmentExample);
-        Map<Integer,String> deptMap = new HashMap<>();
+        Map<Integer,String> deptMap = new HashMap<Integer,String>();
         for (Department d:departmentList)
             deptMap.put(d.getId(),d.getName());
         //根据map表处理查询到的用户详细信息
-        List<UserInfoReturn> userInfoReturnList = new ArrayList<>();
+        List<UserInfoReturn> userInfoReturnList = new ArrayList<UserInfoReturn>();
         for (UserInfo u:userInfoList){
             userInfoReturnList.add(new UserInfoReturn(u.getId(),u.getUsername(),u.getName(),null,null,deptMap.get(u.getDepartId())));
         }

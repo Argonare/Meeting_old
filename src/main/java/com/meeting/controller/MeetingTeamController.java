@@ -86,6 +86,29 @@ public class MeetingTeamController {
             return Msg.fail();
     }
 
+    @ResponseBody
+    @RequestMapping("/updateMeetingTeam")
+    public Msg updateMeetingTeam(HttpSession session,MeetingTeam meetingTeam){
+        System.out.println(meetingTeam.toString());
+        MeetingTeamExample meetingTeamExample = new MeetingTeamExample();
+        MeetingTeamExample.Criteria criteria = meetingTeamExample.createCriteria();
+        criteria.andIdEqualTo(meetingTeam.getId());
+        boolean b = meetingTeamService.updateMeetingTeam(meetingTeam, meetingTeamExample);
+        if (b)
+            return Msg.success();
+        else
+            return Msg.fail();
+    }
+
+    @ResponseBody
+    @RequestMapping("/checkUpdateMeetingTeamName")
+    public Msg checkUpdateMeetingTeamName(@RequestParam("name")String name,@RequestParam("id")Integer id){
+        boolean MeetingTeamName =  meetingTeamService.checkUpdateMeetingTeamName(name,id);
+        if (MeetingTeamName)
+            return Msg.success();
+        else
+            return Msg.fail();
+    }
 
 
     @ResponseBody
@@ -93,32 +116,13 @@ public class MeetingTeamController {
     public Msg getMeetingTeamRight(HttpServletRequest request){
         Integer teamId = Integer.valueOf(request.getParameter("teamId"));
         String member_ids = meetingTeamService.selectMeetingTeamids(teamId);
+//        System.out.println(member_ids);
+        List<UserInfoReturn> list = userInfoService.findUserInfoReturnByUsernamesInMeetingTeam(member_ids.split(","));
+//        System.out.println(list.toString());
 
-
-
-        return null;
+        return Msg.success().add("getMeetingTeamRight", list);
     }
 
-//    @ResponseBody
-//    @RequestMapping(value = "/getUserInfoReturnRight")
-//    public Msg updateMeetingInfo(@RequestParam("meetingId")Integer meetingId){
-//        List<Integer> list = meetingTeamService.selectMeetingTeamSelected(meetingId);//右边ID
-////        System.out.println(list);
-//        List<UserInfoReturn> userInfo = userInfoService.findAllByExample("","","");//查询左边数据
-////        System.out.println(userInfo.size());
-//
-//        /*人员管理的表格数据*/
-//        List<UserInfoReturn> userInfoReturnRight = new ArrayList<UserInfoReturn>();
-//        for(Integer i:list){
-//            for(UserInfoReturn u:userInfo){
-//                if(i.equals(u.getId())){
-//                    userInfoReturnRight.add(u);
-//                    break;
-//                }
-//            }
-//        }
-//        return Msg.success().add("userInfoReturnRight",userInfoReturnRight);
-//    }
 
 
 }
