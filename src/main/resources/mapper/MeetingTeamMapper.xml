@@ -3,6 +3,7 @@
 <mapper namespace="com.meeting.dao.MeetingTeamMapper">
   <resultMap id="BaseResultMap" type="com.meeting.bean.MeetingTeam">
     <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="username" jdbcType="VARCHAR" property="username" />
     <result column="member_ids" jdbcType="VARCHAR" property="memberIds" />
     <result column="delete_flag" jdbcType="BIT" property="deleteFlag" />
@@ -66,7 +67,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, username, member_ids, delete_flag
+    id, name, username, member_ids, delete_flag
   </sql>
   <select id="selectByExample" parameterType="com.meeting.bean.MeetingTeamExample" resultMap="BaseResultMap">
     select
@@ -83,7 +84,7 @@
     </if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from meeting_team
     where id = #{id,jdbcType=INTEGER}
@@ -99,16 +100,19 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.meeting.bean.MeetingTeam">
-    insert into meeting_team (id, username, member_ids, 
-      delete_flag)
-    values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{memberIds,jdbcType=VARCHAR}, 
-      #{deleteFlag,jdbcType=BIT})
+    insert into meeting_team (id, name, username,
+      member_ids, delete_flag)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR},
+      #{memberIds,jdbcType=VARCHAR}, #{deleteFlag,jdbcType=BIT})
   </insert>
   <insert id="insertSelective" parameterType="com.meeting.bean.MeetingTeam">
     insert into meeting_team
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
+      </if>
+      <if test="name != null">
+        name,
       </if>
       <if test="username != null">
         username,
@@ -123,6 +127,9 @@
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
         #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
       </if>
       <if test="username != null">
         #{username,jdbcType=VARCHAR},
@@ -147,6 +154,9 @@
       <if test="record.id != null">
         id = #{record.id,jdbcType=INTEGER},
       </if>
+      <if test="record.name != null">
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
       <if test="record.username != null">
         username = #{record.username,jdbcType=VARCHAR},
       </if>
@@ -164,9 +174,10 @@
   <update id="updateByExample" parameterType="map">
     update meeting_team
     set id = #{record.id,jdbcType=INTEGER},
-      username = #{record.username,jdbcType=VARCHAR},
-      member_ids = #{record.memberIds,jdbcType=VARCHAR},
-      delete_flag = #{record.deleteFlag,jdbcType=BIT}
+    name = #{record.name,jdbcType=VARCHAR},
+    username = #{record.username,jdbcType=VARCHAR},
+    member_ids = #{record.memberIds,jdbcType=VARCHAR},
+    delete_flag = #{record.deleteFlag,jdbcType=BIT}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -174,6 +185,9 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.meeting.bean.MeetingTeam">
     update meeting_team
     <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
       <if test="username != null">
         username = #{username,jdbcType=VARCHAR},
       </if>
@@ -188,9 +202,20 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.meeting.bean.MeetingTeam">
     update meeting_team
-    set username = #{username,jdbcType=VARCHAR},
+    set name = #{name,jdbcType=VARCHAR},
+      username = #{username,jdbcType=VARCHAR},
       member_ids = #{memberIds,jdbcType=VARCHAR},
       delete_flag = #{deleteFlag,jdbcType=BIT}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <select id="selectTeamReturn" resultType="com.meeting.bean.MeetingTeamReturn">
+    SELECT meeting_team.`id`,meeting_team.`username`,meeting_team.`name`
+    FROM meeting_team
+    WHERE meeting_team.`delete_flag`=0
+  </select>
+
+  <select id="selectMeetingTeamids" resultType="String">
+          SELECT member_ids FROM meeting_team WHERE id =#{teamId} AND delete_flag=0
+  </select>
 </mapper>

@@ -107,6 +107,16 @@
     <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
     <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
 </script>
+<!------------------------------我的小组------------------------------>
+<script type="text/html" id="team_toolbarDemo">
+    <div class="layui-btn-container">
+        <button class="layui-btn layui-btn-sm" lay-event="insertTeam_btn">添加小组</button>
+    </div>
+</script>
+<script type="text/html" id="team_barDemo">
+    <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+</script>
 <!-- =======================================================JS代码======================================================-->
 <script src="${APP_PATH}/static/js/jquery-3.0.0.min.js"></script>
 <script src="${APP_PATH}/static/css/layui/layui.js"></script>
