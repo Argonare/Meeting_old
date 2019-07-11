@@ -3,36 +3,29 @@ package com.meeting.bean;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class MeetingTeam {
+public class MeetingTeamReturn {
     private Integer id;
-
     private String name;
-
     private String username;
-
     private String memberIds;
 
-    private Boolean deleteFlag;
-
-    public MeetingTeam() {
+    public MeetingTeamReturn() {
     }
 
-    public MeetingTeam(Integer id, String name, String username, String memberIds, Boolean deleteFlag) {
+    public MeetingTeamReturn(Integer id, String name, String username, String memberIds) {
         this.id = id;
         this.name = name;
         this.username = username;
         this.memberIds = memberIds;
-        this.deleteFlag = deleteFlag;
     }
 
     @Override
     public String toString() {
-        return "MeetingTeam{" +
+        return "MeetingTeamReturn{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", username='" + username + '\'' +
                 ", memberIds='" + memberIds + '\'' +
-                ", deleteFlag=" + deleteFlag +
                 '}';
     }
 
@@ -49,7 +42,7 @@ public class MeetingTeam {
     }
 
     public void setName(String name) {
-        this.name = name == null ? null : name.trim();
+        this.name = name;
     }
 
     public String getUsername() {
@@ -57,7 +50,7 @@ public class MeetingTeam {
     }
 
     public void setUsername(String username) {
-        this.username = username == null ? null : username.trim();
+        this.username = username;
     }
 
     public String getMemberIds() {
@@ -65,14 +58,6 @@ public class MeetingTeam {
     }
 
     public void setMemberIds(String memberIds) {
-        this.memberIds = memberIds == null ? null : memberIds.trim();
-    }
-
-    public Boolean getDeleteFlag() {
-        return deleteFlag;
-    }
-
-    public void setDeleteFlag(Boolean deleteFlag) {
-        this.deleteFlag = deleteFlag;
+        this.memberIds = memberIds;
     }
 }

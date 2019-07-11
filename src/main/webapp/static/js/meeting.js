@@ -88,7 +88,19 @@ function  validate_Department() {
     }
     return true;
 }
+//^[a-zA-Z0-9\u4e00-\u9fa5]+$
+//校验MeetingTeam会议小组表
+function validate_MeetingTeam() {
+    var body = layer.getChildFrame('body');
 
+    var TeamName = $(body).find("#meetingTeanUsername").val();
+    var regTeamName =/^[\u4e00-\u9fa50-9a-zA-Z]+$/;//中文正则表达式
+    if (!regTeamName.test(TeamName)) {
+        alert("输入的小组名称错误，请重新输入");
+        return false;
+    }
+    return true;
+}
 //将时间戳格式化
 function getDate(val) {
     var time = new Date(val);
@@ -503,44 +515,6 @@ function meetinginfo_table(){
                                     }
                                 }
                             })
-                            // var body = layer.getChildFrame('body', index);
-                            // var iframeWin = window[layero.find('iframe')[0]['name']]; //得到iframe页的窗口对象，执行iframe页的方法：
-                            //
-                            // //数据准备
-                            // var meetingId = data.id;
-                            // var meetingName = $(body).find("#meetingName").val();
-                            // var startTime = $(body).find("#date1").val();
-                            // var endTime = $(body).find("#date2").val();
-                            // var meetingIntro = $(body).find("#meetingIntro").val();
-                            // startTime = Date.parse(startTime);
-                            // endTime = Date.parse(endTime);
-                            //
-                            // var ids = [];
-                            // for (var i=0 ;i<iframeWin.rightData.length;i++){
-                            //     var id = iframeWin.rightData[i].id;
-                            //     ids.push(id);
-                            // }
-                            // console.log(ids);
-                            // $.ajax({
-                            //     url:APP_PATH+"/updateMeetingInfoAndSignin",
-                            //     type:"POST",
-                            //     data:{
-                            //         id:meetingId,
-                            //         name:meetingName,
-                            //         startTime:startTime,
-                            //         endTime:endTime,
-                            //         intro:meetingIntro,
-                            //         ids:ids
-                            //     },
-                            //     success:function (res) {
-                            //         if (res.code == 100){
-                            //             layer.close(index);
-                            //             layer.msg("修改成功",{icon:1});
-                            //         } else{
-                            //             layer.msg("修改失败",{icon:5});
-                            //         }
-                            //     }
-                            // })
                         }
                     });
                 });
@@ -651,8 +625,6 @@ function meetinginfo_table(){
                                     layer.msg("结束时间能早于开始时间！",{icon:5});
                                     return false;
                                 }
-                                var qcode_refresh=$(body).find("#qcode_refresh").val();//获取二维码是否刷新
-
                                 var meetingTypeSelect = $(body).find("#meetingTypeSelect").children();
                                 for(var i=1 ;i<meetingTypeSelect.length ;i+=2){
                                     if(meetingTypeSelect[i].className.indexOf("layui-form-radioed")!= -1){
@@ -660,6 +632,10 @@ function meetinginfo_table(){
                                         break;
                                     }
                                 }
+                                var qcode_refresh=iframeWin.getQcode();//获取二维码是否刷新
+                                var meetingDept=iframeWin.getDept_data();
+                                var tp=iframeWin.getType();
+                                console.log("2"+qcode_refresh);
                                 //***************获取会议信息结束**************）
 
                                 //（***************获取参会人员id开始**************
@@ -673,11 +649,11 @@ function meetinginfo_table(){
                                     ids.push(id);
                                 }
 
+
                                 if(meetingType == 1 && ids.length ==0){
                                     layer.msg("请选择，参加会议的人员名单",{icon:5});
                                     $(body).find(".layui-tab-title .layui-this").removeClass("layui-this");
                                     $(body).find(".layui-tab-content .layui-show").removeClass("layui-show");
-
                                     $(body).find("#tiele_RenYuanGuanLi").addClass("layui-this");
                                     $(body).find("#content_RenYuanGuanLi").addClass("layui-show");
 
@@ -685,29 +661,29 @@ function meetinginfo_table(){
                                 }
                                 // console.log(ids);
                                 // //提交创建会议的信息
-                                // $.ajax({
-                                //     url:APP_PATH+"/meetingInfo/insertMeetingInfo",
-                                //     type:"POST"
-                                //     ,data:{
-                                //         ids:ids,
-                                //         name:meetingName,
-                                //         departName:meetingDept,
-                                //         roomId:meetingAddressId,
-                                //         startTime:date1,
-                                //         endTime:date2,
-                                //         meetingIntro:meetingIntro,
-                                //         qcode_refresh:qcode_refresh
-                                //     }
-                                //     ,success(res){
-                                //         if(res.code==100){
-                                //             layer.close(index);
-                                //             aa();
-                                //             layer.msg("创建成功",{icon:1});
-                                //         }else{
-                                //             layer.msg("创建失败",{icon:5});
-                                //         }
-                                //     }
-                                // })
+                                $.ajax({
+                                    url:APP_PATH+"/meetingInfo/insertMeetingInfo",
+                                    type:"POST"
+                                    ,data:{
+                                        ids:ids,
+                                        name:meetingName,
+                                        departName:meetingDept,
+                                        roomId:meetingAddressId,
+                                        startTime:date1,
+                                        endTime:date2,
+                                        qcode_refresh:qcode_refresh,
+                                        type:tp
+                                    }
+                                    ,success(res){
+                                        if(res.code==100){
+                                            layer.close(index);
+                                            aa();
+                                            layer.msg("创建成功",{icon:1});
+                                        }else{
+                                            layer.msg("创建失败",{icon:5});
+                                        }
+                                    }
+                                })
                             }
                         });
                     });
@@ -1199,35 +1175,227 @@ $("#log_out").click(function() {
     })
 })
 function teaminfo_table() {
-    layui.use('table', function aa() {
+    layui.use('table', function bb() {
+
         var table = layui.table;
         table.render({
             elem: '#demo',
-            // url:APP_PATH+"/userInfo/findAll",
-            // cellMinWidth: 80,
-            // toolbar: '#userinfo_toolbarDemo',
-            // height:718,
-            /*totalRow: true,*/
-            // limit: 15,//每页15条记录
+            url: APP_PATH + "/meetingTeam/findTeamPage",
+            type: "GET",
+            toolbar: '#team_toolbarDemo',
+            height: 718,
+            limit: 15,
             page: { //支持传入 laypage 组件的所有参数（某些参数除外，如：jump/elem） - 详见文档
                 layout: ['count', 'prev', 'page', 'next', 'skip'] //自定义分页布局
             },
-            // parseData:function(res){
-            //     // console.log(res);
-            //     return {
-            //         "code": res.code == 100 ? 0: 1, //解析接口状态
-            //         "msg": res.msg, //解析提示文本
-            //         "count": res.extend.userinfo.total, //解析数据长度
-            //         "data": res.extend.userinfo.list //解析数据列表
-            //     };
-            // },
+            parseData: function (res) {
+                return {
+                    "code": res.code == 100 ? 0 : 1,
+                    "msg": res.msg,
+                    "count": res.extend.depts.total,
+                    "data": res.extend.depts.list
+                };
+            },
             cols: [[
-                {type:'numbers', title: '序号'}
-                ,{type: 'checkbox'}
-                ,{field:'teamname', title: '小组名称'}
-                ,{fixed: 'right', title:'操作', toolbar: '#userinfo_barDemo', width:150,align:'center'}
+                {type: 'numbers', title: '序号'}
+                , {type: 'checkbox'}
+                , {field: 'name', title: '小组名称'}
+                // ,{field:'memberIds', title: '小组成员'}
+                , {fixed: 'right', title: '操作', toolbar: '#team_barDemo', width: 150, align: 'center'}
             ]]
+        });
+
+        table.on('tool(test)', function(obj){ //注：tool是工具条事件名，test是table原始容器的属性 lay-filter="对应的值"
+            var data = obj.data; //获得当前行数据
+            var layEvent = obj.event; //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）
+            var tr = obj.tr; //获得当前行 tr 的DOM对象
+            if(layEvent === 'del'){ //删除
+                layer.confirm('真的要删除小组:'+ data.name+"吗?",function (index) {
+                    $.ajax({
+                        url:APP_PATH+'/meetingTeam/deleteMeetingTeam',
+                        type:"POST",
+                        data:{"id":data.id},
+                        success:function (suc) {
+                            if (suc.code ==100 ){
+                                obj.del();
+                                layer.close(index);
+                                layer.msg("删除成功",{icon:1});
+                            }else{
+                                layer.msg("删除失败",{icon:1});
+                            }
+                        }
+                    });
+                    layer.close(index);
+                });
+            }else if(layEvent === 'edit'){ //编辑
+                // alert("!!!!")
+                layui.use('layer',function (ojb) {
+                    var layer = layui.layer;
+                    layer.open({
+                        type:2,
+                        btn:['保存','取消'],
+                        content:APP_PATH+'/jumpPage/updateMeetingTeamIframe?teamId='+data.id,
+                        area: ['1260px', '80%'],
+                        success: function(layero, index){
+                            var body = layer.getChildFrame('body', index);
+                            var iframeWin = window[layero.find('iframe')[0]['name']]; //得到iframe页的窗口对象，执行iframe页的方法：
+                            iframeWin.method;
+                            $(body).find("#teamId").text(data.id);
+                            $(body).find("#meetingTeanUsername").val(data.name);
+                            // iframeWin.child(JSON.stringify(data.deptName))
+                        },
+
+                        yes:function (index,layero) {
+                            var body = layer.getChildFrame('body', index);
+                            var iframeWin = window[layero.find('iframe')[0]['name']]; //得到iframe页的窗口对象，执行iframe页的方法：
+                            //发送ajax所需要的参数
+                            var ids="";//参加会议人员的id集合
+                            var meetingTeanUsername
+
+                            meetingTeanUsername = $(body).find("#meetingTeanUsername").val();
+
+                            var rightTable = body.find("tbody:eq(2)");//获得右边的表格
+                            // var t= $(rightTable).find("[data-field='id'] div").text();
+                            var divIds= $(rightTable).find("[data-field='id'] div");//获取所有储存id的div
+
+                            //遍历每一个div将其内容取值
+                            for(var i=0 ; i<divIds.length ;i++){
+                                // console.log(divIds[i]);
+                                var id = divIds[i].innerText;
+                                if (i !=0 ){
+                                    ids+=','+id;
+                                }else{
+                                    ids = id;
+                                }
+                            }
+                            if (!validate_MeetingTeam()){
+                                return false;
+                            }
+                            $.ajax({
+                                url:APP_PATH+"/meetingTeam/checkUpdateMeetingTeamName",
+                                type:"POST",
+                                data:{
+                                    id:data.id,
+                                    name:meetingTeanUsername
+                                },
+                                success:function (res) {
+                                    if (res.code==100){
+                                        $.ajax({
+                                            url:APP_PATH+"/meetingTeam/updateMeetingTeam",
+                                            type:"POST",
+                                            data:{
+                                                id:data.id,
+                                                memberIds:ids,
+                                                name:meetingTeanUsername
+                                            },
+                                            success(res){
+                                                if(res.code==100){
+                                                    layer.close(index);
+                                                    // alert("1");
+                                                    bb();
+                                                    layer.msg("编辑成功",{icon:1});
+                                                }else{
+                                                    layer.msg("编辑失败",{icon:5});
+                                                }
+                                            }
+                                        });
+                                    }else{
+                                        layer.msg("小组名已存在",{icon:5})
+                                    }
+                                }
+                            });
+                        }
+                    });
+                });
+            }
+        });
+
+
+
+
+
+        table.on('toolbar(test)', function (obj) {
+            var checkStatus = table.checkStatus(obj.config.id);
+            switch (obj.event) {
+                case 'insertTeam_btn':
+                    layui.use('layer', function (obj) {
+                        var layer = layui.layer;
+                        layer.open({
+                            title: "添加会议小组",
+                            type: 2,
+                            btn: ['保存', '取消'],
+                            content: APP_PATH + "/jumpPage/insertMeetingTeamIframe",
+                            area: ['1260px', '80%'],
+                            success: function(layero, index){
+                                var body = layer.getChildFrame('body', index);
+                                var iframeWin = window[layero.find('iframe')[0]['name']]; //得到iframe页的窗口对象，执行iframe页的方法：
+                                iframeWin.method;
+                            },
+                            yes: function (index, layero) {
+                                var body = layer.getChildFrame('body',index);
+                                var username = $(body).find("#meetingTeanUsername").val();
+                                console.log(username);
+
+                                //（***************获取参会人员id开始**************
+                                var rightTable = body.find("tbody:eq(2)");//获得右边的表格
+                                // var t= $(rightTable).find("[data-field='id'] div").text();
+                                var divIds= $(rightTable).find("[data-field='id'] div");//获取所有储存id的div
+                                //遍历每一个div将其内容取值
+                                var ids;
+                                for(var i=0 ; i<divIds.length ;i++){
+                                    // console.log(divIds[i]);
+                                    var id = divIds[i].innerText;
+                                    if (i == 0){
+                                        ids = id;
+                                    } else{
+                                        ids += ','+id;
+                                    }
+                                }
+                                if (!validate_MeetingTeam()){
+                                    return false;
+                                }
+                                // console.log(ids)
+                                $.ajax({
+                                    url:APP_PATH+"/meetingTeam/checkAddMeetingTeam",
+                                    data:"name="+username,
+                                    type:"POST",
+                                    success:function (data) {
+                                        if (data.code==100){
+                                            $.ajax({
+                                                url:APP_PATH+"/meetingTeam/insertMeetingTeam",
+                                                type:"POST",
+                                                data:{
+                                                    name:username,
+                                                    memberIds:ids
+                                                },
+                                                success:function (res) {
+                                                    if(res.code==100){
+                                                        layer.close(index);
+                                                        layer.msg("小组添加成功",{icon:1});
+                                                    }
+                                                    else{
+                                                        layer.msg("小组添加失败",{icon:5});
+                                                    }
+                                                    bb();
+                                                }
+                                            });
+                                        } else{
+                                            layer.msg("小组以存在",{icon:5})
+                                        }
+                                    }
+                                })
+
+                            }
+                        })
+                    });
+                    break;
+                case 'refresh':
+                    aa();
+                    break;
+            }
 
         });
-    })
+    });
+
+
 }

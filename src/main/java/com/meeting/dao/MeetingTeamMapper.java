@@ -3,6 +3,8 @@ package com.meeting.dao;
 import com.meeting.bean.MeetingTeam;
 import com.meeting.bean.MeetingTeamExample;
 import java.util.List;
+
+import com.meeting.bean.MeetingTeamReturn;
 import org.apache.ibatis.annotations.Param;
 
 public interface MeetingTeamMapper {
@@ -28,6 +30,10 @@ public interface MeetingTeamMapper {
 
     int updateByPrimaryKey(MeetingTeam record);
 
-    List<MeetingTeam> getMyMeetingTeamsNameByUsername(String username);
+    List<MeetingTeamReturn> selectTeamReturn();
+
+    String selectMeetingTeamids(Integer teamId);
+
 
 }
+

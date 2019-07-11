@@ -34,7 +34,7 @@ public class MeetingInfoController {
     @RequestMapping(value = "/findAllMeetingInfo",method = RequestMethod.GET)
     public Msg MeetingInfo(@RequestParam(value="page",defaultValue="1")Integer pn){
         PageHelper.startPage(pn,15);
-        List<MeetingInfoRetrun>list=new ArrayList<>();
+        List<MeetingInfoRetrun>list=new ArrayList<MeetingInfoRetrun>();
         List<MeetingInfo> meetingInfo  = meetingInfoService.findAllMeetingInfo();
         for (MeetingInfo lis:meetingInfo){
             String place="";
@@ -54,7 +54,7 @@ public class MeetingInfoController {
         return Msg.success().add("meetinginfo",page);
     }
     /**
-     * 根据条件修改会议表的数据
+     * ????????????????????
      * @param request
      * @param session
      * @param meetingInfo
@@ -69,12 +69,12 @@ public class MeetingInfoController {
         criteria.andIdEqualTo(meetingInfo.getId());
         MeetingInfo meetingInfos = new MeetingInfo();
         meetingInfoService.updateMeetingInfo(meetingInfos,example);
-        //更新简介
-        //更新签到人员信息
+        //??????
+        //?????????????
         Integer maxId = userInfoService.selectMaxId();
-        boolean newFlag[] = new boolean[maxId+1];//用来标记网页传来的数据
-        boolean oldFlag[] = new boolean[maxId+1];//用来标记数据库查出来的数据
-        //获取网页传过来的用户id集合
+        boolean newFlag[] = new boolean[maxId+1];//????????????????????
+        boolean oldFlag[] = new boolean[maxId+1];//??????????????????????
+        //?????????????????id????
         String[] ids_str = request.getParameterValues("ids[]");
         List<Integer> newIds = new ArrayList<Integer>();
         for(int i=0 ;ids_str != null && i<ids_str.length ;i++){
@@ -88,13 +88,13 @@ public class MeetingInfoController {
         for(int i=0 ;i<oldIds.size() ;i++){
             oldFlag[oldIds.get(i)]=true;
         }
-        List<Integer> addIds = new ArrayList<Integer>();//需要新增的用户id
-        List<Integer> delIds = new ArrayList<Integer>();//需要删除的用户id
+        List<Integer> addIds = new ArrayList<Integer>();//????????????id
+        List<Integer> delIds = new ArrayList<Integer>();//???????????id
         for(int i=0 ; i<newIds.size() ;i++){
             int id= newIds.get(i);
-            if(newFlag[id]==true && oldFlag[id]==false)//新增
+            if(newFlag[id]==true && oldFlag[id]==false)//????
                 addIds.add(id);
-            else if(newFlag[id]==false && oldFlag[id]==true)//移除
+            else if(newFlag[id]==false && oldFlag[id]==true)//???
                 delIds.add(id);
         }
 
@@ -131,13 +131,14 @@ public class MeetingInfoController {
         }
         return  Msg.success();
     }
+
     @ResponseBody
     @RequestMapping(value = "/getUserInfoReturnRight")
     public Msg updateMeetingInfo(@RequestParam("meetingId")Integer meetingId){
-        List<Integer> list = meetingInfoService.selectMeetingInfoSelected(meetingId);//右边ID
-        List<UserInfoReturn> userInfo = userInfoService.findAllByExample("","","");//查询左边数据
+        List<Integer> list = meetingInfoService.selectMeetingInfoSelected(meetingId);//???ID
+        List<UserInfoReturn> userInfo = userInfoService.findAllByExample("","","");//??????????
 
-        /*人员管理的表格数据*/
+        /*??????????????*/
         List<UserInfoReturn> userInfoReturnRight = new ArrayList<UserInfoReturn>();
         for(Integer i:list){
             for(UserInfoReturn u:userInfo){
@@ -148,5 +149,49 @@ public class MeetingInfoController {
             }
         }
         return Msg.success().add("userInfoReturnRight",userInfoReturnRight);
+    }
+    @ResponseBody
+    @RequestMapping(value = "/insertMeetingInfo")
+    public Msg insertMeetingInfo(HttpServletRequest request, HttpSession session,MeetingInfo meetingInfo,String departName){
+        String username = (String) session.getAttribute("username");
+        meetingInfo.setInsertUsername(username);
+        System.out.println(meetingInfo);
+
+//        Integer uid = userInfoService.getUidByUsername(username);
+//        meetingInfo.setInsertUid(uid);
+//        meetingInfo.setInsertTime(new Date().getTime());
+//        meetingInfo.setDeleteFlag(false);
+//        meetingInfo.setType(1);
+//
+//        meetingInfoService.insertMeetingInfo(meetingInfo);
+//        long a = meetingInfoService.selectMeetingInfo(meetingInfo);
+//        int meeting_id = (int) a;
+////        System.out.println("meeting_id:"+meeting_id);
+//        meetingInfo.setIntroId(meeting_id);
+//        MeetingInfoExample meetingInfoExample = new MeetingInfoExample();
+//        MeetingInfoExample.Criteria criteria = meetingInfoExample.createCriteria();
+//        criteria.andIdEqualTo(meeting_id);
+//        meetingInfoService.updateMeetingInfo(meetingInfo,meetingInfoExample);
+//
+//        String Intro = request.getParameter("meetingIntro");
+//        MeetingIntro meetingIntro = new MeetingIntro();
+//        meetingIntro.setId(meeting_id);
+//        meetingIntro.setIntro(Intro);
+//        meetingIntroService.insertMeetingIntro(meetingIntro);
+//
+//        String[] ids = request.getParameterValues("ids[]");
+//        MeetingSignin meetingSignin = new MeetingSignin();
+//        meetingSignin.setMeetingId(meeting_id);
+//        meetingSignin.setSigninFlag(false);
+//        meetingSignin.setSignoutFlag(false);
+//        meetingSignin.setLeaveFlag(false);
+//        meetingSignin.setLateFlag(false);
+//        meetingSignin.setDeleteFlag(false);
+////        System.out.println("ids:"+ids);
+//        for(int i =0;ids != null && i<ids.length;i++){
+//            meetingSignin.setUserId(Integer.parseInt(ids[i]));
+//            meetingSigninService.insertMeetingSignin(meetingSignin);
+//        }
+        return  Msg.fail();
     }
 }
