@@ -659,7 +659,7 @@ function meetinginfo_table(){
                                     }
                                 }
                                 var meetingDept=iframeWin.getDept_data();
-                                // var qcode_refresh=iframeWin.getQcode();//获取二维码是否刷新
+                                var qcode_refresh=iframeWin.getQcode();//获取二维码是否刷新
                                 var tp=iframeWin.getType();
                                 console.log(tp)
                                 console.log(qcode_refresh);

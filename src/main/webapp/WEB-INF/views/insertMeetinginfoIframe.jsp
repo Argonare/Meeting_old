@@ -350,11 +350,13 @@
         var transfer = layui.transfer;
         var layer = layui.layer;
 
-        form.on('radio(team)',function(data){
+        form.on('radio(meeting)',function(data){
+            alert(data)
             tp=data.value;
             console.log(data)
         });
         form.on('radio(qcode)',function(data){
+            alert(data)
             qcode=data.value;
             console.log(data)
         });
