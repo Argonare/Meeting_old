@@ -140,15 +140,15 @@
                     <div class="layui-form-item">
                         <label class="layui-form-label">刷新二维码：</label>
                         <div class="layui-input-block" id="QcodeTypeSelect">
-                            <input type="radio"  name="qcode" value="1" title="是" checked="">
-                            <input type="radio"  name="qcode" value="2" title="否">
+                            <input type="radio"  name="qcode" lay-filter="qcode" value="1" title="是" checked="">
+                            <input type="radio"  name="qcode" lay-filter="qcode" value="2" title="否">
                         </div>
                     </div>
                     <div class="layui-form-item">
                         <label class="layui-form-label">会议模式：</label>
                         <div class="layui-input-block" id="meetingTypeSelect">
-                            <input type="radio" name="team" value="1" title="普通会议" checked="">
-                            <input type="radio" name="team" value="2" title="讲座形式会议">
+                            <input type="radio" name="team" lay-filter="meeting" value="1" title="普通会议" checked="">
+                            <input type="radio" name="team" lay-filter="meeting" value="2" title="讲座形式会议">
                         </div>
                     </div>
                 </form>
@@ -347,15 +347,17 @@
         var laydate = layui.laydate;
         var form = layui.form;
         var table = layui.table;
-        var transfer = layui.transfer
-        var layer = layui.layer
-        form.on('radio[name="team"]',function(data){
+        var transfer = layui.transfer;
+        var layer = layui.layer;
+
+        form.on('radio(team)',function(data){
             tp=data.value;
-        })
-        form.on('radio[name="qcode"]',function(data){
+            console.log(data)
+        });
+        form.on('radio(qcode)',function(data){
             qcode=data.value;
-            alert(qcode)
-        })
+            console.log(data)
+        });
         //日期
         laydate.render({
             type:'datetime'
@@ -364,9 +366,6 @@
         laydate.render({
             type:'datetime'
             ,elem: '#date1'
-        });
-        form.on('switch(switchTest)', function(data){
-            $("#qcode_refresh").val(this.checked)
         });
 
         //会议小组下拉框选择后出发事件
