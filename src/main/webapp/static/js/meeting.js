@@ -606,7 +606,7 @@ function meetinginfo_table(){
                             type: 2,
                             btn:['保存','取消'],
                             content: APP_PATH+'/jumpPage/insertMeetinginfoIframe',
-                            area: ['1260px', '80%'],
+                            area: ['1280px', '85%'],
                             yes: function(index, layero) {
                                 var body = layer.getChildFrame('body', index);
                                 var iframeWin = window[layero.find('iframe')[0]['name']]; //得到iframe页的窗口对象，执行iframe页的方法：

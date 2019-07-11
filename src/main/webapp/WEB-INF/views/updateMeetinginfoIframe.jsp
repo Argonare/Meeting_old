@@ -109,12 +109,12 @@
                         </div>
                         <%--                        <div class="layui-form-mid layui-word-aux">选择结束时间</div>--%>
                     </div>
-                    <div class="layui-form-item">
-                        <label class="layui-form-label">会议简介：</label>
-                        <div class="layui-input-block" style="width: 450px">
-                            <textarea id="meetingIntro" name="desc" placeholder="请输入简介" class="layui-textarea"></textarea>
-                        </div>
-                    </div>
+                    <%--<div class="layui-form-item">--%>
+                        <%--<label class="layui-form-label">会议简介：</label>--%>
+                        <%--<div class="layui-input-block" style="width: 450px">--%>
+                            <%--<textarea id="meetingIntro" name="desc" placeholder="请输入简介" class="layui-textarea"></textarea>--%>
+                        <%--</div>--%>
+                    <%--</div>--%>
                     <div class="layui-form-item">
                         <label class="layui-form-label">二维码自动刷新</label>
                         <div class="layui-input-block">
@@ -212,6 +212,7 @@
             for(var i=0 ; i<depts.length ; i++){
                 // $("<div></div>").attr("value",)
                 context+="<div class=\"box_div tag label label-info\"><span style='cursor: pointer;' class='click_span'>"+depts[i].name+"</span></div>"
+                $("<option></option>").text(depts[i].name).appendTo("#dept_select1");
             }
             $("#big_box").html(context);
         }

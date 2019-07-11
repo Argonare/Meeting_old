@@ -19,6 +19,36 @@ public class UserInfo {
 
     private Boolean deleteFlag;
 
+    public UserInfo() {
+    }
+
+    public UserInfo(Integer id, String username, String password, String name, String phone, String wechatToken, Integer type, Integer departId, Boolean deleteFlag) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.name = name;
+        this.phone = phone;
+        this.wechatToken = wechatToken;
+        this.type = type;
+        this.departId = departId;
+        this.deleteFlag = deleteFlag;
+    }
+
+    @Override
+    public String toString() {
+        return "UserInfo{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", name='" + name + '\'' +
+                ", phone='" + phone + '\'' +
+                ", wechatToken='" + wechatToken + '\'' +
+                ", type=" + type +
+                ", departId=" + departId +
+                ", deleteFlag=" + deleteFlag +
+                '}';
+    }
+
     public Integer getId() {
         return id;
     }

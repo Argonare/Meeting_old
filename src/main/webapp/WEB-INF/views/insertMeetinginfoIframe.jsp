@@ -166,13 +166,16 @@
             </div>
             <div id="rightDiv" style="/*background-color: blue;*/width: 45%;float: left">
                 <div style="width: 100%;height: 40px;padding-top: 5px">
-                    <input type="file" id="excel-file" style="float: left">
-                    <a href="${APP_PATH}/static/file/会议签到人员表模板.xlsx"><div class="layui-btn layui-btn-sm" style="float: left">文件模板</div></a>
+                    <form class="layui-form" action="" style="float: left;width: 180px">
+                        <select lay-filter="meetingTeamSelect" id="meetingTeamSelect">
+                            <option value="-1" selected="">可选择会议小组</option>
+                        </select>
+                    </form>
+                    <a href="${APP_PATH}/static/file/会议签到人员表模板.xlsx"><div class="layui-btn layui-btn-sm" style="float: left;margin-left: 15px;margin-top: 3px">文件模板</div></a>
+                    <input type="file" id="excel-file" style="float: left;margin-left: 15px;margin-top: 5px">
                 </div>
                 <%--<a href="${APP_PATH}/static/file/会议签到人员表模板.xlsx"><i class="layui-icon" style="font-size: 30px">&#xe601;</i></a>--%>
-
                 <table id="rightTable" lay-filter="rightTable"></table>
-
                 <%--<button onclick="getUsernameIptVal()">testBtn</button>--%>
             </div>
         </div>
@@ -227,6 +230,23 @@
             $("#big_box").html(context);
         }
     })
+
+    //会议小组（加载我的会议小组）
+    $.ajax({
+        url:"${APP_PATH}/meetingTeam/getMyMeetingTeamsNameByUsername",
+        type:"GET",
+        async:false,
+        success:function (res) {
+            // console.log(res);
+            if(res.code == 100){
+                var list = res.extend.meetingTeamsNameList;
+                for(var i=0 ;i<list.length; i++){
+                    $("<option></option>").attr("value",list[i].id).text(list[i].name).appendTo("#meetingTeamSelect");
+                }
+            }
+        }
+    })
+
     $(".click_span").click(function () {
         $("#tagsinputval").tagsinput('add',$(this).html());
     })
@@ -301,7 +321,7 @@
         var table = layui.table;
         var transfer = layui.transfer
         var layer = layui.layer
-
+        
         //日期
         laydate.render({
             type:'datetime'
@@ -315,6 +335,29 @@
             $("#qcode_refresh").val(this.checked)
         });
 
+        //会议小组下拉框选择后出发事件
+        form.on('select(meetingTeamSelect)',function (data) {
+            // console.log(data.value);
+            if(data.value == -1)return false;//当选中初始选项时无反应
+            $.ajax({
+                url:"${APP_PATH}/meetingTeam/getUserInfosByTeamId",
+                data:{teamId:data.value},
+                type:"GET",
+                success:function (res) {
+                    console.log(res);
+                    if(res.code == 100){
+                        // var datas = res.extend.userInfoReturns
+                        layui.table.reload("rightTable", {
+                            data :res.extend.userInfoReturns
+                        });
+                        layui.table.reload("leftTable");
+                    }else if(res.code == 200){
+                        layer.msg("选择失败",{icon:5});
+                    }
+                }
+            })
+        })
+        
         table.render({//因为leftTable需要用到rightTable中的数据所以需要先创建rightTable
             elem: '#rightTable'
             ,id:"rightTable"

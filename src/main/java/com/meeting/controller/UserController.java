@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.Date;
@@ -22,6 +23,13 @@ public class UserController {
     @Autowired
     UserInfoService userInfoService;
 
+    @ResponseBody
+    @RequestMapping("/findUserInfoReturnByUsernames")
+    public Msg findUserInfoReturnByUsernames(HttpServletRequest request){
+        String[] usernames = request.getParameterValues("usernames[]");
+        List<UserInfoReturn> userInfoReturns = userInfoService.findUserInfoReturnByUsernames(usernames);
+        return Msg.success().add("userInfoReturns",userInfoReturns);
+    }
 
     /**
      * 根据条件修改用户数据
