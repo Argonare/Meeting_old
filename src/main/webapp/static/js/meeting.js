@@ -632,10 +632,11 @@ function meetinginfo_table(){
                                         break;
                                     }
                                 }
-                                var qcode_refresh=iframeWin.getQcode();//获取二维码是否刷新
                                 var meetingDept=iframeWin.getDept_data();
+                                var qcode_refresh=iframeWin.getQcode();//获取二维码是否刷新
                                 var tp=iframeWin.getType();
-                                console.log("2"+qcode_refresh);
+                                console.log(tp)
+                                console.log(qcode_refresh);
                                 //***************获取会议信息结束**************）
 
                                 //（***************获取参会人员id开始**************
