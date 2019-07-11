@@ -288,18 +288,31 @@
                 type:"POST",
                 data:{usernames:usernames},
                 success:function (res) {
-                    // console.log("success:");
-                    console.log(res);
+                    userInfos = res.extend.userInfoReturns;
                     if(res.code == 100){
                         // var datas = res.extend.userInfoReturns
                         layui.table.reload("rightTable", {
-                            data :res.extend.userInfoReturns
+                            data :userInfos
                         });
                         layui.table.reload("leftTable");
                         if (res.extend.userInfoReturns.length == usernames.length)
                             layer.msg("全部导入成功",{icon:1});
-                        else
-                            layer.msg("部分导入成功，不成功的工号有问题",{icon:3});
+                        else{
+                            // layer.msg("部分导入成功，不成功的工号有问题",{icon:3});
+                            // console.log(res.extend.userInfoReturns)
+                            var map = {};
+                            var str="",size=0;
+                            for(var index in userInfos){
+                                map[userInfos[index].username]=1;
+                            }
+                            for(var index in persons){
+                                if(map[persons[index]["工号"]]==undefined){
+                                    size++;
+                                    str+="<br>"+persons[index]["工号"]+" "+persons[index]["姓名"];
+                                }
+                            }
+                            layer.confirm("以下"+size+"人未添加成功:"+str, function(index){layer.close(index);})
+                        }
                     }else if(res.code == 200){
                         layer.msg("导入失败,请重新导入",{icon:5});
                     }
@@ -352,7 +365,7 @@
                         });
                         layui.table.reload("leftTable");
                     }else if(res.code == 200){
-                        layer.msg("选择失败",{icon:5});
+                        layer.msg("改小组内无成员",{icon:5});
                     }
                 }
             })

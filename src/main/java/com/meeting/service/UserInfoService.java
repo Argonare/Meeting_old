@@ -129,7 +129,6 @@ public class UserInfoService {
         for(String usernmae : usernames){
             List<UserInfoReturn> temp = userInfoMapper.findAllByExample(usernmae,"","");
             if(temp.size() != 0){
-                System.out.println(temp.get(0));
                 userInfoReturns.add(temp.get(0));
             }
         }
