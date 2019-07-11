@@ -1,7 +1,12 @@
 package com.meeting.bean;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class MeetingTeam {
     private Integer id;
+
+    private String name;
 
     private String username;
 
@@ -9,12 +14,42 @@ public class MeetingTeam {
 
     private Boolean deleteFlag;
 
+    public MeetingTeam() {
+    }
+
+    public MeetingTeam(Integer id, String name, String username, String memberIds, Boolean deleteFlag) {
+        this.id = id;
+        this.name = name;
+        this.username = username;
+        this.memberIds = memberIds;
+        this.deleteFlag = deleteFlag;
+    }
+
+    @Override
+    public String toString() {
+        return "MeetingTeam{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", username='" + username + '\'' +
+                ", memberIds='" + memberIds + '\'' +
+                ", deleteFlag=" + deleteFlag +
+                '}';
+    }
+
     public Integer getId() {
         return id;
     }
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name == null ? null : name.trim();
     }
 
     public String getUsername() {

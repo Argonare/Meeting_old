@@ -27,4 +27,7 @@ public interface MeetingTeamMapper {
     int updateByPrimaryKeySelective(MeetingTeam record);
 
     int updateByPrimaryKey(MeetingTeam record);
+
+    List<MeetingTeam> getMyMeetingTeamsNameByUsername(String username);
+
 }
