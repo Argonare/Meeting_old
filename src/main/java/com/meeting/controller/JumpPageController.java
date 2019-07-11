@@ -63,4 +63,14 @@ public class JumpPageController {
     public String signinInfoIframe(){
         return "signinInfoIframe";
     }
+
+    @RequestMapping(value = "/insertMeetingTeamIframe")
+    public String insertMeetingTeamIframe(){
+        return "insertMeetingTeamIframe";
+    }
+
+    @RequestMapping(value = "/updateMeetingTeamIframe")
+    public String updateMeetingTeamIframe(){
+        return "updateMeetingTeamIframe";
+    }
 }

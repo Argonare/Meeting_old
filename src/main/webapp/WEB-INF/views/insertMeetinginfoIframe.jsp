@@ -16,9 +16,8 @@
     <style>
         a{text-decoration: none;}
         .box {
+            margin-bottom: 15px;
             width: 500px;
-            margin: auto;
-            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         }
         .tagsinput-primary .bootstrap-tagsinput {
             min-height: 38px;
@@ -52,10 +51,16 @@
             float: left;
         }
         #big_box{
+            position: absolute;
+            z-index: 1000;
             width:450px;
             min-height: 10%;
-            border-radius: 2px;
-            display: none
+            border-radius: 1px;
+            display: none;
+            background-color: white;
+            border-left: 1px solid #e6e6e6;
+            border-right: 1px solid #e6e6e6;
+            border-bottom: 1px solid #e6e6e6;
         }
     </style>
 </head>
@@ -80,7 +85,7 @@
                         <div class="layui-input-block tagsinput-primary" style="width: 450px">
                             <input name="tagsinput" id="tagsinputval" class=" layui-input" data-role="tagsinput" readonly="true"/>
                         </div>
-                        <div style="margin-left: 110px;" id="meeting_box">
+                        <div style="margin-left: 110px;margin-top: -15px;" id="meeting_box">
                             <div id="big_box">
                             </div>
                         </div>
@@ -115,6 +120,17 @@
                         </div>
 <%--                        <div class="layui-form-mid layui-word-aux">选择结束时间</div>--%>
                     </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">迟到时间：</label>
+                        <div class="layui-input-block">
+                            <select name="modules" lay-verify="required" lay-search="">
+                                <option value="1">会议开始时</option>
+                                <option value="2">会议开始后5分钟</option>
+                                <option value="3">会议开始后10分钟</option>
+                                <option value="4">会议开始前10分钟</option>
+                            </select>
+                        </div>
+                    </div>
                     <%--<div class="layui-form-item">--%>
                         <%--<label class="layui-form-label">会议简介：</label>--%>
                         <%--<div class="layui-input-block" style="width: 450px">--%>
@@ -122,11 +138,11 @@
                         <%--</div>--%>
                     <%--</div>--%>
                     <div class="layui-form-item">
-                        <label class="layui-form-label">二维码自动刷新</label>
-                        <div class="layui-input-block">
-                            <input type="checkbox" checked="" name="rqcode" lay-skin="switch" lay-filter="switchTest" lay-text="是|否" >
+                        <label class="layui-form-label">刷新二维码：</label>
+                        <div class="layui-input-block" id="QcodeTypeSelect">
+                            <input type="radio"  name="qcode" value="1" title="是" checked="">
+                            <input type="radio"  name="qcode" value="2" title="否">
                         </div>
-                        <input type="text" style="display: none;" id="qcode_refresh" value="true">
                     </div>
                     <div class="layui-form-item">
                         <label class="layui-form-label">会议模式：</label>
@@ -194,6 +210,11 @@
 <%--<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>--%>
 <%--</script>--%>
 <script>
+
+    function getDept_data(){
+        return $("#tagsinputval").val();
+    }
+
     $(".box").mouseover(function(){
         $("#big_box").show();
     });
@@ -313,7 +334,14 @@
         // 以二进制方式打开文件
         fileReader.readAsBinaryString(files[0]);
     });
-
+    var tp="";
+    var qcode="";
+    function getType(){
+        return tp;
+    }
+    function getQcode(){
+        return qcode;
+    }
     layui.use(['form','element','laydate','table','layer','transfer'], function(){
         var element = layui.element;
         var laydate = layui.laydate;
@@ -321,7 +349,13 @@
         var table = layui.table;
         var transfer = layui.transfer
         var layer = layui.layer
-        
+        form.on('radio[name="team"]',function(data){
+            tp=data.value;
+        })
+        form.on('radio[name="qcode"]',function(data){
+            qcode=data.value;
+            alert(qcode)
+        })
         //日期
         laydate.render({
             type:'datetime'

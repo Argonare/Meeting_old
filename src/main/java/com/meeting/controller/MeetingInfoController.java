@@ -149,4 +149,48 @@ public class MeetingInfoController {
         }
         return Msg.success().add("userInfoReturnRight",userInfoReturnRight);
     }
+    @ResponseBody
+    @RequestMapping(value = "/insertMeetingInfo")
+    public Msg insertMeetingInfo(HttpServletRequest request, HttpSession session,MeetingInfo meetingInfo,String departName){
+        String username = (String) session.getAttribute("username");
+        meetingInfo.setInsertUsername(username);
+        System.out.println(meetingInfo);
+
+//        Integer uid = userInfoService.getUidByUsername(username);
+//        meetingInfo.setInsertUid(uid);
+//        meetingInfo.setInsertTime(new Date().getTime());
+//        meetingInfo.setDeleteFlag(false);
+//        meetingInfo.setType(1);
+//
+//        meetingInfoService.insertMeetingInfo(meetingInfo);
+//        long a = meetingInfoService.selectMeetingInfo(meetingInfo);
+//        int meeting_id = (int) a;
+////        System.out.println("meeting_id:"+meeting_id);
+//        meetingInfo.setIntroId(meeting_id);
+//        MeetingInfoExample meetingInfoExample = new MeetingInfoExample();
+//        MeetingInfoExample.Criteria criteria = meetingInfoExample.createCriteria();
+//        criteria.andIdEqualTo(meeting_id);
+//        meetingInfoService.updateMeetingInfo(meetingInfo,meetingInfoExample);
+//
+//        String Intro = request.getParameter("meetingIntro");
+//        MeetingIntro meetingIntro = new MeetingIntro();
+//        meetingIntro.setId(meeting_id);
+//        meetingIntro.setIntro(Intro);
+//        meetingIntroService.insertMeetingIntro(meetingIntro);
+//
+//        String[] ids = request.getParameterValues("ids[]");
+//        MeetingSignin meetingSignin = new MeetingSignin();
+//        meetingSignin.setMeetingId(meeting_id);
+//        meetingSignin.setSigninFlag(false);
+//        meetingSignin.setSignoutFlag(false);
+//        meetingSignin.setLeaveFlag(false);
+//        meetingSignin.setLateFlag(false);
+//        meetingSignin.setDeleteFlag(false);
+////        System.out.println("ids:"+ids);
+//        for(int i =0;ids != null && i<ids.length;i++){
+//            meetingSignin.setUserId(Integer.parseInt(ids[i]));
+//            meetingSigninService.insertMeetingSignin(meetingSignin);
+//        }
+        return  Msg.fail();
+    }
 }

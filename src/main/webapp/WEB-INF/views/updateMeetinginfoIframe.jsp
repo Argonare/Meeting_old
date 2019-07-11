@@ -15,9 +15,8 @@
     <link rel="stylesheet" href="${APP_PATH}/static/css/bootstrap/css/bootstrap_tagsinput.css">
     <style>
         .box {
+            margin-bottom: 15px;
             width: 500px;
-            margin: auto;
-            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         }
         .tagsinput-primary .bootstrap-tagsinput {
             min-height: 38px;
@@ -51,10 +50,16 @@
             float: left;
         }
         #big_box{
+            position: absolute;
+            z-index: 1000;
             width:450px;
             min-height: 10%;
-            border-radius: 2px;
-            display: none
+            border-radius: 1px;
+            display: none;
+            background-color: white;
+            border-left: 1px solid #e6e6e6;
+            border-right: 1px solid #e6e6e6;
+            border-bottom: 1px solid #e6e6e6;
         }
     </style>
 </head>
@@ -79,9 +84,9 @@
                     <div  class="layui-form-item box">
                         <label class="layui-form-label">会议部门：</label>
                         <div class="layui-input-block tagsinput-primary" style="width: 450px">
-                            <input name="tagsinput" id="tagsinputval" class="layui-input" data-role="tagsinput" readonly="true"/>
+                            <input name="tagsinput" id="tagsinputval" class=" layui-input" data-role="tagsinput" readonly="true"/>
                         </div>
-                        <div style="margin-left: 110px;" id="meeting_box">
+                        <div style="margin-left: 110px;margin-top: -15px;" id="meeting_box">
                             <div id="big_box">
                             </div>
                         </div>
