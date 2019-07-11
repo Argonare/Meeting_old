@@ -7,6 +7,24 @@ public class Department {
 
     private Boolean deleteFlag;
 
+    public Department() {
+    }
+
+    public Department(Integer id, String name, Boolean deleteFlag) {
+        this.id = id;
+        this.name = name;
+        this.deleteFlag = deleteFlag;
+    }
+
+    @Override
+    public String toString() {
+        return "Department{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", deleteFlag=" + deleteFlag +
+                '}';
+    }
+
     public Integer getId() {
         return id;
     }

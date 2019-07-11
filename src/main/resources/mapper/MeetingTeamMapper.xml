@@ -208,7 +208,6 @@
       delete_flag = #{deleteFlag,jdbcType=BIT}
     where id = #{id,jdbcType=INTEGER}
   </update>
-
   <select id="selectTeamReturn" resultType="com.meeting.bean.MeetingTeamReturn">
     SELECT meeting_team.`id`,meeting_team.`username`,meeting_team.`name`
     FROM meeting_team

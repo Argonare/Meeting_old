@@ -1,15 +1,17 @@
 package com.meeting.service;
 
 
-import com.meeting.bean.UserInfo;
-import com.meeting.bean.UserInfoExample;
-import com.meeting.bean.UserInfoReturn;
+import com.meeting.bean.*;
+import com.meeting.dao.DepartmentMapper;
 import com.meeting.dao.UserInfoMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class UserInfoService {
@@ -17,12 +19,14 @@ public class UserInfoService {
     UserInfoMapper userInfoMapper;
 
     @Autowired
-    UserInfoService userInfoService;
+    DepartmentMapper departmentMapper;
+
     public boolean checkUser(String userid, String password) {
         UserInfoExample userInfoExample = new UserInfoExample();
         UserInfoExample.Criteria  criteria = userInfoExample.createCriteria();
         criteria.andUsernameEqualTo(userid);
         criteria.andPasswordEqualTo(password);
+        criteria.andDeleteFlagEqualTo(false);
         if(userInfoMapper.countByExample(userInfoExample) == 1){
             return true;
         }else{
@@ -114,5 +118,48 @@ public class UserInfoService {
     }
     public UserInfo selectUser(Integer id) {
         return userInfoMapper.selectByPrimaryKey(id);
+    }
+
+    public List<UserInfoReturn> findUserInfoReturnByUsernames(String[] usernames) {
+        List<UserInfoReturn> userInfoReturns = new ArrayList<UserInfoReturn>();
+        UserInfoReturn userInfoReturn = new UserInfoReturn();
+        if(usernames == null){
+            return userInfoReturns;
+        }
+        for(String usernmae : usernames){
+            List<UserInfoReturn> temp = userInfoMapper.findAllByExample(usernmae,"","");
+            if(temp.size() != 0){
+                System.out.println(temp.get(0));
+                userInfoReturns.add(temp.get(0));
+            }
+        }
+        return userInfoReturns;
+    }
+
+    public List<UserInfoReturn> findUserInfoReturnByUsernamesInMeetingTeam(String[] usernames) {
+        //根据usernames查询用户的详细信息
+        UserInfoExample example = new UserInfoExample();
+        UserInfoExample.Criteria criteria = example.createCriteria();
+        List<Integer> username_integer = new ArrayList<>();
+        for(int i=0 ;i<usernames.length ;i++){
+            username_integer.add(Integer.valueOf(usernames[i]));
+        }
+        criteria.andIdIn(username_integer);
+        criteria.andDeleteFlagEqualTo(false);
+        List<UserInfo> userInfoList = userInfoMapper.selectByExample(example);
+        //查询所有部门,并做成一个map表
+        DepartmentExample departmentExample = new DepartmentExample();
+        DepartmentExample.Criteria departmentCriteria = departmentExample.createCriteria();
+        departmentCriteria.andDeleteFlagEqualTo(false);
+        List<Department> departmentList = departmentMapper.selectByExample(departmentExample);
+        Map<Integer,String> deptMap = new HashMap<>();
+        for (Department d:departmentList)
+            deptMap.put(d.getId(),d.getName());
+        //根据map表处理查询到的用户详细信息
+        List<UserInfoReturn> userInfoReturnList = new ArrayList<>();
+        for (UserInfo u:userInfoList){
+            userInfoReturnList.add(new UserInfoReturn(u.getId(),u.getUsername(),u.getName(),null,null,deptMap.get(u.getDepartId())));
+        }
+        return userInfoReturnList;
     }
 }

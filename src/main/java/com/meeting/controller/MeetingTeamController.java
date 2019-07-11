@@ -1,13 +1,18 @@
 package com.meeting.controller;
 
+
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.meeting.bean.*;
+import com.meeting.bean.MeetingTeam;
+import com.meeting.bean.Msg;
+import com.meeting.bean.UserInfoReturn;
 import com.meeting.service.MeetingTeamService;
 import com.meeting.service.UserInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -114,5 +119,6 @@ public class MeetingTeamController {
 //        }
 //        return Msg.success().add("userInfoReturnRight",userInfoReturnRight);
 //    }
+
 
 }

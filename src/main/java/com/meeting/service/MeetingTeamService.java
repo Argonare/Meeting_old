@@ -45,5 +45,6 @@ public class MeetingTeamService {
         criteria.andDeleteFlagEqualTo(false);
         long count = meetingTeamMapper.countByExample(meetingTeamExample);
         return count==0;
+
     }
 }
