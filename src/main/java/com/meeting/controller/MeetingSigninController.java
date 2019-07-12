@@ -17,7 +17,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/meetingSignin")
-public class MeetingSgninController {
+public class MeetingSigninController {
     @Autowired
     MeetingSigninService meetingSigninService;
     @Autowired
