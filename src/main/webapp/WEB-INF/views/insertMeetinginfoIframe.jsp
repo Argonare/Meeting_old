@@ -161,7 +161,7 @@
                     <div style="float:left;margin-left: 10px"><input id="nameIpt" class="layui-input" type="text" autocomplete="off" style="width: 120px;height: 38px" placeholder="姓名"></div>
                     <div style="float: left;margin-left: 10px">
                         <form class="layui-form" action="" style="width: 150px">
-                            <select lay-verify="required" id="dept_select1">
+                            <select lay-filter="dept_select1" id="dept_select1">
                                 <option value=""></option>
                             </select>
                         </form>
@@ -380,7 +380,7 @@
         });
 
         //会议小组下拉框选择后出发事件
-        form.on('select(meetingTeamSelect)',function (data) {
+        form.on('select(meetingTeamSelect)',function (data) {//select内用的是lay-filter的值
             // console.log(data.value);
             if(data.value == -1)return false;//当选中初始选项时无反应
             $.ajax({
@@ -507,11 +507,22 @@
             }
         };
 
-        $('#searchBtn').on('click', function(){
-            var type = $(this).data('type');
+
+        $("#usernameIpt,#nameIpt").blur(function () {
+            type='reload';
+            active[type] ? active[type].call(this) : '';
+        })
+
+        form.on('select(dept_select1)',function (data) {//select内用的是lay-filter的值
             type='reload';
             active[type] ? active[type].call(this) : '';
         });
+
+        // $('#searchBtn').on('click', function(){
+        //     var type = $(this).data('type');
+        //     type='reload';
+        //     active[type] ? active[type].call(this) : '';
+        // });
 
         $('#selectAddBtn').on('click', function(){
             var leftTableData = layui.table.cache.leftTable;//获取左表数据
@@ -542,6 +553,7 @@
             table.reload("leftTable", {
                 data : leftTableData
             })
+
 
             table.reload("rightTable", {
                 data : rightTableData
