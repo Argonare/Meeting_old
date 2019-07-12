@@ -523,6 +523,7 @@
                 data : leftTableData
             })
 
+
             table.reload("rightTable", {
                 data : rightTableData
             })
