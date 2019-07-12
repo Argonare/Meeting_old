@@ -27,4 +27,7 @@ public class MeetingInfoService {
     public List<Integer> selectMeetingInfoSelected(int meetingId) {
         return meetingInfoMapper.selectMeetingInfoSelected(meetingId);
     }
+    public Long selectMeetingInfo(MeetingInfo meetingInfo) {
+        return meetingInfoMapper.selectMeetingInfo(meetingInfo);
+    }
 }

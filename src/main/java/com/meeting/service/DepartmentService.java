@@ -61,6 +61,12 @@ public class DepartmentService {
     public Department selectByPrimaryKey(Integer id) {
         return departmentMapper.selectByPrimaryKey(id);
     }
+    public Integer getDepartId(String deptName){
+        DepartmentExample departmentExample = new DepartmentExample();
+        DepartmentExample.Criteria criteria = departmentExample.createCriteria();
+        criteria.andNameEqualTo(deptName);
+        return departmentMapper.selectByExample(departmentExample).get(0).getId();
+    }
 }
 
 

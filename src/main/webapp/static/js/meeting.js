@@ -672,7 +672,7 @@ function meetinginfo_table(){
                                         roomId:meetingAddressId,
                                         startTime:date1,
                                         endTime:date2,
-                                        qcode_refresh:qcode_refresh,
+                                        refreshQcode:qcode_refresh,
                                         type:tp
                                     }
                                     ,success(res){

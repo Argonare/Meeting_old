@@ -347,8 +347,8 @@
         // 以二进制方式打开文件
         fileReader.readAsBinaryString(files[0]);
     });
-    var tp="";
-    var qcode="";
+    var tp="1";
+    var qcode="1";
     function getType(){
         return tp;
     }
@@ -364,14 +364,10 @@
         var layer = layui.layer;
 
         form.on('radio(meeting)',function(data){
-            alert(data)
             tp=data.value;
-            console.log(data)
         });
         form.on('radio(qcode)',function(data){
-            alert(data)
             qcode=data.value;
-            console.log(data)
         });
         //日期
         laydate.render({
