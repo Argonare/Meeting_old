@@ -49,12 +49,12 @@ public class MvcTest {
         System.out.println(new Date().getTime());
     }
 
-    @Test
-    public void getMyMeetingTeamsByUsername(){
-//        List<MeetingTeam> myMeetingTeamsByUsername = meetingTeamMapper.getMyMeetingTeamsByUsername("1");
-//        System.out.println(myMeetingTeamsByUsername);
-        System.out.println(meetingTeamMapper.getMyMeetingTeamsNameByUsername("1").toString());
-    }
+//    @Test
+//    public void getMyMeetingTeamsByUsername(){
+////        List<MeetingTeam> myMeetingTeamsByUsername = meetingTeamMapper.getMyMeetingTeamsByUsername("1");
+////        System.out.println(myMeetingTeamsByUsername);
+//        System.out.println(meetingTeamMapper.getMyMeetingTeamsNameByUsername("1").toString());
+//    }
 
     @Test
     public void getUserInfosByTeamId() throws Exception {
