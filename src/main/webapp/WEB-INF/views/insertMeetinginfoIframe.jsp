@@ -140,8 +140,8 @@
                     <div class="layui-form-item">
                         <label class="layui-form-label">刷新二维码：</label>
                         <div class="layui-input-block" id="QcodeTypeSelect">
-                            <input type="radio"  name="qcode" lay-filter="qcode" value="1" title="是" checked="">
-                            <input type="radio"  name="qcode" lay-filter="qcode" value="2" title="否">
+                            <input type="radio"  name="qcode" lay-filter="qcode" value="0" title="是" checked="">
+                            <input type="radio"  name="qcode" lay-filter="qcode" value="1" title="否">
                         </div>
                     </div>
                     <div class="layui-form-item">

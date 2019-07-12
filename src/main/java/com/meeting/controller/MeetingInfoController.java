@@ -153,8 +153,6 @@ public class MeetingInfoController {
     @ResponseBody
     @RequestMapping(value = "/insertMeetingInfo")
     public Msg insertMeetingInfo(HttpServletRequest request, HttpSession session,MeetingInfo meetingInfo,String departName){
-        System.out.println(meetingInfo);
-        System.out.println(departName);
         String deptIds="";
         for (String dep:departName.split(",")) {
             deptIds+=departmentService.getDepartId(dep).toString()+',';
@@ -167,6 +165,7 @@ public class MeetingInfoController {
         String[] ids = request.getParameterValues("ids[]");
         MeetingSignin meetingSignin = new MeetingSignin();
         int meeting_id = Integer.parseInt(meetingInfoService.selectMeetingInfo(meetingInfo).toString());
+        System.out.println(meetingSignin);
         meetingSignin.setMeetingId(meeting_id);
         meetingSignin.setSigninFlag(false);
         meetingSignin.setLeaveFlag(false);
