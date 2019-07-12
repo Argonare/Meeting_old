@@ -34,6 +34,6 @@ public interface MeetingTeamMapper {
 
     String selectMeetingTeamids(Integer teamId);
 
-
+    List<MeetingTeam> getMyMeetingTeamsNameByUsername(String username);
 }
 
