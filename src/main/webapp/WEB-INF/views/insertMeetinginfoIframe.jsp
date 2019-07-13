@@ -169,10 +169,10 @@
                             </select>
                         </form>
                     </div>
-                    <div style="float: left">
-                        <div class="layui-btn layui-inline" id="searchBtn" style="margin-left: 15px;">搜索</div>
-                        <%--<button class="layui-btn layui-inline" id="searchBtn" style="margin-left: 15px;">搜索</button>--%>
-                    </div>
+                    <%--<div style="float: left">--%>
+                        <%--<div class="layui-btn layui-inline" id="searchBtn" style="margin-left: 15px;">搜索</div>--%>
+                        <%--&lt;%&ndash;<button class="layui-btn layui-inline" id="searchBtn" style="margin-left: 15px;">搜索</button>&ndash;%&gt;--%>
+                    <%--</div>--%>
                 </div>
                 <table id="leftTable" lay-filter="leftTable"></table>
             </div>
