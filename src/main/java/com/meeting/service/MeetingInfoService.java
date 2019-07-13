@@ -30,4 +30,11 @@ public class MeetingInfoService {
     public Long selectMeetingInfo(MeetingInfo meetingInfo) {
         return meetingInfoMapper.selectMeetingInfo(meetingInfo);
     }
+    public long insertMeetingInfo(MeetingInfo meetingInfo) {
+        return meetingInfoMapper.insert(meetingInfo);
+    }
+    public MeetingInfo selectMeetingInfoById(Integer id) {
+        return meetingInfoMapper.selectByPrimaryKey(id);
+    }
+
 }

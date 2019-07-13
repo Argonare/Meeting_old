@@ -1,7 +1,11 @@
 package com.meeting.test;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import com.meeting.bean.MeetingInfo;
 import com.meeting.bean.MeetingTeam;
 import com.meeting.bean.UserInfoReturn;
+import com.meeting.dao.MeetingInfoMapper;
 import com.meeting.dao.MeetingTeamMapper;
 import com.meeting.dao.UserInfoMapper;
 import org.junit.Before;
@@ -35,7 +39,8 @@ public class MvcTest {
     @Autowired
     UserInfoMapper userInfoMapper;
 
-
+    @Autowired
+    MeetingInfoMapper meetingInfoMapper;
     //虚拟mvc请求，获取到处理结果
     MockMvc mockMvc;
 
@@ -47,6 +52,16 @@ public class MvcTest {
     @Test
     public void getDateGetTime(){
         System.out.println(new Date().getTime());
+    }
+
+    @Test
+    public void test1(){
+
+        List<MeetingInfo> allMeetingInfo = meetingInfoMapper.findAllMeetingInfo();
+        System.out.println(allMeetingInfo.size());
+        PageHelper.startPage(2,15);
+        PageInfo page = new PageInfo(allMeetingInfo,1);
+        System.out.println(page.getList().size());
     }
 
 //    @Test

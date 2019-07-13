@@ -7,6 +7,9 @@ public class MeetingInfoRetrun {
     private Long endTime;
     private String deptName;//部门名称
     private String address;//会议地点
+    private boolean qcode;
+    private int meetingType;
+    private int lateTime;
 
     @Override
     public String toString() {
@@ -17,6 +20,9 @@ public class MeetingInfoRetrun {
                 ", endTime=" + endTime +
                 ", deptName='" + deptName + '\'' +
                 ", address='" + address + '\'' +
+                ", qcode=" + qcode +
+                ", meetingType=" + meetingType +
+                ", lateTime=" + lateTime +
                 '}';
     }
 
@@ -66,5 +72,29 @@ public class MeetingInfoRetrun {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public boolean isQcode() {
+        return qcode;
+    }
+
+    public void setQcode(boolean qcode) {
+        this.qcode = qcode;
+    }
+
+    public int getMeetingType() {
+        return meetingType;
+    }
+
+    public void setMeetingType(int meetingType) {
+        this.meetingType = meetingType;
+    }
+
+    public int getLateTime() {
+        return lateTime;
+    }
+
+    public void setLateTime(int lateTime) {
+        this.lateTime = lateTime;
     }
 }

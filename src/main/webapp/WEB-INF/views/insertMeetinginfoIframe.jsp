@@ -62,6 +62,9 @@
             border-right: 1px solid #e6e6e6;
             border-bottom: 1px solid #e6e6e6;
         }
+        .layui-form-label {
+            padding: 9px 8px;
+        }
     </style>
 </head>
 <body>
@@ -78,6 +81,13 @@
                         <label class="layui-form-label">会议名称：</label>
                         <div class="layui-input-block">
                             <input id="meetingName" type="text" name="title" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input" style="width: 450px">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">会议模式：</label>
+                        <div class="layui-input-block" id="meetingTypeSelect">
+                            <input type="radio" name="team" lay-filter="meeting" value="1" title="普通会议" checked="">
+                            <input type="radio" name="team" lay-filter="meeting" value="2" title="讲座形式会议">
                         </div>
                     </div>
                     <div  class="layui-form-item box">
@@ -123,11 +133,10 @@
                     <div class="layui-form-item">
                         <label class="layui-form-label">迟到时间：</label>
                         <div class="layui-input-block">
-                            <select name="modules" lay-verify="required" lay-search="">
+                            <select name="modules" lay-filter="meetingLate" lay-search="">
                                 <option value="1">会议开始时</option>
                                 <option value="2">会议开始后5分钟</option>
                                 <option value="3">会议开始后10分钟</option>
-                                <option value="4">会议开始前10分钟</option>
                             </select>
                         </div>
                     </div>
@@ -144,13 +153,7 @@
                             <input type="radio"  name="qcode" lay-filter="qcode" value="1" title="否">
                         </div>
                     </div>
-                    <div class="layui-form-item">
-                        <label class="layui-form-label">会议模式：</label>
-                        <div class="layui-input-block" id="meetingTypeSelect">
-                            <input type="radio" name="team" lay-filter="meeting" value="1" title="普通会议" checked="">
-                            <input type="radio" name="team" lay-filter="meeting" value="2" title="讲座形式会议">
-                        </div>
-                    </div>
+
                 </form>
             </div>
         </div>
@@ -347,13 +350,21 @@
         // 以二进制方式打开文件
         fileReader.readAsBinaryString(files[0]);
     });
-    var tp="1";
-    var qcode="1";
+    var tp="0";
+    var qcode="0";
+    var latetime="1";
     function getType(){
         return tp;
     }
     function getQcode(){
         return qcode;
+    }
+    function getLateTime(){
+        if (latetime=='1')
+            return 0;
+        else if(latetime=='2')
+            return 5;
+        else return 10;
     }
     layui.use(['form','element','laydate','table','layer','transfer'], function(){
         var element = layui.element;
@@ -362,6 +373,10 @@
         var table = layui.table;
         var transfer = layui.transfer;
         var layer = layui.layer;
+
+        form.on('select(meetingLate)',function (data) {
+            latetime=data.value;
+        })
 
         form.on('radio(meeting)',function(data){
             tp=data.value;
