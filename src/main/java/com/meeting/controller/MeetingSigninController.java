@@ -1,16 +1,19 @@
 package com.meeting.controller;
 
-import com.meeting.bean.MeetingSignin;
-import com.meeting.bean.Msg;
-import com.meeting.bean.UserInfo;
-import com.meeting.bean.UserSignInInfo;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+import com.meeting.bean.*;
+import com.meeting.service.MeetingInfoService;
 import com.meeting.service.MeetingSigninService;
 import com.meeting.service.UserInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +25,8 @@ public class MeetingSigninController {
     MeetingSigninService meetingSigninService;
     @Autowired
     UserInfoService userInfoService;
+    @Autowired
+    MeetingInfoService meetingInfoService;
     @ResponseBody
     @RequestMapping(value = "/findMeetingSignInfo")
     public Msg findMeetingSignInfo(int meetingId) throws UnsupportedEncodingException {
@@ -50,5 +55,70 @@ public class MeetingSigninController {
             list.add(userSignInInfo);
         }
         return Msg.success().add("signinInfo",list);
+    }
+    @ResponseBody
+    @RequestMapping(value = "/updateMeetingSigninByMySelf",method = RequestMethod.POST)
+    public Msg updateMeetingSigninByMySelf(MeetingSignin meetingSignin){
+        MeetingSigninExample example = new MeetingSigninExample();
+        MeetingSigninExample.Criteria criteria = example.createCriteria();
+        criteria.andUserIdEqualTo(meetingSignin.getUserId());
+        criteria.andMeetingIdEqualTo(meetingSignin.getMeetingId());
+        MeetingInfo meetingSigninCheck = meetingInfoService.selectMeetingInfoById(meetingSignin.getMeetingId());
+        Long checkTime=meetingSignin.getSigninTime()-meetingSigninCheck.getStartTime();
+        if (checkTime<150000){
+            if (meetingSigninService.updateMeetingSignin(meetingSignin, example))
+                return Msg.success().add("msg", "success");
+            else
+                return Msg.fail().add("msg", "服务器异常");
+        }else if(meetingSigninCheck.getEndTime()-meetingSignin.getSigninTime()>0){
+            meetingSignin.setLateFlag(true);
+            if (meetingSigninService.updateMeetingSignin(meetingSignin, example))
+                return Msg.success().add("msg", "success");
+            else
+                return Msg.fail().add("msg", "服务器异常");
+        }else{
+            return Msg.fail().add("msg", "非法请求");
+        }
+    }
+    @ResponseBody
+    @RequestMapping(value = "/updateSignByUserAndMeeting")
+    public Msg updateSignByUserAndMeeting(HttpServletRequest request) {
+        String strjson=request.getParameter("ids");
+        JSONArray json= JSON.parseArray(strjson);
+        int flag=0;
+        for(int i=0;i<json.size();i++){
+            MeetingSigninExample example = new MeetingSigninExample();
+            MeetingSigninExample.Criteria criteria = example.createCriteria();
+            JSONObject jsonObject=json.getJSONObject(i);
+            int userId=Integer.parseInt(jsonObject.getString("userId"));
+            int meetingid=Integer.parseInt(jsonObject.getString("meetingid"));
+            String sign_status=jsonObject.getString("status").toString();
+            MeetingSignin meetingSignin=new MeetingSignin();
+            if (sign_status.equals("signin")){
+                meetingSignin.setSigninFlag(true);
+                meetingSignin.setLateFlag(false);
+                meetingSignin.setLeaveFlag(false);
+            }else if(sign_status.equals("notsignin")){
+                meetingSignin.setSigninFlag(false);
+                meetingSignin.setLateFlag(false);
+                meetingSignin.setLeaveFlag(false);
+            }else if(sign_status.equals("late")){
+                meetingSignin.setSigninFlag(true);
+                meetingSignin.setLateFlag(true);
+                meetingSignin.setLeaveFlag(false);
+            }
+            else if(sign_status.equals("leave")){
+                meetingSignin.setSigninFlag(false);
+                meetingSignin.setLateFlag(false);
+                meetingSignin.setLeaveFlag(true);
+            }
+            meetingSignin.setMeetingId(meetingid);
+            meetingSignin.setUserId(userId);
+            criteria.andUserIdEqualTo(meetingSignin.getUserId());
+            criteria.andMeetingIdEqualTo(meetingSignin.getMeetingId());
+            if (!meetingSigninService.updateMeetingSignin(meetingSignin, example))
+                flag=1;
+        }
+        return flag==0?Msg.success():Msg.fail();
     }
 }
