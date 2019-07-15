@@ -158,7 +158,7 @@ public class MeetingRoomController {
     @ResponseBody
     @RequestMapping(value = "/getPrcode",method = RequestMethod.GET)
     public Msg getPrcode(HttpServletRequest request){
-        return Msg.success().add("url", request.getLocalAddr()+":"+request.getLocalPort()+"/qrcode_success");//传入目标网址的url
+        return Msg.success().add("url", request.getLocalAddr()+":"+request.getLocalPort()+"/jumpPage/qrcode_success");//传入目标网址的url
     }
 
     @ResponseBody

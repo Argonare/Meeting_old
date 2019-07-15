@@ -52,7 +52,17 @@
     }
 $(document).ready(function () {
     get_img();
-    timer = setInterval(get_img,60000);
+    $.ajax({
+        url:"${APP_PATH}/meetingInfo/getQcodeType",
+        type:"GET",
+        data:{"meetingId":get_meeting_id()},
+        success:function (result) {
+            if (result.extend.type==1) {
+                timer = setInterval(get_img,60000);
+            }
+        }
+    })
+
     function get_img(){
         $.ajax({
             url:"${APP_PATH}/meetingRoom/getPrcode",

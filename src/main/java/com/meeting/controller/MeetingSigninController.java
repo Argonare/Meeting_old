@@ -4,9 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.meeting.bean.*;
-import com.meeting.service.MeetingInfoService;
-import com.meeting.service.MeetingSigninService;
-import com.meeting.service.UserInfoService;
+import com.meeting.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,7 +25,10 @@ public class MeetingSigninController {
     UserInfoService userInfoService;
     @Autowired
     MeetingInfoService meetingInfoService;
-    @ResponseBody
+    @Autowired
+    MeetingRoomService meetingRoomService;
+    @Autowired
+    DepartmentService departmentService;
     @RequestMapping(value = "/findMeetingSignInfo")
     public Msg findMeetingSignInfo(int meetingId) throws UnsupportedEncodingException {
         List<UserSignInInfo> list=new ArrayList<UserSignInInfo>();
@@ -64,8 +65,9 @@ public class MeetingSigninController {
         criteria.andUserIdEqualTo(meetingSignin.getUserId());
         criteria.andMeetingIdEqualTo(meetingSignin.getMeetingId());
         MeetingInfo meetingSigninCheck = meetingInfoService.selectMeetingInfoById(meetingSignin.getMeetingId());
+
         Long checkTime=meetingSignin.getSigninTime()-meetingSigninCheck.getStartTime();
-        if (checkTime<150000){
+        if (checkTime<meetingSigninCheck.getLateTime()*6000+150000){
             if (meetingSigninService.updateMeetingSignin(meetingSignin, example))
                 return Msg.success().add("msg", "success");
             else
@@ -120,5 +122,26 @@ public class MeetingSigninController {
                 flag=1;
         }
         return flag==0?Msg.success():Msg.fail();
+    }
+    @ResponseBody
+    @RequestMapping(value = "/selectMeetingByUsername.do")
+    public Msg selectMeetingByUsername(Integer userId){
+        List<UserMeetingInfo> meetInfo=new ArrayList<UserMeetingInfo>();
+        List<MeetingSignin>meetingSignin = meetingSigninService.selectMeetingSigninByUsername(userId);
+        for (MeetingSignin lis:meetingSignin){
+            UserMeetingInfo userMeetingInfo=new UserMeetingInfo();
+            MeetingInfo meetingInfo=meetingInfoService.selectMeetingInfoById(lis.getMeetingId());
+            MeetingRoom meetingRoom=meetingRoomService.selectMeetingRoom(meetingInfo.getRoomId());
+            String deptName="";
+            for (String id:meetingInfo.getDepartIds().split(",")) {
+                deptName+=departmentService.selectDepartment(Integer.parseInt(id))+",";
+            }
+            userMeetingInfo.setRoom(meetingRoom.getAddress());
+            userMeetingInfo.setStartTime(meetingInfo.getStartTime());
+            userMeetingInfo.setMeetingName(meetingInfo.getName());
+            userMeetingInfo.setDepartment(deptName.substring(0,deptName.length()-1));
+            meetInfo.add(userMeetingInfo);
+        }
+        return Msg.success().add("meetInfo",meetInfo);
     }
 }
