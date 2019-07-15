@@ -32,6 +32,17 @@ public class MeetingInfoController {
     MeetingSigninService meetingSigninService;
 
     @ResponseBody
+    @RequestMapping("/wx_newMeeting")
+    public Msg wx_newmeeting(HttpServletRequest request){
+        String username = request.getParameter("username");
+        String type = request.getParameter("type");
+
+        List<wxMeetingInfo> wxMeetingInfos = meetingInfoService.getAfterTimeMeetingInfoByUser(username,type);
+        System.out.println(wxMeetingInfos.toString());
+        return Msg.success().add("wxMeetingInfo",wxMeetingInfos).add("count",wxMeetingInfos.size());
+    }
+
+    @ResponseBody
     @RequestMapping(value = "/findAllMeetingInfo",method = RequestMethod.GET)
     public Msg MeetingInfo(@RequestParam(value="page",defaultValue="1")Integer pn){
         PageHelper.startPage(pn,15);

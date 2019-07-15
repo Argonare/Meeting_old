@@ -7,159 +7,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d5316ccd-bfac-4735-b49f-0fc70ae88bb6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/meeting/bean/wxMeetingInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/meeting/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/meeting/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/meeting/dao/UserInfoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/meeting/dao/UserInfoMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/meeting/service/UserInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/meeting/service/UserInfoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/meeting/bean/Msg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/meeting/bean/Msg.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/meeting/controller/MeetingInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/meeting/controller/MeetingInfoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/meeting/dao/MeetingInfoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/meeting/dao/MeetingInfoMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/meeting/dao/MeetingSigninMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/meeting/dao/MeetingSigninMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/meeting/service/MeetingInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/meeting/service/MeetingInfoService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/meeting/test/MvcTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/meeting/test/MvcTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/UserInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/UserInfoMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/insertUserinfoIframe.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/insertUserinfoIframe.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/newhoutai.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/newhoutai.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/updateUserinfoIframe.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/updateUserinfoIframe.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/js/meeting.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/meeting.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/Department.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/Department.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/DepartmentExample$Criteria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/DepartmentExample$Criteria.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/DepartmentExample$Criterion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/DepartmentExample$Criterion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/DepartmentExample$GeneratedCriteria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/DepartmentExample$GeneratedCriteria.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/DepartmentExample.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/DepartmentExample.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/DepartmentReturn.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/DepartmentReturn.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/LogTable.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/LogTable.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/LogTableExample$Criteria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/LogTableExample$Criteria.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/LogTableExample$Criterion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/LogTableExample$Criterion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/LogTableExample$GeneratedCriteria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/LogTableExample$GeneratedCriteria.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/LogTableExample.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/LogTableExample.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingInfo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingInfoExample$Criteria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingInfoExample$Criteria.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingInfoExample$Criterion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingInfoExample$Criterion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingInfoExample$GeneratedCriteria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingInfoExample$GeneratedCriteria.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingInfoExample.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingInfoExample.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingInfoRetrun.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingInfoRetrun.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingRoom.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingRoom.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingRoomExample$Criteria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingRoomExample$Criteria.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingRoomExample$Criterion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingRoomExample$Criterion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingRoomExample$GeneratedCriteria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingRoomExample$GeneratedCriteria.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingRoomExample.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingRoomExample.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingRoomReturn.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingRoomReturn.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingSignin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingSignin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingSigninExample$Criteria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingSigninExample$Criteria.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingSigninExample$Criterion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingSigninExample$Criterion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingSigninExample$GeneratedCriteria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingSigninExample$GeneratedCriteria.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingSigninExample.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingSigninExample.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingTeam.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingTeam.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingTeamExample$Criteria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingTeamExample$Criteria.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingTeamExample$Criterion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingTeamExample$Criterion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingTeamExample$GeneratedCriteria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingTeamExample$GeneratedCriteria.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingTeamExample.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingTeamExample.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingTeamReturn.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/MeetingTeamReturn.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/Msg.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/Msg.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/UserInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/UserInfo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/UserInfoExample$Criteria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/UserInfoExample$Criteria.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/UserInfoExample$Criterion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/UserInfoExample$Criterion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/UserInfoExample$GeneratedCriteria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/UserInfoExample$GeneratedCriteria.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/UserInfoExample.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/UserInfoExample.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/UserInfoReturn.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/UserInfoReturn.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/UserSignInInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/bean/UserSignInInfo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/controller/DepartmentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/controller/DepartmentController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/controller/JumpPageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/controller/JumpPageController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/controller/LogTableController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/controller/LogTableController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/controller/MeetingInfoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/controller/MeetingInfoController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/controller/MeetingRoomController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/controller/MeetingRoomController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/controller/MeetingSigninController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/controller/MeetingSigninController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/controller/MeetingTeamController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/controller/MeetingTeamController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/dao/DepartmentMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/dao/DepartmentMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/dao/LogTableMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/dao/LogTableMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/dao/MeetingInfoMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/dao/MeetingInfoMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/dao/MeetingRoomMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/dao/MeetingRoomMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/dao/MeetingSigninMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/dao/MeetingSigninMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/dao/MeetingTeamMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/dao/MeetingTeamMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/dao/UserInfoMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/dao/UserInfoMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/service/DepartmentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/service/DepartmentService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/service/LogTableService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/service/LogTableService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/service/MeetingInfoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/service/MeetingInfoService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/service/MeetingRoomService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/service/MeetingRoomService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/service/MeetingSigninService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/service/MeetingSigninService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/service/MeetingTeamService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/service/MeetingTeamService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/service/UserInfoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/service/UserInfoService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/test/MBGTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/test/MBGTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/test/MvcTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/test/MvcTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/utils/getGuestUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/utils/getGuestUser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/utils/login_filter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/com/meeting/utils/login_filter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/dbconfig.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/dbconfig.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/mapper/UserInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/classes/mapper/UserInfoMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/views/insertMeetinginfoIframe.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/views/insertMeetinginfoIframe.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Meeting/WEB-INF/views/newhoutai.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/Meeting/WEB-INF/views/newhoutai.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/Department.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/bean/Department.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/DepartmentExample$Criteria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/bean/DepartmentExample$Criteria.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/DepartmentExample$Criterion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/bean/DepartmentExample$Criterion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/DepartmentExample$GeneratedCriteria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/bean/DepartmentExample$GeneratedCriteria.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/DepartmentExample.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/bean/DepartmentExample.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/DepartmentReturn.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/bean/DepartmentReturn.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/LogTable.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/bean/LogTable.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/LogTableExample$Criteria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/bean/LogTableExample$Criteria.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/LogTableExample$Criterion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/bean/LogTableExample$Criterion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/LogTableExample$GeneratedCriteria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/bean/LogTableExample$GeneratedCriteria.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/LogTableExample.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/bean/LogTableExample.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingInfo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingInfoExample$Criteria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingInfoExample$Criteria.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingInfoExample$Criterion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingInfoExample$Criterion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingInfoExample$GeneratedCriteria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingInfoExample$GeneratedCriteria.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingInfoExample.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingInfoExample.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingInfoRetrun.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingInfoRetrun.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingRoom.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingRoom.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingRoomExample$Criteria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingRoomExample$Criteria.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingRoomExample$Criterion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingRoomExample$Criterion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingRoomExample$GeneratedCriteria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingRoomExample$GeneratedCriteria.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingRoomExample.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingRoomExample.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingRoomReturn.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingRoomReturn.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingSignin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingSignin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingSigninExample$Criteria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingSigninExample$Criteria.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingSigninExample$Criterion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingSigninExample$Criterion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingSigninExample$GeneratedCriteria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingSigninExample$GeneratedCriteria.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingSigninExample.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingSigninExample.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingTeam.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingTeam.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingTeamExample$Criteria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingTeamExample$Criteria.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingTeamExample$Criterion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingTeamExample$Criterion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingTeamExample$GeneratedCriteria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingTeamExample$GeneratedCriteria.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingTeamExample.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingTeamExample.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingTeamReturn.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/bean/MeetingTeamReturn.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/Msg.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/bean/Msg.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/UserInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/bean/UserInfo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/UserInfoExample$Criteria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/bean/UserInfoExample$Criteria.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/UserInfoExample$Criterion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/bean/UserInfoExample$Criterion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/UserInfoExample$GeneratedCriteria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/bean/UserInfoExample$GeneratedCriteria.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/UserInfoExample.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/bean/UserInfoExample.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/UserInfoReturn.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/bean/UserInfoReturn.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/bean/UserSignInInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/bean/UserSignInInfo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/controller/DepartmentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/controller/DepartmentController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/controller/JumpPageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/controller/JumpPageController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/controller/LogTableController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/controller/LogTableController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/controller/MeetingInfoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/controller/MeetingInfoController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/controller/MeetingRoomController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/controller/MeetingRoomController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/controller/MeetingSigninController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/controller/MeetingSigninController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/controller/MeetingTeamController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/controller/MeetingTeamController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/dao/DepartmentMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/dao/DepartmentMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/dao/LogTableMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/dao/LogTableMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/dao/MeetingInfoMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/dao/MeetingInfoMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/dao/MeetingRoomMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/dao/MeetingRoomMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/dao/MeetingSigninMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/dao/MeetingSigninMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/dao/MeetingTeamMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/dao/MeetingTeamMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/dao/UserInfoMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/dao/UserInfoMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/service/DepartmentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/service/DepartmentService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/service/LogTableService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/service/LogTableService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/service/MeetingInfoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/service/MeetingInfoService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/service/MeetingRoomService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/service/MeetingRoomService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/service/MeetingSigninService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/service/MeetingSigninService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/service/MeetingTeamService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/service/MeetingTeamService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/service/UserInfoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/service/UserInfoService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/test/MBGTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/test/MBGTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/test/MvcTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/utils/getGuestUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/utils/getGuestUser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/meeting/utils/login_filter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/meeting/utils/login_filter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dbconfig.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dbconfig.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/UserInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/UserInfoMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/MeetingInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/MeetingInfoMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/MeetingSigninMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/MeetingSigninMapper.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -190,20 +48,20 @@
     <session id="1940647305">
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="7" />
+          <entry key="java" value="22" />
           <entry key="js" value="1" />
-          <entry key="jsp" value="3" />
+          <entry key="jsp" value="4" />
           <entry key="properties" value="2" />
-          <entry key="xml" value="1" />
+          <entry key="xml" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="7" />
-          <entry key="JSP" value="3" />
+          <entry key="JAVA" value="22" />
+          <entry key="JSP" value="4" />
           <entry key="JavaScript" value="1" />
           <entry key="Properties" value="2" />
-          <entry key="XML" value="1" />
+          <entry key="XML" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.lifecycle.project">
@@ -215,102 +73,120 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="344" />
+          <entry key="java" value="2320" />
           <entry key="jsp" value="204" />
-          <entry key="xml" value="104" />
+          <entry key="txt" value="11" />
+          <entry key="xml" value="532" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="344" />
+          <entry key="JAVA" value="2320" />
           <entry key="JSP" value="204" />
-          <entry key="SQL" value="4" />
-          <entry key="XML" value="100" />
+          <entry key="PLAIN_TEXT" value="11" />
+          <entry key="SQL" value="19" />
+          <entry key="XML" value="513" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/controller/MeetingInfoController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1452">
-              <caret line="66" column="21" selection-start-line="66" selection-start-column="21" selection-end-line="66" selection-end-column="21" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/newhoutai.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="448">
-              <caret line="139" column="68" lean-forward="true" selection-start-line="139" selection-start-column="68" selection-end-line="139" selection-end-column="68" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/static/js/meeting.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="331">
-              <caret line="988" column="67" selection-start-line="988" selection-start-column="67" selection-end-line="988" selection-end-column="67" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/controller/UserController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="94" column="42" lean-forward="true" selection-start-line="94" selection-start-column="42" selection-end-line="94" selection-end-column="42" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/service/UserInfoService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="507">
-              <caret line="175" column="23" lean-forward="true" selection-start-line="175" selection-start-column="23" selection-end-line="175" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/dao/UserInfoMapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="463">
-              <caret line="48" column="1" lean-forward="true" selection-start-line="48" selection-start-column="1" selection-end-line="48" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/UserInfoMapper.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="485">
-              <caret line="323" column="35" selection-start-line="323" selection-start-column="14" selection-end-line="323" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/test/MvcTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="451">
-              <caret line="88" column="69" lean-forward="true" selection-start-line="88" selection-start-column="69" selection-end-line="88" selection-end-column="69" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.67033726">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/service/MeetingInfoService.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="322">
+                  <caret line="55" selection-start-line="55" selection-end-line="55" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                    <element signature="e#480#481#0" expanded="true" />
+                    <element signature="e#541#542#0" expanded="true" />
+                    <element signature="e#992#993#0" expanded="true" />
+                    <element signature="e#1063#1064#0" expanded="true" />
+                    <element signature="e#1124#1125#0" expanded="true" />
+                    <element signature="e#1184#1185#0" expanded="true" />
+                    <element signature="e#1243#1244#0" expanded="true" />
+                    <element signature="e#1306#1307#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/controller/MeetingInfoController.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="114">
+                  <caret line="39" column="107" selection-start-line="39" selection-start-column="107" selection-end-line="39" selection-end-column="107" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/dao/MeetingSigninMapper.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state>
+                  <caret column="24" lean-forward="true" selection-start-column="24" selection-end-column="24" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/MeetingSigninMapper.xml">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="362">
+                  <caret line="264" column="87" selection-start-line="264" selection-start-column="87" selection-end-line="264" selection-end-column="87" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/dao/MeetingInfoMapper.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state>
+                  <caret column="24" lean-forward="true" selection-start-column="24" selection-end-column="24" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/MeetingInfoMapper.xml">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="693">
+                  <caret line="348" column="11" selection-start-line="348" selection-start-column="11" selection-end-line="348" selection-end-column="11" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/test/MvcTest.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="516">
+                  <caret line="92" selection-start-line="92" selection-end-line="92" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/test/MvcTest.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="63">
+                  <caret line="94" column="36" lean-forward="true" selection-start-line="94" selection-start-column="36" selection-end-line="94" selection-end-column="36" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -321,9 +197,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>meetingid</find>
-      <find>select</find>
-      <find>add</find>
       <find>big</find>
       <find>updateMeetingInfoAndSignin</find>
       <find>?meeting</find>
@@ -351,6 +224,9 @@
       <find>che</find>
       <find>会议室</find>
       <find>部门</find>
+      <find>findAll</find>
+      <find>success</find>
+      <find>&gt;</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -360,13 +236,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/mbg.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/meeting/test/MapperTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/meeting/controller/LogTableController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/meeting/utils/SigninListemer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/meeting/service/LogTableService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/meeting/bean/Msg.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/index.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/meeting/dao/MeetingRoomMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/meeting/bean/MeetingRoomReturn.java" />
@@ -375,7 +249,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/meeting/controller/DepartmentController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/meeting/dao/DepartmentMapper.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/DepartmentMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/meeting/dao/MeetingSigninMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/meeting/bean/MeetingInfo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/meeting/service/MeetingRoomService.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/static/css/bootstrap/js/bootstrap-tagsinput.js" />
@@ -391,26 +264,29 @@
         <option value="$PROJECT_DIR$/src/main/java/com/meeting/service/MeetingTeamService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/meeting/dao/MeetingTeamMapper.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/MeetingTeamMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/meeting/dao/MeetingInfoMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/MeetingSigninMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/meeting/service/MeetingSigninService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/meeting/controller/MeetingSigninController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/insertMeetinginfoIframe.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/updateMeetinginfoIframe.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/meeting/bean/MeetingInfoRetrun.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/meeting/service/MeetingInfoService.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/MeetingInfoMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/meeting/controller/MeetingInfoController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/meeting/utils/login_filter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/meeting/dao/UserInfoMapper.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/UserInfoMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/meeting/test/MvcTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/meeting/service/UserInfoService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/meeting/controller/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/insertUserinfoIframe.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/updateUserinfoIframe.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/static/js/meeting.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/newhoutai.jsp" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/MeetingInfoMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/meeting/dao/MeetingInfoMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/meeting/dao/MeetingSigninMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/meeting/bean/Msg.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/meeting/bean/wxMeetingInfo.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/MeetingSigninMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/meeting/service/MeetingInfoService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/meeting/controller/MeetingInfoController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/meeting/test/MvcTest.java" />
       </list>
     </option>
   </component>
@@ -457,10 +333,10 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="515" />
-    <option name="y" value="11" />
-    <option name="width" value="1385" />
-    <option name="height" value="1095" />
+    <option name="x" value="568" />
+    <option name="y" value="281" />
+    <option name="width" value="1268" />
+    <option name="height" value="876" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -503,6 +379,15 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="meeting" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Meeting" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Meeting" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="meeting" type="462c0819:PsiDirectoryNode" />
+              <item name="bean" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Meeting" type="b2602c69:ProjectViewProjectNode" />
@@ -598,7 +483,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1563173491449" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1563191314740" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -648,6 +533,38 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MvcTest.getAfterCurrentTimeMeetingInfo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Meeting" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.meeting.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.meeting.test" />
+      <option name="MAIN_CLASS_NAME" value="com.meeting.test.MvcTest" />
+      <option name="METHOD_NAME" value="getAfterCurrentTimeMeetingInfo" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MvcTest.getMeetingIdsByUserId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Meeting" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.meeting.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.meeting.test" />
+      <option name="MAIN_CLASS_NAME" value="com.meeting.test.MvcTest" />
+      <option name="METHOD_NAME" value="getMeetingIdsByUserId" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -764,11 +681,15 @@
       <item itemvalue="Application.MBGTest" />
       <item itemvalue="JUnit.MvcTest.test1" />
       <item itemvalue="JUnit.MvcTest.getUserTypeByUsername" />
+      <item itemvalue="JUnit.MvcTest.getAfterCurrentTimeMeetingInfo" />
+      <item itemvalue="JUnit.MvcTest.getMeetingIdsByUserId" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.MvcTest.getUserTypeByUsername" />
+        <item itemvalue="JUnit.MvcTest.getAfterCurrentTimeMeetingInfo" />
         <item itemvalue="JUnit.MvcTest.test1" />
+        <item itemvalue="JUnit.MvcTest.getMeetingIdsByUserId" />
+        <item itemvalue="JUnit.MvcTest.getUserTypeByUsername" />
         <item itemvalue="Application.MBGTest" />
       </list>
     </recent_temporary>
@@ -789,7 +710,7 @@
       <workItem from="1562670950926" duration="18169000" />
       <workItem from="1562812984043" duration="34422000" />
       <workItem from="1562997989359" duration="4696000" />
-      <workItem from="1563168804397" duration="4446000" />
+      <workItem from="1563168804397" duration="15925000" />
     </task>
     <task id="LOCAL-00001" summary="船新版本">
       <created>1562588385579</created>
@@ -896,49 +817,56 @@
       <option name="project" value="LOCAL" />
       <updated>1562906075615</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="xph权限">
+      <created>1563173558902</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1563173558902</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="MvcTest_test1 - 2019.07.13 at 14h 56m 58s.xml">
+    <history-entry file="MvcTest_getAfterCurrentTimeMeetingInfo - 2019.07.15 at 19h 22m 51s.xml">
+      <configuration name="MvcTest.getAfterCurrentTimeMeetingInfo" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MvcTest_getAfterCurrentTimeMeetingInfo - 2019.07.15 at 19h 26m 19s.xml">
+      <configuration name="MvcTest.getAfterCurrentTimeMeetingInfo" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MvcTest_getAfterCurrentTimeMeetingInfo - 2019.07.15 at 19h 33m 15s.xml">
+      <configuration name="MvcTest.getAfterCurrentTimeMeetingInfo" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MvcTest_getAfterCurrentTimeMeetingInfo - 2019.07.15 at 19h 41m 58s.xml">
+      <configuration name="MvcTest.getAfterCurrentTimeMeetingInfo" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MvcTest_test1 - 2019.07.15 at 19h 42m 57s.xml">
       <configuration name="MvcTest.test1" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MvcTest_test1 - 2019.07.13 at 14h 57m 16s.xml">
-      <configuration name="MvcTest.test1" configurationId="JUnit" />
+    <history-entry file="MvcTest_getAfterCurrentTimeMeetingInfo - 2019.07.15 at 19h 43m 11s.xml">
+      <configuration name="MvcTest.getAfterCurrentTimeMeetingInfo" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MvcTest_test1 - 2019.07.13 at 14h 59m 01s.xml">
-      <configuration name="MvcTest.test1" configurationId="JUnit" />
+    <history-entry file="MvcTest_getAfterCurrentTimeMeetingInfo - 2019.07.15 at 19h 46m 07s.xml">
+      <configuration name="MvcTest.getAfterCurrentTimeMeetingInfo" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MvcTest_test1 - 2019.07.13 at 15h 00m 12s.xml">
-      <configuration name="MvcTest.test1" configurationId="JUnit" />
+    <history-entry file="MvcTest_getAfterCurrentTimeMeetingInfo - 2019.07.15 at 19h 46m 56s.xml">
+      <configuration name="MvcTest.getAfterCurrentTimeMeetingInfo" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MvcTest_test1 - 2019.07.13 at 15h 00m 48s.xml">
-      <configuration name="MvcTest.test1" configurationId="JUnit" />
+    <history-entry file="MvcTest_getAfterCurrentTimeMeetingInfo - 2019.07.15 at 19h 47m 29s.xml">
+      <configuration name="MvcTest.getAfterCurrentTimeMeetingInfo" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MvcTest_test1 - 2019.07.13 at 15h 01m 33s.xml">
-      <configuration name="MvcTest.test1" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MvcTest_test1 - 2019.07.13 at 15h 02m 45s.xml">
-      <configuration name="MvcTest.test1" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MvcTest_getUserTypeByUsername - 2019.07.15 at 14h 13m 27s.xml">
-      <configuration name="MvcTest.getUserTypeByUsername" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MvcTest_getUserTypeByUsername - 2019.07.15 at 14h 13m 34s.xml">
-      <configuration name="MvcTest.getUserTypeByUsername" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MvcTest_getUserTypeByUsername - 2019.07.15 at 14h 13m 45s.xml">
-      <configuration name="MvcTest.getUserTypeByUsername" configurationId="JUnit" />
+    <history-entry file="MvcTest_getAfterCurrentTimeMeetingInfo - 2019.07.15 at 19h 48m 00s.xml">
+      <configuration name="MvcTest.getAfterCurrentTimeMeetingInfo" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="82766000" />
+    <option name="totallyTimeSpent" value="94245000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22547974" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22547974" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -948,7 +876,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49865952" visible="true" weight="0.3373102" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49865952" visible="true" weight="0.5140998" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -962,54 +890,18 @@
       <window_info anchor="bottom" id="Java Enterprise" order="13" />
       <window_info anchor="bottom" id="Database Changes" order="14" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="15" sideWeight="0.49865952" weight="0.30802602" />
-      <window_info anchor="right" id="Maven Projects" weight="0.32995737" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Maven" order="3" weight="0.3297587" />
-      <window_info anchor="right" id="Palette" order="4" />
-      <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="right" id="Database" order="6" weight="0.3297587" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
-      <window_info anchor="right" id="Theme Preview" order="8" />
-      <window_info anchor="right" id="Bean Validation" order="9" weight="0.3297587" />
+      <window_info anchor="right" id="Maven Projects" order="0" weight="0.32995737" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="4" weight="0.3297587" />
+      <window_info anchor="right" id="Palette" order="5" />
+      <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="right" id="Database" order="7" weight="0.3297587" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+      <window_info anchor="right" id="Theme Preview" order="9" />
+      <window_info anchor="right" id="Bean Validation" order="10" weight="0.3297587" />
     </layout>
-    <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2153518" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Designer" order="2" />
-      <window_info id="Image Layers" order="3" />
-      <window_info id="Capture Tool" order="4" />
-      <window_info id="UI Designer" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info id="Web" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49865952" visible="true" weight="0.3546638" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Application Servers" order="7" weight="0.32956153" />
-      <window_info anchor="bottom" id="Spring" order="8" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49932975" weight="0.32577905" />
-      <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5013405" side_tool="true" weight="0.33002833" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.3101983" />
-      <window_info anchor="bottom" id="Java Enterprise" order="13" />
-      <window_info anchor="bottom" id="Database Changes" order="14" />
-      <window_info anchor="bottom" id="Version Control" order="15" weight="0.30802602" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Maven" order="3" weight="0.3297587" />
-      <window_info anchor="right" id="Palette" order="4" />
-      <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="right" id="Database" order="6" weight="0.3297587" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
-      <window_info anchor="right" id="Theme Preview" order="8" />
-      <window_info anchor="right" id="Bean Validation" order="9" weight="0.3297587" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -1026,32 +918,10 @@
     <MESSAGE value="7.11" />
     <MESSAGE value="7.12" />
     <MESSAGE value="xph2019年7月13日15:25:53" />
-    <option name="LAST_COMMIT_MESSAGE" value="xph2019年7月13日15:25:53" />
+    <MESSAGE value="xph权限" />
+    <option name="LAST_COMMIT_MESSAGE" value="xph权限" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/updateMeetingRoomIframe.jsp">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/static/css/layui/css/inputTags.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/static/css/bootstrap/js/bootstrap-tagsinput.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="519" column="2" selection-start-line="519" selection-start-column="2" selection-end-line="519" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.dom.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28">
-          <caret line="17905" column="12" selection-start-line="17905" selection-start-column="12" selection-end-line="17905" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/bean/UserSignInInfo.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/applicationContext.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
@@ -1184,45 +1054,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/dao/MeetingInfoMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="30" column="21" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/MeetingSigninMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="262" column="9" lean-forward="true" selection-start-line="262" selection-start-column="9" selection-end-line="262" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/dao/MeetingSigninMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="30" column="28" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/qrcode_success.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="65" column="74" selection-start-line="65" selection-start-column="47" selection-end-line="65" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/service/MeetingSigninService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
           <caret line="30" column="84" lean-forward="true" selection-start-line="30" selection-start-column="84" selection-end-line="30" selection-end-column="84" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/bean/MeetingInfoRetrun.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
-          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1233,20 +1071,6 @@
           <folding>
             <element signature="n#style#0;n#span#0;n#div#0;n#!!top" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/service/MeetingInfoService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/MeetingInfoMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="593">
-          <caret line="308" column="11" lean-forward="true" selection-start-line="308" selection-start-column="11" selection-end-line="308" selection-end-column="11" />
         </state>
       </provider>
     </entry>
@@ -1261,16 +1085,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="298">
           <caret line="38" column="5" lean-forward="true" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/controller/MeetingSigninController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-712">
-          <caret line="64" column="54" selection-start-line="64" selection-start-column="54" selection-end-line="64" selection-end-column="54" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1301,34 +1115,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/test/MvcTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="451">
-          <caret line="88" column="69" lean-forward="true" selection-start-line="88" selection-start-column="69" selection-end-line="88" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/dao/UserInfoMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="463">
-          <caret line="48" column="1" lean-forward="true" selection-start-line="48" selection-start-column="1" selection-end-line="48" selection-end-column="1" />
+          <caret line="48" column="1" selection-start-line="48" selection-start-column="1" selection-end-line="48" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/service/UserInfoService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="507">
-          <caret line="175" column="23" lean-forward="true" selection-start-line="175" selection-start-column="23" selection-end-line="175" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="94" column="42" lean-forward="true" selection-start-line="94" selection-start-column="42" selection-end-line="94" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <caret line="175" column="23" selection-start-line="175" selection-start-column="23" selection-end-line="175" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -1356,16 +1153,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/controller/MeetingInfoController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1452">
-          <caret line="66" column="21" selection-start-line="66" selection-start-column="21" selection-end-line="66" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/static/js/meeting.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="331">
@@ -1375,8 +1162,165 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/newhoutai.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="139" column="68" lean-forward="true" selection-start-line="139" selection-start-column="68" selection-end-line="139" selection-end-column="68" />
+        <state relative-caret-position="360">
+          <caret line="126" column="37" lean-forward="true" selection-start-line="126" selection-start-column="37" selection-end-line="126" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/qrcode_success.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="89" column="70" selection-start-line="89" selection-start-column="47" selection-end-line="89" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/bean/MeetingInfoRetrun.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+          <folding>
+            <element signature="e#1094#1095#0" expanded="true" />
+            <element signature="e#1126#1127#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="23" column="14" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="14" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/controller/MeetingSigninController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-498">
+          <caret line="82" column="17" lean-forward="true" selection-start-line="82" selection-start-column="17" selection-end-line="82" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/MeetingInfoMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="693">
+          <caret line="348" column="11" selection-start-line="348" selection-start-column="11" selection-end-line="348" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/bean/MeetingSignin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/dao/MeetingInfoMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="24" lean-forward="true" selection-start-column="24" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/bean/MeetingInfoExample.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="127" column="30" selection-start-line="127" selection-start-column="29" selection-end-line="127" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/bean/Msg.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="43" column="5" lean-forward="true" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
+          <folding>
+            <element signature="e#273#289#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/bean/Department.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/bean/wxMeetingInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" column="28" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
+          <folding>
+            <element signature="e#153#154#0" expanded="true" />
+            <element signature="e#180#181#0" expanded="true" />
+            <element signature="e#220#221#0" expanded="true" />
+            <element signature="e#252#253#0" expanded="true" />
+            <element signature="e#283#284#0" expanded="true" />
+            <element signature="e#310#311#0" expanded="true" />
+            <element signature="e#350#351#0" expanded="true" />
+            <element signature="e#382#383#0" expanded="true" />
+            <element signature="e#413#414#0" expanded="true" />
+            <element signature="e#440#441#0" expanded="true" />
+            <element signature="e#480#481#0" expanded="true" />
+            <element signature="e#512#513#0" expanded="true" />
+            <element signature="e#543#544#0" expanded="true" />
+            <element signature="e#570#571#0" expanded="true" />
+            <element signature="e#610#611#0" expanded="true" />
+            <element signature="e#642#643#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/dao/MeetingSigninMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="24" lean-forward="true" selection-start-column="24" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/MeetingSigninMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="264" column="87" selection-start-line="264" selection-start-column="87" selection-end-line="264" selection-end-column="87" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/service/MeetingInfoService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="55" selection-start-line="55" selection-end-line="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#480#481#0" expanded="true" />
+            <element signature="e#541#542#0" expanded="true" />
+            <element signature="e#992#993#0" expanded="true" />
+            <element signature="e#1063#1064#0" expanded="true" />
+            <element signature="e#1124#1125#0" expanded="true" />
+            <element signature="e#1184#1185#0" expanded="true" />
+            <element signature="e#1243#1244#0" expanded="true" />
+            <element signature="e#1306#1307#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/controller/MeetingInfoController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="39" column="107" selection-start-line="39" selection-start-column="107" selection-end-line="39" selection-end-column="107" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/test/MvcTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="94" column="36" lean-forward="true" selection-start-line="94" selection-start-column="36" selection-end-line="94" selection-end-column="36" />
         </state>
       </provider>
     </entry>
@@ -1386,10 +1330,12 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
+          <last-edited>Meeting:war</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
@@ -1397,6 +1343,7 @@
       </state>
       <state key="FacetStructureConfigurable.UI">
         <settings>
+          <last-edited>Spring</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1419,6 +1366,7 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
+          <last-edited>1.8</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1443,6 +1391,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
+          <last-edited>Maven: c3p0:c3p0:0.9.1</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
