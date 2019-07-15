@@ -129,7 +129,6 @@ public class UserInfoService {
         for(String usernmae : usernames){
             List<UserInfoReturn> temp = userInfoMapper.findAllByExample(usernmae,"","");
             if(temp.size() != 0){
-                System.out.println(temp.get(0));
                 userInfoReturns.add(temp.get(0));
             }
         }
@@ -167,5 +166,13 @@ public class UserInfoService {
             userInfoReturnList.add(new UserInfoReturn(u.getId(),u.getUsername(),u.getName(),null,null,deptMap.get(u.getDepartId())));
         }
         return userInfoReturnList;
+    }
+
+    public Integer getUserTypeByUsername(String username) {
+        Integer userType = userInfoMapper.getUserTypeByUsername(username);
+        if(userType!= null)
+            return userType;
+        else
+            return 3;//普通用户
     }
 }

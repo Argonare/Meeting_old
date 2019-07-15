@@ -222,4 +222,8 @@
   <!--<select id="checkUpdateMeetingTeamName" resultType="Integer">-->
       <!--SELECT * FROM meeting_team WHERE meeting_team.`name` =#{name,jdbcType=VARCHAR} AND delete_flag = 0-->
   <!--</select>-->
+  <select id="getMyMeetingTeamsNameByUsername" resultType="com.meeting.bean.MeetingTeam">
+    select id,name from meeting_team
+    where username = #{username,jdbcType=VARCHAR} and delete_flag = 0
+  </select>
 </mapper>

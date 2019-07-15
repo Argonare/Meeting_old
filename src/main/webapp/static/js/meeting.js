@@ -408,7 +408,8 @@ function meetinginfo_table(){
                 ,{fixed: 'right', title:'操作', toolbar: '#meetinginfo_barDemo',width:300,align:'center'}
             ]]
         });
-
+        $("[data-field='qcode']").css('display','none');
+        $("[data-field='meetingType']").css('display','none');
         table.on('tool(test)', function(obj){ //注：tool是工具条事件名，test是table原始容器的属性 lay-filter="对应的值"
             var data = obj.data; //获得当前行数据
             var layEvent = obj.event; //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）
@@ -436,6 +437,7 @@ function meetinginfo_table(){
                 });
             }
             else if(layEvent === 'edit'){ //编辑
+                console.log(data)
                 var dep=data.deptName
                 layui.use('layer',function (obj) {
                     var layer = layui.layer;
@@ -448,6 +450,7 @@ function meetinginfo_table(){
                         content: APP_PATH+'/jumpPage/updateMeetinginfoIframe?meetingId='+data.id,
                         area: ['1260px', '80%'],
                         success: function(layero, index){
+                            console.log(data)
                             var body = layer.getChildFrame('body', index);
                             var iframeWin = window[layero.find('iframe')[0]['name']]; //得到iframe页的窗口对象，执行iframe页的方法：
                             iframeWin.method;
@@ -456,6 +459,9 @@ function meetinginfo_table(){
                             $(body).find("#date1").val(getDate(data.startTime));
                             $(body).find("#date2").val(getDate(data.endTime));
                             iframeWin.child(JSON.stringify(data.deptName))
+                            iframeWin.setQcode(JSON.stringify(data.qcode?0:1))
+                            iframeWin.setType(JSON.stringify(data.meetingType))
+                            iframeWin.setType(JSON.stringify(data.meetingType))
                         },
                         yes:function (index,layero) {
                             var body = layer.getChildFrame('body', index);
@@ -475,6 +481,9 @@ function meetinginfo_table(){
                             //将格式化的时间转为时间戳
                             date1 = Date.parse(date1)//开始时间
                             date2 = Date.parse(date2)//结束时间
+                            var meetingDept=iframeWin.getDept_data();
+                            var qcode_refresh=iframeWin.getQcode();//获取二维码是否刷新
+                            var tp=iframeWin.getType();
                             //***************获取会议信息结束**************）
 
                             //（***************获取参会人员id开始**************
@@ -498,11 +507,13 @@ function meetinginfo_table(){
                                     id:data.id,
                                     ids:ids,
                                     name:meetingName,
-                                    departId:meetingDept,
+                                    departNames:meetingDept,
                                     roomId:meetingAddressId,
                                     startTime:date1,
                                     endTime:date2,
-                                    meetingIntro:meetingIntro
+                                    meetingIntro:meetingIntro,
+                                    type:tp,
+                                    refreshQcode:qcode_refresh
                                 }
                                 ,success(res){
                                     if(res.code==100){
@@ -527,7 +538,7 @@ function meetinginfo_table(){
                         type: 2,
                         btn: ['保存', '取消'],
                         content: APP_PATH + '/jumpPage/signinInfoIframe',
-                        area: ['1000px', '700px'],
+                        area: ['80%', '50%'],
                         success: function(layero, index) {
                         },
                         yes: function(index, layero) {
@@ -632,10 +643,10 @@ function meetinginfo_table(){
                                         break;
                                     }
                                 }
-                                var qcode_refresh=iframeWin.getQcode();//获取二维码是否刷新
                                 var meetingDept=iframeWin.getDept_data();
+                                var qcode_refresh=iframeWin.getQcode();//获取二维码是否刷新
                                 var tp=iframeWin.getType();
-                                console.log("2"+qcode_refresh);
+                                var latetime=iframeWin.getLateTime();
                                 //***************获取会议信息结束**************）
 
                                 //（***************获取参会人员id开始**************
@@ -658,7 +669,8 @@ function meetinginfo_table(){
                                     $(body).find("#content_RenYuanGuanLi").addClass("layui-show");
 
                                     return;
-                                }
+                                }else if(meetingType == 2)
+                                    ids=[];
                                 // console.log(ids);
                                 // //提交创建会议的信息
                                 $.ajax({
@@ -671,8 +683,9 @@ function meetinginfo_table(){
                                         roomId:meetingAddressId,
                                         startTime:date1,
                                         endTime:date2,
-                                        qcode_refresh:qcode_refresh,
-                                        type:tp
+                                        refreshQcode:qcode_refresh,
+                                        type:tp,
+                                        lateTime:latetime
                                     }
                                     ,success(res){
                                         if(res.code==100){
@@ -973,7 +986,7 @@ function deptinfo_table() {
                 // ,{field:'id', title: 'id'}
                 ,{field:'name', title: '部门名',width:150}
                 ,{field:'', title: ''}
-                ,{fixed: 'right', title:'操作', toolbar: '#userinfo_barDemo', width:150,align:'center'}
+                ,{fixed: 'right', title:'操作', toolbar: '#department_barDemo', width:150,align:'center'}
             ]]
 
         });
@@ -1142,41 +1155,9 @@ function checkUsername(username){
         }
     })
 }
-//JavaScript代码区域
-layui.use('element', function(){
-    var element = layui.element;
-});
-//JavaScript代码区域
-layui.use('element', function(){
-    var element = layui.element;
-});
-//获取用户名
-var username = ""
-$(document).ready(function() {
-    $.ajax({
-        url: APP_PATH + '/userInfo/getUsername.do',
-        type: 'GET',
-        async:false,
-        success: function(result) {
-            // console.log(result)
-            username = result.extend.userInfo.name
-            $("#username").html('<img src="http://t.cn/RCzsdCq" class="layui-nav-img">' + username)
-        }
-    })
-})
-//退出
-$("#log_out").click(function() {
-    $.ajax({
-        url: APP_PATH + '/userInfo/log_out.do',
-        type: 'GET',
-        success: function(result) {
-            window.location.href = "/"
-        }
-    })
-})
+//********************************我的小组*********************************
 function teaminfo_table() {
     layui.use('table', function bb() {
-
         var table = layui.table;
         table.render({
             elem: '#demo',
@@ -1204,7 +1185,6 @@ function teaminfo_table() {
                 , {fixed: 'right', title: '操作', toolbar: '#team_barDemo', width: 150, align: 'center'}
             ]]
         });
-
         table.on('tool(test)', function(obj){ //注：tool是工具条事件名，test是table原始容器的属性 lay-filter="对应的值"
             var data = obj.data; //获得当前行数据
             var layEvent = obj.event; //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）
@@ -1244,7 +1224,6 @@ function teaminfo_table() {
                             $(body).find("#meetingTeanUsername").val(data.name);
                             // iframeWin.child(JSON.stringify(data.deptName))
                         },
-
                         yes:function (index,layero) {
                             var body = layer.getChildFrame('body', index);
                             var iframeWin = window[layero.find('iframe')[0]['name']]; //得到iframe页的窗口对象，执行iframe页的方法：
@@ -1310,10 +1289,6 @@ function teaminfo_table() {
             }
         });
 
-
-
-
-
         table.on('toolbar(test)', function (obj) {
             var checkStatus = table.checkStatus(obj.config.id);
             switch (obj.event) {
@@ -1335,7 +1310,6 @@ function teaminfo_table() {
                                 var body = layer.getChildFrame('body',index);
                                 var username = $(body).find("#meetingTeanUsername").val();
                                 console.log(username);
-
                                 //（***************获取参会人员id开始**************
                                 var rightTable = body.find("tbody:eq(2)");//获得右边的表格
                                 // var t= $(rightTable).find("[data-field='id'] div").text();
@@ -1383,8 +1357,7 @@ function teaminfo_table() {
                                             layer.msg("小组以存在",{icon:5})
                                         }
                                     }
-                                })
-
+                                });
                             }
                         })
                     });
@@ -1393,9 +1366,38 @@ function teaminfo_table() {
                     aa();
                     break;
             }
-
         });
     });
-
-
 }
+//JavaScript代码区域
+layui.use('element', function(){
+    var element = layui.element;
+});
+//JavaScript代码区域
+layui.use('element', function(){
+    var element = layui.element;
+});
+//获取用户名
+var username = ""
+$(document).ready(function() {
+    $.ajax({
+        url: APP_PATH + '/userInfo/getUsername.do',
+        type: 'GET',
+        async:false,
+        success: function(result) {
+            // console.log(result)
+            username = result.extend.userInfo.name
+            $("#username").html('<img src="http://t.cn/RCzsdCq" class="layui-nav-img">' + username)
+        }
+    })
+})
+//退出
+$("#log_out").click(function() {
+    $.ajax({
+        url: APP_PATH + '/userInfo/log_out.do',
+        type: 'GET',
+        success: function(result) {
+            window.location.href = "/"
+        }
+    })
+})

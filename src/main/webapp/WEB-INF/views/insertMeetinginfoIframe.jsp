@@ -62,6 +62,9 @@
             border-right: 1px solid #e6e6e6;
             border-bottom: 1px solid #e6e6e6;
         }
+        .layui-form-label {
+            padding: 9px 8px;
+        }
     </style>
 </head>
 <body>
@@ -78,6 +81,13 @@
                         <label class="layui-form-label">会议名称：</label>
                         <div class="layui-input-block">
                             <input id="meetingName" type="text" name="title" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input" style="width: 450px">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">会议模式：</label>
+                        <div class="layui-input-block" id="meetingTypeSelect">
+                            <input type="radio" name="team" lay-filter="meeting" value="1" title="普通会议" checked="">
+                            <input type="radio" name="team" lay-filter="meeting" value="2" title="讲座形式会议">
                         </div>
                     </div>
                     <div  class="layui-form-item box">
@@ -123,11 +133,10 @@
                     <div class="layui-form-item">
                         <label class="layui-form-label">迟到时间：</label>
                         <div class="layui-input-block">
-                            <select name="modules" lay-verify="required" lay-search="">
+                            <select name="modules" lay-filter="meetingLate" lay-search="">
                                 <option value="1">会议开始时</option>
                                 <option value="2">会议开始后5分钟</option>
                                 <option value="3">会议开始后10分钟</option>
-                                <option value="4">会议开始前10分钟</option>
                             </select>
                         </div>
                     </div>
@@ -140,17 +149,11 @@
                     <div class="layui-form-item">
                         <label class="layui-form-label">刷新二维码：</label>
                         <div class="layui-input-block" id="QcodeTypeSelect">
-                            <input type="radio"  name="qcode" value="1" title="是" checked="">
-                            <input type="radio"  name="qcode" value="2" title="否">
+                            <input type="radio"  name="qcode" lay-filter="qcode" value="0" title="是" checked="">
+                            <input type="radio"  name="qcode" lay-filter="qcode" value="1" title="否">
                         </div>
                     </div>
-                    <div class="layui-form-item">
-                        <label class="layui-form-label">会议模式：</label>
-                        <div class="layui-input-block" id="meetingTypeSelect">
-                            <input type="radio" name="team" value="1" title="普通会议" checked="">
-                            <input type="radio" name="team" value="2" title="讲座形式会议">
-                        </div>
-                    </div>
+
                 </form>
             </div>
         </div>
@@ -161,15 +164,15 @@
                     <div style="float:left;margin-left: 10px"><input id="nameIpt" class="layui-input" type="text" autocomplete="off" style="width: 120px;height: 38px" placeholder="姓名"></div>
                     <div style="float: left;margin-left: 10px">
                         <form class="layui-form" action="" style="width: 150px">
-                            <select lay-verify="required" id="dept_select1">
+                            <select lay-filter="dept_select1" id="dept_select1">
                                 <option value=""></option>
                             </select>
                         </form>
                     </div>
-                    <div style="float: left">
-                        <div class="layui-btn layui-inline" id="searchBtn" style="margin-left: 15px;">搜索</div>
-                        <%--<button class="layui-btn layui-inline" id="searchBtn" style="margin-left: 15px;">搜索</button>--%>
-                    </div>
+                    <%--<div style="float: left">--%>
+                        <%--<div class="layui-btn layui-inline" id="searchBtn" style="margin-left: 15px;">搜索</div>--%>
+                        <%--&lt;%&ndash;<button class="layui-btn layui-inline" id="searchBtn" style="margin-left: 15px;">搜索</button>&ndash;%&gt;--%>
+                    <%--</div>--%>
                 </div>
                 <table id="leftTable" lay-filter="leftTable"></table>
             </div>
@@ -309,18 +312,31 @@
                 type:"POST",
                 data:{usernames:usernames},
                 success:function (res) {
-                    // console.log("success:");
-                    console.log(res);
+                    userInfos = res.extend.userInfoReturns;
                     if(res.code == 100){
                         // var datas = res.extend.userInfoReturns
                         layui.table.reload("rightTable", {
-                            data :res.extend.userInfoReturns
+                            data :userInfos
                         });
                         layui.table.reload("leftTable");
                         if (res.extend.userInfoReturns.length == usernames.length)
                             layer.msg("全部导入成功",{icon:1});
-                        else
-                            layer.msg("部分导入成功，不成功的工号有问题",{icon:3});
+                        else{
+                            // layer.msg("部分导入成功，不成功的工号有问题",{icon:3});
+                            // console.log(res.extend.userInfoReturns)
+                            var map = {};
+                            var str="",size=0;
+                            for(var index in userInfos){
+                                map[userInfos[index].username]=1;
+                            }
+                            for(var index in persons){
+                                if(map[persons[index]["工号"]]==undefined){
+                                    size++;
+                                    str+="<br>"+persons[index]["工号"]+" "+persons[index]["姓名"];
+                                }
+                            }
+                            layer.confirm("以下"+size+"人未添加成功:"+str, function(index){layer.close(index);})
+                        }
                     }else if(res.code == 200){
                         layer.msg("导入失败,请重新导入",{icon:5});
                     }
@@ -334,28 +350,40 @@
         // 以二进制方式打开文件
         fileReader.readAsBinaryString(files[0]);
     });
-    var tp="";
-    var qcode="";
+    var tp="0";
+    var qcode="0";
+    var latetime="1";
     function getType(){
         return tp;
     }
     function getQcode(){
         return qcode;
     }
+    function getLateTime(){
+        if (latetime=='1')
+            return 0;
+        else if(latetime=='2')
+            return 5;
+        else return 10;
+    }
     layui.use(['form','element','laydate','table','layer','transfer'], function(){
         var element = layui.element;
         var laydate = layui.laydate;
         var form = layui.form;
         var table = layui.table;
-        var transfer = layui.transfer
-        var layer = layui.layer
-        form.on('radio[name="team"]',function(data){
+        var transfer = layui.transfer;
+        var layer = layui.layer;
+
+        form.on('select(meetingLate)',function (data) {
+            latetime=data.value;
+        })
+
+        form.on('radio(meeting)',function(data){
             tp=data.value;
-        })
-        form.on('radio[name="qcode"]',function(data){
+        });
+        form.on('radio(qcode)',function(data){
             qcode=data.value;
-            alert(qcode)
-        })
+        });
         //日期
         laydate.render({
             type:'datetime'
@@ -365,12 +393,9 @@
             type:'datetime'
             ,elem: '#date1'
         });
-        form.on('switch(switchTest)', function(data){
-            $("#qcode_refresh").val(this.checked)
-        });
 
         //会议小组下拉框选择后出发事件
-        form.on('select(meetingTeamSelect)',function (data) {
+        form.on('select(meetingTeamSelect)',function (data) {//select内用的是lay-filter的值
             // console.log(data.value);
             if(data.value == -1)return false;//当选中初始选项时无反应
             $.ajax({
@@ -386,7 +411,7 @@
                         });
                         layui.table.reload("leftTable");
                     }else if(res.code == 200){
-                        layer.msg("选择失败",{icon:5});
+                        layer.msg("改小组内无成员",{icon:5});
                     }
                 }
             })
@@ -497,11 +522,22 @@
             }
         };
 
-        $('#searchBtn').on('click', function(){
-            var type = $(this).data('type');
+
+        $("#usernameIpt,#nameIpt").blur(function () {
+            type='reload';
+            active[type] ? active[type].call(this) : '';
+        })
+
+        form.on('select(dept_select1)',function (data) {//select内用的是lay-filter的值
             type='reload';
             active[type] ? active[type].call(this) : '';
         });
+
+        // $('#searchBtn').on('click', function(){
+        //     var type = $(this).data('type');
+        //     type='reload';
+        //     active[type] ? active[type].call(this) : '';
+        // });
 
         $('#selectAddBtn').on('click', function(){
             var leftTableData = layui.table.cache.leftTable;//获取左表数据
@@ -532,6 +568,7 @@
             table.reload("leftTable", {
                 data : leftTableData
             })
+
 
             table.reload("rightTable", {
                 data : rightTableData

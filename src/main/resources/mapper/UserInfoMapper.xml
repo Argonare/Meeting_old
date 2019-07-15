@@ -320,4 +320,9 @@
     </where>
     ORDER BY user_info.id DESC
   </select>
+
+  <select id="getUserTypeByUsername" resultType="java.lang.Integer">
+    select type from user_info where username = #{usernmae,jdbcType=VARCHAR}
+  </select>
+
 </mapper>

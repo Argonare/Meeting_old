@@ -61,6 +61,9 @@
             border-right: 1px solid #e6e6e6;
             border-bottom: 1px solid #e6e6e6;
         }
+        .layui-form-label {
+            padding: 9px 8px;
+        }
     </style>
 </head>
 <body>
@@ -80,7 +83,13 @@
                             <input id="meetingName" type="text" name="title" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input" style="width: 450px">
                         </div>
                     </div>
-
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">会议模式：</label>
+                        <div class="layui-input-block" id="meetingTypeSelect">
+                            <input type="radio" name="team" lay-filter="meeting" value="1" title="普通会议" checked="">
+                            <input type="radio" name="team" lay-filter="meeting" value="2" title="讲座形式会议">
+                        </div>
+                    </div>
                     <div  class="layui-form-item box">
                         <label class="layui-form-label">会议部门：</label>
                         <div class="layui-input-block tagsinput-primary" style="width: 450px">
@@ -91,6 +100,13 @@
                             </div>
                         </div>
                     </div>
+                    <%--                    <div class="layui-form-item">--%>
+                    <%--                        <label class="layui-form-label">会议部门：</label>--%>
+                    <%--                        <div class="layui-input-block" style="width: 450px">--%>
+                    <%--                            <select name="city" lay-verify="required" id="dept_select" multiple data-role="tagsinput">--%>
+                    <%--                            </select>--%>
+                    <%--                        </div>--%>
+                    <%--                    </div>--%>
 
                     <div class="layui-form-item">
                         <label class="layui-form-label">会议地点：</label>
@@ -114,26 +130,30 @@
                         </div>
                         <%--                        <div class="layui-form-mid layui-word-aux">选择结束时间</div>--%>
                     </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">迟到时间：</label>
+                        <div class="layui-input-block">
+                            <select name="modules" lay-verify="meetingLate" id="latetime">
+                                <option value="1">会议开始时</option>
+                                <option value="2">会议开始后5分钟</option>
+                                <option value="3">会议开始后10分钟</option>
+                            </select>
+                        </div>
+                    </div>
                     <%--<div class="layui-form-item">--%>
-                        <%--<label class="layui-form-label">会议简介：</label>--%>
-                        <%--<div class="layui-input-block" style="width: 450px">--%>
-                            <%--<textarea id="meetingIntro" name="desc" placeholder="请输入简介" class="layui-textarea"></textarea>--%>
-                        <%--</div>--%>
+                    <%--<label class="layui-form-label">会议简介：</label>--%>
+                    <%--<div class="layui-input-block" style="width: 450px">--%>
+                    <%--<textarea id="meetingIntro" name="desc" placeholder="请输入简介" class="layui-textarea"></textarea>--%>
+                    <%--</div>--%>
                     <%--</div>--%>
                     <div class="layui-form-item">
-                        <label class="layui-form-label">二维码自动刷新</label>
-                        <div class="layui-input-block">
-                            <input type="checkbox" checked="" name="rqcode" lay-skin="switch" lay-filter="switchTest" lay-text="是|否" >
-                        </div>
-                        <input type="text" style="display: none;" id="qcode_refresh" value="true">
-                    </div>
-                    <div class="layui-form-item">
-                        <label class="layui-form-label">自定义人员</label>
-                        <div class="layui-input-block">
-                            <input type="radio" name="team" value="是" title="是" checked="">
-                            <input type="radio" name="team" value="否" title="否">
+                        <label class="layui-form-label">刷新二维码：</label>
+                        <div class="layui-input-block" id="QcodeTypeSelect">
+                            <input type="radio"  name="qcode" lay-filter="qcode" value="0" title="是" checked="">
+                            <input type="radio"  name="qcode" lay-filter="qcode" value="1" title="否">
                         </div>
                     </div>
+
                 </form>
             </div>
         </div>
@@ -184,9 +204,40 @@
 <%--<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>--%>
 <%--</script>--%>
 <script>
+    function getDept_data(){
+        return $("#tagsinputval").val();
+    }
     function child(obj) {
         $("#tagsinputval").tagsinput('add',obj.replace(/\"/g, ""));
-        // $("#hid_rec").val(obj);
+    }
+    var qcode="";
+    var tp="";
+    var latetime="";
+    function setQcode(index){
+        qcode=index;
+        if (index==1)
+            $("#QcodeTypeSelect>div:eq(1)").click()
+        else $("#QcodeTypeSelect>div:eq(2)").click()
+    }
+    function setType(index){
+        tp=index;
+        if (index==2)
+            $("#meetingTypeSelect>div:eq(1)").click()
+        else $("#meetingTypeSelect>div:eq(2)").click()
+    }
+    function setLateTime(index){
+        layui.use(['form'], function () {
+            var form = layui.form;
+            form.on("select(required)",function () {
+                $("#latetime".val(index))
+            })
+        });
+    }
+    function getType(){
+        return tp;
+    }
+    function getQcode(){
+        return qcode;
     }
     $(".box").mouseover(function(){
         $("#big_box").show();
@@ -236,6 +287,8 @@
             }
         }
     })
+    var tp="1";
+    var qcode="1";
     layui.use(['form','element','laydate','table','layer','transfer'], function(){
         var element = layui.element;
         var laydate = layui.laydate;
@@ -243,6 +296,13 @@
         var table = layui.table;
         var transfer = layui.transfer
         var layer = layui.layer
+
+        form.on('radio(meeting)',function(data){
+            tp=data.value;
+        });
+        form.on('radio(qcode)',function(data){
+            qcode=data.value;
+        });
 
         //日期
         laydate.render({

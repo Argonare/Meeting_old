@@ -31,4 +31,6 @@ public interface MeetingInfoMapper {
     List<MeetingInfo>findAllMeetingInfo();
 
     List<Integer>  selectMeetingInfoSelected(int meetingId);
+
+    Long selectMeetingInfo(MeetingInfo meetingInfo);
 }

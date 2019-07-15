@@ -55,7 +55,7 @@
                     <label class="layui-form-label">用户类型：</label>
                     <div class="layui-input-block">
                         <select lay-verify="required" id="type_select">
-                            <option value="1">普通用户</option>
+                            <option value="3">普通用户</option>
                             <option value="2">管理员</option>
                         </select>
                     </div>

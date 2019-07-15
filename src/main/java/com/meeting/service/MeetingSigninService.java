@@ -27,4 +27,16 @@ public class MeetingSigninService {
         criteria.andMeetingIdEqualTo(meetId);
         return meetingSigninMapper.selectByExample(meetingSigninExample);
     }
+    public boolean updateMeetingSignin(MeetingSignin meetingSignin, MeetingSigninExample example) {
+        if (meetingSigninMapper.updateByExampleSelective(meetingSignin, example)==1)
+            return true;
+        else
+            return false;
+    }
+    public List<MeetingSignin> selectMeetingSigninByUsername(Integer userId){
+        MeetingSigninExample meetingSigninExample = new MeetingSigninExample();
+        MeetingSigninExample.Criteria criteria = meetingSigninExample.createCriteria();
+        criteria.andUserIdEqualTo(userId);
+        return meetingSigninMapper.selectByExample(meetingSigninExample);
+    }
 }

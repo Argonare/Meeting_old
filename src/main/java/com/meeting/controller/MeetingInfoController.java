@@ -30,15 +30,19 @@ public class MeetingInfoController {
     UserInfoService userInfoService;
     @Autowired
     MeetingSigninService meetingSigninService;
+
     @ResponseBody
     @RequestMapping(value = "/findAllMeetingInfo",method = RequestMethod.GET)
     public Msg MeetingInfo(@RequestParam(value="page",defaultValue="1")Integer pn){
         PageHelper.startPage(pn,15);
-        List<MeetingInfoRetrun>list=new ArrayList<MeetingInfoRetrun>();
         List<MeetingInfo> meetingInfo  = meetingInfoService.findAllMeetingInfo();
+        PageInfo page = new PageInfo(meetingInfo,1);
+        List<MeetingInfoRetrun>list=new ArrayList<MeetingInfoRetrun>();
+        System.out.println(meetingInfo.size());
         for (MeetingInfo lis:meetingInfo){
             String place="";
             MeetingInfoRetrun meetingInfoRetrun=new MeetingInfoRetrun();
+            meetingInfoRetrun.setLateTime(lis.getLateTime());
             for (String id:lis.getDepartIds().split(","))
                 place+=departmentService.selectByPrimaryKey(Integer.parseInt(id)).getName()+",";
             String address=meetingRoomService.selectByPrimaryKey(lis.getRoomId()).getAddress();
@@ -48,11 +52,15 @@ public class MeetingInfoController {
             meetingInfoRetrun.setStartTime(lis.getStartTime());
             meetingInfoRetrun.setDeptName(place.substring(0,place.length()-1));
             meetingInfoRetrun.setName(lis.getName());
+            meetingInfoRetrun.setQcode(lis.getRefreshQcode());
+            meetingInfoRetrun.setMeetingType(lis.getType());
             list.add(meetingInfoRetrun);
         }
-        PageInfo page = new PageInfo(list,1);
+        page.setList(list);
         return Msg.success().add("meetinginfo",page);
     }
+
+
     /**
      * ????????????????????
      * @param request
@@ -62,19 +70,24 @@ public class MeetingInfoController {
      */
     @ResponseBody
     @RequestMapping(value = "/updateMeetingInfoAndSignin")
-    public Msg updateMeetingInfoAndSignin(HttpServletRequest request, HttpSession session, MeetingInfo meetingInfo){
-        System.out.println("meetingInfo:"+meetingInfo.toString());
+    public Msg updateMeetingInfoAndSignin(HttpServletRequest request, HttpSession session, MeetingInfo meetingInfo,String departNames){
+        String deptIds="";
+        for (String dep:departNames.split(",")) {
+            deptIds+=departmentService.getDepartId(dep).toString()+',';
+        }
+        meetingInfo.setDepartIds(deptIds.substring(0,deptIds.length()-1));
+        meetingInfo.setInsertUsername(session.getAttribute("username").toString());
+        System.out.println(meetingInfo);
+
         MeetingInfoExample example = new MeetingInfoExample();
         MeetingInfoExample.Criteria criteria = example.createCriteria();
         criteria.andIdEqualTo(meetingInfo.getId());
-        MeetingInfo meetingInfos = new MeetingInfo();
-        meetingInfoService.updateMeetingInfo(meetingInfos,example);
-        //??????
-        //?????????????
+        meetingInfoService.updateMeetingInfo(meetingInfo,example);
+
+        //更新签到人员信息
         Integer maxId = userInfoService.selectMaxId();
-        boolean newFlag[] = new boolean[maxId+1];//????????????????????
-        boolean oldFlag[] = new boolean[maxId+1];//??????????????????????
-        //?????????????????id????
+        boolean newFlag[] = new boolean[maxId+1];
+        boolean oldFlag[] = new boolean[maxId+1];
         String[] ids_str = request.getParameterValues("ids[]");
         List<Integer> newIds = new ArrayList<Integer>();
         for(int i=0 ;ids_str != null && i<ids_str.length ;i++){
@@ -82,19 +95,17 @@ public class MeetingInfoController {
             newIds.add(id);
             newFlag[id]=true;
         }
-        System.out.println("newIds:"+newIds.toString());
         List<Integer> oldIds = meetingInfoService.selectMeetingInfoSelected(meetingInfo.getId());
-        System.out.println("oldIds:"+oldIds.toString());
         for(int i=0 ;i<oldIds.size() ;i++){
             oldFlag[oldIds.get(i)]=true;
         }
-        List<Integer> addIds = new ArrayList<Integer>();//????????????id
-        List<Integer> delIds = new ArrayList<Integer>();//???????????id
+        List<Integer> addIds = new ArrayList<Integer>();
+        List<Integer> delIds = new ArrayList<Integer>();
         for(int i=0 ; i<newIds.size() ;i++){
             int id= newIds.get(i);
-            if(newFlag[id]==true && oldFlag[id]==false)//????
+            if(newFlag[id]==true && oldFlag[id]==false)
                 addIds.add(id);
-            else if(newFlag[id]==false && oldFlag[id]==true)//???
+            else if(newFlag[id]==false && oldFlag[id]==true)
                 delIds.add(id);
         }
 
@@ -105,28 +116,22 @@ public class MeetingInfoController {
             else if(newFlag[id]==false && oldFlag[id]==true)
                 delIds.add(id);
         }
-//        System.out.println("addIds:"+addIds.toString());
-//        System.out.println("delIds:"+delIds.toString());
         MeetingSignin addMeetingSignin = new MeetingSignin();
         addMeetingSignin.setMeetingId(meetingInfo.getId());
         addMeetingSignin.setSigninFlag(false);
         addMeetingSignin.setLeaveFlag(false);
         addMeetingSignin.setLateFlag(false);
         addMeetingSignin.setDeleteFlag(false);
-//        System.out.println("addIds:"+addIds);
         for(int i=0 ;i<addIds.size(); i++){
             addMeetingSignin.setUserId(addIds.get(i));
-//            System.out.println("add"+addMeetingSignin);
             meetingSigninService.insertMeetingSignin(addMeetingSignin);
         }
 
         MeetingSignin delMeetingSignin = new MeetingSignin();
         delMeetingSignin.setMeetingId(meetingInfo.getId());
         delMeetingSignin.setDeleteFlag(true);
-//        System.out.println("---------");
         for(int i=0 ;i<delIds.size(); i++){
             delMeetingSignin.setUserId(delIds.get(i));
-//            System.out.println("######"+delMeetingSignin);
             meetingSigninService.deleteByUidMeetingid(delMeetingSignin);
         }
         return  Msg.success();
@@ -137,8 +142,6 @@ public class MeetingInfoController {
     public Msg updateMeetingInfo(@RequestParam("meetingId")Integer meetingId){
         List<Integer> list = meetingInfoService.selectMeetingInfoSelected(meetingId);//???ID
         List<UserInfoReturn> userInfo = userInfoService.findAllByExample("","","");//??????????
-
-        /*??????????????*/
         List<UserInfoReturn> userInfoReturnRight = new ArrayList<UserInfoReturn>();
         for(Integer i:list){
             for(UserInfoReturn u:userInfo){
@@ -153,45 +156,33 @@ public class MeetingInfoController {
     @ResponseBody
     @RequestMapping(value = "/insertMeetingInfo")
     public Msg insertMeetingInfo(HttpServletRequest request, HttpSession session,MeetingInfo meetingInfo,String departName){
+        String deptIds="";
+        for (String dep:departName.split(",")) {
+            deptIds+=departmentService.getDepartId(dep).toString()+',';
+        }
         String username = (String) session.getAttribute("username");
         meetingInfo.setInsertUsername(username);
-        System.out.println(meetingInfo);
-
-//        Integer uid = userInfoService.getUidByUsername(username);
-//        meetingInfo.setInsertUid(uid);
-//        meetingInfo.setInsertTime(new Date().getTime());
-//        meetingInfo.setDeleteFlag(false);
-//        meetingInfo.setType(1);
-//
-//        meetingInfoService.insertMeetingInfo(meetingInfo);
-//        long a = meetingInfoService.selectMeetingInfo(meetingInfo);
-//        int meeting_id = (int) a;
-////        System.out.println("meeting_id:"+meeting_id);
-//        meetingInfo.setIntroId(meeting_id);
-//        MeetingInfoExample meetingInfoExample = new MeetingInfoExample();
-//        MeetingInfoExample.Criteria criteria = meetingInfoExample.createCriteria();
-//        criteria.andIdEqualTo(meeting_id);
-//        meetingInfoService.updateMeetingInfo(meetingInfo,meetingInfoExample);
-//
-//        String Intro = request.getParameter("meetingIntro");
-//        MeetingIntro meetingIntro = new MeetingIntro();
-//        meetingIntro.setId(meeting_id);
-//        meetingIntro.setIntro(Intro);
-//        meetingIntroService.insertMeetingIntro(meetingIntro);
-//
-//        String[] ids = request.getParameterValues("ids[]");
-//        MeetingSignin meetingSignin = new MeetingSignin();
-//        meetingSignin.setMeetingId(meeting_id);
-//        meetingSignin.setSigninFlag(false);
-//        meetingSignin.setSignoutFlag(false);
-//        meetingSignin.setLeaveFlag(false);
-//        meetingSignin.setLateFlag(false);
-//        meetingSignin.setDeleteFlag(false);
-////        System.out.println("ids:"+ids);
-//        for(int i =0;ids != null && i<ids.length;i++){
-//            meetingSignin.setUserId(Integer.parseInt(ids[i]));
-//            meetingSigninService.insertMeetingSignin(meetingSignin);
-//        }
-        return  Msg.fail();
+        meetingInfo.setDepartIds(deptIds.substring(0,deptIds.length()-1));
+        meetingInfo.setDeleteFlag(false);
+        String[] ids = request.getParameterValues("ids[]");
+        MeetingSignin meetingSignin = new MeetingSignin();
+        meetingInfoService.insertMeetingInfo(meetingInfo);
+        int meeting_id = Integer.parseInt(meetingInfoService.selectMeetingInfo(meetingInfo).toString());
+        meetingSignin.setMeetingId(meeting_id);
+        meetingSignin.setSigninFlag(false);
+        meetingSignin.setLeaveFlag(false);
+        meetingSignin.setLateFlag(false);
+        meetingSignin.setDeleteFlag(false);
+        for(int i =0;ids != null && i<ids.length;i++){
+            meetingSignin.setUserId(Integer.parseInt(ids[i]));
+            meetingSigninService.insertMeetingSignin(meetingSignin);
+        }
+        return  Msg.success();
+    }
+    @ResponseBody
+    @RequestMapping(value = "/getQcodeType")
+    public Msg getQcodeType(int meetingId){
+        Boolean status=meetingInfoService.selectMeetingInfoById(meetingId).getRefreshQcode();
+        return Msg.success().add("type",status?1:0);
     }
 }

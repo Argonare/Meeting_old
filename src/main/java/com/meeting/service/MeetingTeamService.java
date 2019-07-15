@@ -64,4 +64,16 @@ public class MeetingTeamService {
         }
         return false;
     }
+    public List<MeetingTeam> getMyMeetingTeamsNameByUsername(String username) {
+        return meetingTeamMapper.getMyMeetingTeamsNameByUsername(username);
+    }
+
+    public String getIdsById(String teamId) {
+        MeetingTeamExample example = new MeetingTeamExample();
+        MeetingTeamExample.Criteria criteria = example.createCriteria();
+        criteria.andIdEqualTo(Integer.valueOf(teamId));
+        criteria.andDeleteFlagEqualTo(false);
+        List<MeetingTeam> meetingTeamList = meetingTeamMapper.selectByExample(example);
+        return meetingTeamList.get(0).getMemberIds();
+    }
 }

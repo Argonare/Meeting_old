@@ -6,7 +6,9 @@ import com.meeting.bean.Msg;
 import com.meeting.bean.UserInfo;
 import com.meeting.bean.UserInfoExample;
 import com.meeting.bean.UserInfoReturn;
+import com.meeting.dao.UserInfoMapper;
 import com.meeting.service.UserInfoService;
+import com.meeting.utils.getGuestUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -91,6 +93,8 @@ public class UserController {
         String password = userInfo.getPassword();
         if(userInfoService.checkUser(username,password)){
             session.setAttribute("username",username);
+            Integer userType = userInfoService.getUserTypeByUsername(username);
+            session.setAttribute("userType",userType);
             return Msg.success();
         }else{
             return Msg.fail().add("msg","工号或密码错误");
@@ -200,5 +204,13 @@ public class UserController {
         List<UserInfoReturn> list = userInfoService.findAllByExample(username,name,departName);
         PageInfo page = new PageInfo(list,1);
         return Msg.success().add("userInfoReturn",page);
+    }
+    @ResponseBody
+    @RequestMapping(value = "/getGuestUsername.do")
+    public Msg getGuestUsername(HttpSession session){
+        getGuestUser getGuestUser=new getGuestUser();
+        String username=getGuestUser.getname();
+        List<UserInfoReturn> list = userInfoService.selectUserinfoByUsernameReturn(username);
+        return Msg.success().add("userInfo", list.get(0));
     }
 }

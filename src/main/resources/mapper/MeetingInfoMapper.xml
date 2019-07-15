@@ -305,9 +305,46 @@
   </update>
   <!--***********************************************自定义区域st***********************************************-->
   <select id="findAllMeetingInfo" resultType="com.meeting.bean.MeetingInfo">
-    select * from meeting_info
+    select * from meeting_info where delete_flag = 0
   </select>
   <select id="selectMeetingInfoSelected" resultType="int">
         SELECT user_id FROM meeting_signin WHERE meeting_id=#{meetingId} and delete_flag = 0
+  </select>
+
+  <select id="selectMeetingInfo" resultType="Long" parameterType="com.meeting.bean.MeetingInfo">
+    SELECT id FROM meeting_info
+    <where>
+      delete_flag=0
+      <if test="name != null and name != ''">
+        and name = #{name,jdbcType=VARCHAR}
+      </if>
+      <if test="departIds != null and departIds != ''">
+        and depart_ids = #{departIds,jdbcType=VARCHAR}
+      </if>
+      <if test="type != null and type != ''">
+        and type = #{type,jdbcType=INTEGER}
+      </if>
+      <if test="insertUsername != null and insertUsername != ''">
+        and insert_username = #{insertUsername,jdbcType=VARCHAR}
+      </if>
+      <if test="startTime != null and startTime != ''">
+        and start_time = #{startTime,jdbcType=BIGINT}
+      </if>
+      <if test="endTime != null and endTime != ''">
+        and end_time = #{endTime,jdbcType=BIGINT}
+      </if>
+      <if test="roomId != null and roomId != ''">
+        and room_id = #{roomId,jdbcType=INTEGER}
+      </if>
+      <if test="deleteFlag != null and deleteFlag != ''">
+        and delete_flag = #{deleteFlag,jdbcType=BIT}
+      </if>
+      <if test="lateTime != null and lateTime != ''">
+        and late_time = #{lateTime,jdbcType=INTEGER}
+      </if>
+      <if test="refreshQcode != null and refreshQcode != ''">
+        and refresh_qcode = #{refreshQcode,jdbcType=BIT}
+      </if>
+    </where>
   </select>
 </mapper>
