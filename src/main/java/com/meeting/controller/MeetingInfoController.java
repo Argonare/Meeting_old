@@ -188,6 +188,12 @@ public class MeetingInfoController {
             meetingSignin.setUserId(Integer.parseInt(ids[i]));
             meetingSigninService.insertMeetingSignin(meetingSignin);
         }
-        return  Msg.fail();
+        return  Msg.success();
+    }
+    @ResponseBody
+    @RequestMapping(value = "/getQcodeType")
+    public Msg getQcodeType(int meetingId){
+        Boolean status=meetingInfoService.selectMeetingInfoById(meetingId).getRefreshQcode();
+        return Msg.success().add("type",status?1:0);
     }
 }
