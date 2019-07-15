@@ -167,4 +167,12 @@ public class UserInfoService {
         }
         return userInfoReturnList;
     }
+
+    public Integer getUserTypeByUsername(String username) {
+        Integer userType = userInfoMapper.getUserTypeByUsername(username);
+        if(userType!= null)
+            return userType;
+        else
+            return 3;//普通用户
+    }
 }

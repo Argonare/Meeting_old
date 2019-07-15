@@ -58,25 +58,38 @@
         <div class="layui-footer"></div>
     </div>
 </body>
-
 <!--=======================================================表格=======================================================================-->
 
+<%--userType{1：超级管理员,2：普通管理员}--%>
     <!----------------------------用户信息表------------------------------>
 <script type="text/html" id="userinfo_toolbarDemo">
     <div class="layui-btn-container">
-        <button class="layui-btn layui-btn-sm" lay-event="selectDelUsers_btn">删除选中项</button>
+        {{#  if(${userType} == 1){ }}
+            <button class="layui-btn layui-btn-sm" lay-event="selectDelUsers_btn">删除选中项</button>
+        {{#  } else { }}
+            <button class="layui-btn layui-btn-sm layui-btn-disabled">删除选中项</button>
+        {{#  } }}
         <button class="layui-btn layui-btn-sm" lay-event="insertUser_btn">添加用户</button>
     </div>
 </script>
 <script type="text/html" id="userinfo_barDemo">
     <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
-    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+    {{#  if(${userType} == 1){ }}
+        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+    {{#  } else { }}
+        <a class="layui-btn layui-btn-danger layui-btn-xs layui-btn-disabled">删除</a>
+    {{#  } }}
+
 </script>
 
 <!------------------------------会议信息表------------------------------>
 <script type="text/html" id="meetinginfo_toolbarDemo">
     <div class="layui-btn-container">
-        <button class="layui-btn layui-btn-sm" lay-event="selectDelMeetinginfos_btn">删除选中项</button>
+        {{#  if(${userType} == 1){ }}
+            <button class="layui-btn layui-btn-sm" lay-event="selectDelMeetinginfos_btn">删除选中项</button>
+        {{#  } else { }}
+            <button class="layui-btn layui-btn-sm layui-btn-disabled" >删除选中项</button>
+        {{#  } }}
         <button class="layui-btn layui-btn-sm" lay-event="insertMeetinginfo_btn">创建会议</button>
     </div>
 </script>
@@ -89,33 +102,62 @@
 <!------------------------------会议室信息表------------------------------>
 <script type="text/html" id="meetingroom_toolbarDemo">
     <div class="layui-btn-container">
-        <button class="layui-btn layui-btn-sm" lay-event="selectDelMeetinginfos_btn">删除选中项</button>
-        <button class="layui-btn layui-btn-sm" lay-event="insertMeetinginfo_btn">添加会议室</button>
+        {{#  if(${userType} == 1){ }}
+            <button class="layui-btn layui-btn-sm" lay-event="selectDelMeetinginfos_btn">删除选中项</button>
+            <button class="layui-btn layui-btn-sm" lay-event="insertMeetinginfo_btn">添加会议室</button>
+        {{#  } else { }}
+            <button class="layui-btn layui-btn-sm layui-btn-disabled">删除选中项</button>
+            <button class="layui-btn layui-btn-sm layui-btn-disabled">添加会议室</button>
+        {{#  } }}
+
     </div>
 </script>
 <script type="text/html" id="meetingroom_barDemo">
-    <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
-    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+    {{#  if(${userType} == 1){ }}
+        <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+    {{#  } else { }}
+        <a class="layui-btn layui-btn-xs layui-btn-disabled">编辑</a>
+        <a class="layui-btn layui-btn-danger layui-btn-xs layui-btn-disabled">删除</a>
+    {{#  } }}
 </script>
 <!------------------------------部门信息表------------------------------>
 <script type="text/html" id="department_toolbarDemo">
     <div class="layui-btn-container">
-        <button class="layui-btn layui-btn-sm" lay-event="insertDepartment_btn">添加部门</button>
+        {{#  if(${userType} == 1){ }}
+            <button class="layui-btn layui-btn-sm" lay-event="insertDepartment_btn">添加部门</button>
+        {{#  } else { }}
+            <button class="layui-btn layui-btn-sm layui-btn-disabled">添加部门</button>
+        {{#  } }}
     </div>
 </script>
 <script type="text/html" id="department_barDemo">
-    <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
-    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+    {{#  if(${userType} == 1){ }}
+        <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+    {{#  } else { }}
+        <a class="layui-btn layui-btn-xs layui-btn-disabled">编辑</a>
+        <a class="layui-btn layui-btn-danger layui-btn-xs layui-btn-disabled">删除</a>
+    {{#  } }}
 </script>
 <!------------------------------我的小组------------------------------>
 <script type="text/html" id="team_toolbarDemo">
     <div class="layui-btn-container">
-        <button class="layui-btn layui-btn-sm" lay-event="insertTeam_btn">添加小组</button>
+        {{#  if(${userType} == 1){ }}
+            <button  class="layui-btn layui-btn-sm" lay-event="insertTeam_btn">添加小组</button>
+        {{#  } else { }}
+            <button class="layui-btn layui-btn-sm layui-btn-disabled">添加小组</button>
+        {{#  } }}
     </div>
 </script>
 <script type="text/html" id="team_barDemo">
-    <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
-    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+    {{#  if(${userType} == 1){ }}
+        <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+    {{#  } else { }}
+        <a class="layui-btn layui-btn-xs layui-btn-disabled">编辑</a>
+        <a class="layui-btn layui-btn-danger layui-btn-xs layui-btn-disabled">删除</a>
+    {{#  } }}
 </script>
 <!-- =======================================================JS代码======================================================-->
 <script src="${APP_PATH}/static/js/jquery-3.0.0.min.js"></script>
