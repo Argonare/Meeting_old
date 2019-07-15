@@ -3,6 +3,8 @@ package com.meeting.dao;
 import com.meeting.bean.MeetingInfo;
 import com.meeting.bean.MeetingInfoExample;
 import java.util.List;
+
+import com.meeting.bean.MeetingInfoRetrun;
 import org.apache.ibatis.annotations.Param;
 
 public interface MeetingInfoMapper {
@@ -33,4 +35,5 @@ public interface MeetingInfoMapper {
     List<Integer>  selectMeetingInfoSelected(int meetingId);
 
     Long selectMeetingInfo(MeetingInfo meetingInfo);
+
 }

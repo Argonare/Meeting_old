@@ -6,6 +6,7 @@ import com.meeting.bean.MeetingInfo;
 import com.meeting.bean.MeetingTeam;
 import com.meeting.bean.UserInfoReturn;
 import com.meeting.dao.MeetingInfoMapper;
+import com.meeting.dao.MeetingSigninMapper;
 import com.meeting.dao.MeetingTeamMapper;
 import com.meeting.dao.UserInfoMapper;
 import org.junit.Before;
@@ -22,6 +23,8 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
+import javax.xml.crypto.Data;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -42,6 +45,11 @@ public class MvcTest {
     @Autowired
     MeetingInfoMapper meetingInfoMapper;
     //虚拟mvc请求，获取到处理结果
+
+    @Autowired
+    MeetingSigninMapper meetingSigninMapper;
+
+
     MockMvc mockMvc;
 
     @Before
@@ -52,16 +60,6 @@ public class MvcTest {
     @Test
     public void getDateGetTime(){
         System.out.println(new Date().getTime());
-    }
-
-    @Test
-    public void test1(){
-
-        List<MeetingInfo> allMeetingInfo = meetingInfoMapper.findAllMeetingInfo();
-        System.out.println(allMeetingInfo.size());
-        PageHelper.startPage(2,15);
-        PageInfo page = new PageInfo(allMeetingInfo,1);
-        System.out.println(page.getList().size());
     }
 
 //    @Test
@@ -90,6 +88,29 @@ public class MvcTest {
         System.out.println(userType);
     }
 
+    @Test
+    public void getAfterCurrentTimeMeetingInfo() throws Exception {
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/meetingInfo/wx_newMeeting")
+            .param("username","1716143223")
+//            .param("type","after")
+            .param("type","before")
+            ).andReturn();
+    }
+
+    @Test
+    public void getMeetingIdsByUserId(){
+        List<Integer> meetingIdsByUserId = meetingSigninMapper.getMeetingIdsByUserId(2);
+        System.out.println(meetingIdsByUserId);
+    }
+
+    @Test
+    public void test1(){
+        long time = new Date().getTime();
+        String format = new SimpleDateFormat("MM月dd日").format(time);
+        String format1 = new SimpleDateFormat("HH:mm").format(time);
+        System.out.println(format);
+        System.out.println(format1);
+    }
     //findAllByExample
 //    @Test
 //    public void findAllByExample() throws Exception {
