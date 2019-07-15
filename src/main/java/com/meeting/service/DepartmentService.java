@@ -67,6 +67,9 @@ public class DepartmentService {
         criteria.andNameEqualTo(deptName);
         return departmentMapper.selectByExample(departmentExample).get(0).getId();
     }
+    public Department selectDepartment(Integer id) {
+        return departmentMapper.selectByPrimaryKey(id);
+    }
 }
 
 

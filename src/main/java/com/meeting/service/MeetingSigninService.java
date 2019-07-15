@@ -33,4 +33,10 @@ public class MeetingSigninService {
         else
             return false;
     }
+    public List<MeetingSignin> selectMeetingSigninByUsername(Integer userId){
+        MeetingSigninExample meetingSigninExample = new MeetingSigninExample();
+        MeetingSigninExample.Criteria criteria = meetingSigninExample.createCriteria();
+        criteria.andUserIdEqualTo(userId);
+        return meetingSigninMapper.selectByExample(meetingSigninExample);
+    }
 }
