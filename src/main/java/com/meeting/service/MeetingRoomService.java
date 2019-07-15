@@ -84,4 +84,7 @@ public class MeetingRoomService {
         return meetingRoomMapper.updateByExampleSelective(meetingRoom, meetingRoomExample);
     }
 
+    public MeetingRoom selectMeetingRoom(Integer id) {
+        return meetingRoomMapper.selectByPrimaryKey(id);
+    }
 }

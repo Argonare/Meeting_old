@@ -37,7 +37,7 @@
     </div>
 </div>
 </body>
-<script src="static/js/jquery-3.0.0.min.js"></script>
+<script src="${APP_PATH}/static/js/jquery-3.0.0.min.js"></script>
 <script src="${APP_PATH}/static/css/layui/layui.js"></script>
 <script>
     $(document).ready(function () {
