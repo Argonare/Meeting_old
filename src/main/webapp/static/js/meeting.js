@@ -537,7 +537,7 @@ function meetinginfo_table(){
                     layer.open({
                         type: 2,
                         btn: ['保存', '取消'],
-                        content: APP_PATH + '/jumpPage/signinInfoIframe',
+                        content: APP_PATH + '/jumpPage/signinInfoIframe?meeting_id='+data.id,
                         area: ['1000px', '700px'],
                         success: function(layero, index) {
                         },
