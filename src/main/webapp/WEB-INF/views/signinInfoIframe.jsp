@@ -3,7 +3,9 @@
 <head>
     <title>Title</title>
 </head>
-    <%pageContext.setAttribute("APP_PATH", request.getContextPath());%>
+    <%
+        pageContext.setAttribute("APP_PATH", request.getContextPath());
+    %>
 <link href="${APP_PATH}/static/css/layui/css/layui.css" rel="stylesheet" type="text/css">
 <link href="${APP_PATH}/static/css/mycss/layui/login.css" rel="stylesheet" type="text/css">
 <link href="${APP_PATH}/static/css/mycss/layui/admin.css" rel="stylesheet" type="text/css">
@@ -34,11 +36,15 @@
 <script src="${APP_PATH}/static/css/layui/layui.js"></script>
 <script>
     var data="";
+    function get_meeting_id(){
+        var str=location.href;
+        return str.split("=")[1];
+    }
     $.ajax({
         url:"${APP_PATH}/meetingSignin/findMeetingSignInfo",
         type:"GET",
         async:false,
-        data:{"meetingId":126},
+        data:{"meetingId":get_meeting_id()},
         success:function (result) {
             data=result.extend.signinInfo
         }
