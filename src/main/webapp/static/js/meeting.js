@@ -986,7 +986,7 @@ function deptinfo_table() {
                 // ,{field:'id', title: 'id'}
                 ,{field:'name', title: '部门名',width:150}
                 ,{field:'', title: ''}
-                ,{fixed: 'right', title:'操作', toolbar: '#userinfo_barDemo', width:150,align:'center'}
+                ,{fixed: 'right', title:'操作', toolbar: '#department_barDemo', width:150,align:'center'}
             ]]
 
         });

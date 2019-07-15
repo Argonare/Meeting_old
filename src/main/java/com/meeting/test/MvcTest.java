@@ -84,6 +84,12 @@ public class MvcTest {
 
     }
 
+    @Test
+    public void getUserTypeByUsername(){
+        Integer userType = userInfoMapper.getUserTypeByUsername("0");
+        System.out.println(userType);
+    }
+
     //findAllByExample
 //    @Test
 //    public void findAllByExample() throws Exception {
