@@ -146,7 +146,7 @@ public class MeetingSigninController {
         return Msg.success().add("meetInfo",meetInfo);
     }
     @ResponseBody
-    @RequestMapping(value = "/getPic.do")
+    @RequestMapping(value = "/getDepartSiginInfo")
     public Msg getPic(int meetingId){
         List<UserSiginDeptInfo>meetingSignin=meetingSigninService.selectDepartSiginInfo(meetingId);
         return Msg.success().add("data",meetingSignin);

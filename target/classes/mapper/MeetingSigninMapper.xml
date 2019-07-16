@@ -11,6 +11,15 @@
     <result column="late_flag" jdbcType="BIT" property="lateFlag" />
     <result column="delete_flag" jdbcType="BIT" property="deleteFlag" />
   </resultMap>
+  <resultMap id="DepartSiginInfoMap" type="com.meeting.bean.UserSiginDeptInfo">
+    <result column="dept" jdbcType="VARCHAR" property="dept" />
+    <result column="leave" jdbcType="INTEGER" property="leave" />
+    <result column="signin" jdbcType="INTEGER" property="signin" />
+    <result column="notSigin" jdbcType="INTEGER" property="notSigin" />
+    <result column="late" jdbcType="INTEGER" property="late" />
+  </resultMap>
+
+
   <sql id="Example_Where_Clause">
     <where>
       <foreach collection="oredCriteria" item="criteria" separator="or">
@@ -264,8 +273,8 @@
   <select id="getMeetingIdsByUserId" resultType="Integer">
     select meeting_id from meeting_signin where user_id = #{userid} and delete_flag = 0
   </select>
-  <select id="selectDepartSiginInfo" >
-    select department.name,
+  <select id="selectDepartSiginInfo" resultMap="DepartSiginInfoMap">
+    select department.name as dept,
     sum(case when leave_flag=1 then 1 else 0 end) as 'leave',
     sum(case when signin_flag=1 and late_flag=0 then 1 else 0 end) as 'signin',
     sum(case when late_flag=1 then 1 else 0 end) as 'late',
