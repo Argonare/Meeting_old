@@ -22,19 +22,32 @@
     }
 </style>
 <body>
-<div id="main" style="width: 600px;height: 400px";margin-left:300px></div>
-<table class="layui-hide" id="test" lay-filter="test"></table>
-<script type="text/html" id="selectGxmc" >
-    <select name='jtcyGxmc' lay-filter='testSelect' lay-search=''>
-        <option value="已到">已到</option>
-        <option value="迟到">迟到</option>
-        <option value="未到">未到</option>
-        <option value="请假">请假</option>
-    </select>
-</script>
 
+<div class="layui-tab">
+    <ul class="layui-tab-title">
+        <li class="layui-this">人员签到情况</li>
+        <li>部门签到情况</li>
+    </ul>
+    <div class="layui-tab-content">
+        <div class="layui-tab-item layui-show">
+            <div id="main" style="width: 600px;height: 400px;margin: 0 auto;margin-top: 20px"></div>
 
+            <%--<table class="layui-hide" id="test" lay-filter="test"></table>--%>
+
+        </div>
+        <div class="layui-tab-item">内容2</div>
+    </div>
+</div>
 </body>
+<!-- 改变签到状态-->
+<%--<script type="text/html" id="selectGxmc" >--%>
+    <%--<select name='jtcyGxmc' lay-filter='testSelect' lay-search=''>--%>
+        <%--<option value="已到">已到</option>--%>
+        <%--<option value="迟到">迟到</option>--%>
+        <%--<option value="未到">未到</option>--%>
+        <%--<option value="请假">请假</option>--%>
+    <%--</select>--%>
+<%--</script>--%>
 
 <script src="${APP_PATH}/static/js/jquery-3.0.0.min.js"></script>
 <script src="${APP_PATH}/static/css/layui/layui.js"></script>
@@ -106,7 +119,9 @@
         return tableCache;
     }
     init_table();
-
+    layui.use('element', function(){
+      var element = layui.element;
+    })
 </script>
 
 <script src="${APP_PATH}/static/js/echarts.min.js"></script>
@@ -114,23 +129,22 @@
 <script type="text/javascript">
     // console.log(data);
     var myChart = echarts.init(document.getElementById('main'));
-    var x1=0,x2=0,x3=0,x4=0;
+    var arrived=0;//已到
+    var be_late=0;//迟到
+    var not_arrived=0;//未到
+    var leave=0;//请假
     for (var i=0;i<data.length;i++){
         if (data[i].status=='已到')
-            x1++;
+            arrived++;
         else if(data[i].status=='迟到')
-            x2++;
+            be_late++;
         else if(data[i].status=='未到')
-            x3++;
-        else
-            x4++;
+            not_arrived++;
+        else if (data[i].status=='请假')
+            leave++;
     }
-    console.log(data)
+    // console.log(data)
     option = {
-        // title:{
-        //     text:"1"+meetingName,
-        //     x:'center'
-        // },
         tooltip: {
             trigger: 'item',
             formatter: "{a} <br/>{b}: {c} ({d}%)"
@@ -146,33 +160,28 @@
                 type:'pie',
                 radius: ['50%', '70%'],
                 data:[
-                    {value:x1,name:'已到'},
-                    {value:x2, name:'迟到'},
-                    {value:x3, name:'未到'},
-                    {value:x4, name:'请假'},
+                    {value:arrived,name:'已到'},
+                    {value:be_late, name:'迟到'},
+                    {value:not_arrived, name:'未到'},
+                    {value:leave, name:'请假'},
                 ]
-                // , avoidLabelOverlap: false,
-                // label: {
-                //     normal: {
-                //         show: false,
-                //         position: 'center'
-                //     },
-                //     emphasis: {
-                //         show: true,
-                //         textStyle: {
-                //             fontSize: '30',
-                //             fontWeight: 'bold'
-                //         }
-                //     }
-                // }
-                // ,labelLine: {
-                //     normal: {
-                //         show: true
-                //     }
-                // }
             }
         ]
     };
+
+    myChart.on('click', function (param) {
+        // alert(param.seriesName);  //legend的名称
+        // alert(param.name);  //X轴的值
+        if (param.name=='已到'){
+            alert("1");
+        }else if (param.name=='迟到'){
+            alert("12");
+        } else if (param.name=='未到'){
+            alert("123");
+        }else {
+            alert("1234");
+        }
+    });
     myChart.setOption(option);
 </script>
 </html>

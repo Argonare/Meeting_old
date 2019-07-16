@@ -411,7 +411,7 @@
                         });
                         layui.table.reload("leftTable");
                     }else if(res.code == 200){
-                        layer.msg("改小组内无成员",{icon:5});
+                        layer.msg("该小组内无成员",{icon:5});
                     }
                 }
             })
