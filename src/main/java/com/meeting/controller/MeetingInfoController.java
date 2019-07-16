@@ -32,13 +32,12 @@ public class MeetingInfoController {
     MeetingSigninService meetingSigninService;
 
     @ResponseBody
-    @RequestMapping("/wx_newMeeting")
+    @RequestMapping("/wx_newMeeting.do")
     public Msg wx_newmeeting(HttpServletRequest request){
         String username = request.getParameter("username");
         String type = request.getParameter("type");
 
         List<wxMeetingInfo> wxMeetingInfos = meetingInfoService.getAfterTimeMeetingInfoByUser(username,type);
-        System.out.println(wxMeetingInfos.toString());
         return Msg.success().add("wxMeetingInfo",wxMeetingInfos).add("count",wxMeetingInfos.size());
     }
 
@@ -49,7 +48,6 @@ public class MeetingInfoController {
         List<MeetingInfo> meetingInfo  = meetingInfoService.findAllMeetingInfo();
         PageInfo page = new PageInfo(meetingInfo,1);
         List<MeetingInfoRetrun>list=new ArrayList<MeetingInfoRetrun>();
-        System.out.println(meetingInfo.size());
         for (MeetingInfo lis:meetingInfo){
             String place="";
             MeetingInfoRetrun meetingInfoRetrun=new MeetingInfoRetrun();
@@ -88,7 +86,6 @@ public class MeetingInfoController {
         }
         meetingInfo.setDepartIds(deptIds.substring(0,deptIds.length()-1));
         meetingInfo.setInsertUsername(session.getAttribute("username").toString());
-        System.out.println(meetingInfo);
 
         MeetingInfoExample example = new MeetingInfoExample();
         MeetingInfoExample.Criteria criteria = example.createCriteria();
