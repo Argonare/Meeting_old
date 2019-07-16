@@ -6,11 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5316ccd-bfac-4735-b49f-0fc70ae88bb6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/meeting/controller/MeetingSigninController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/meeting/controller/MeetingSigninController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/MeetingSigninMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/MeetingSigninMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/MeetingSigninMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/MeetingSigninMapper.xml" afterDir="false" />
-    </list>
+    <list default="true" id="d5316ccd-bfac-4735-b49f-0fc70ae88bb6" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -110,8 +106,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/MeetingSigninMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="278" column="79" lean-forward="true" selection-start-line="278" selection-start-column="79" selection-end-line="278" selection-end-column="79" />
+            <state relative-caret-position="336">
+              <caret line="285" column="9" lean-forward="true" selection-start-line="285" selection-start-column="9" selection-end-line="285" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -621,7 +617,7 @@
       <workItem from="1562812984043" duration="34422000" />
       <workItem from="1562997989359" duration="4897000" />
       <workItem from="1563154384651" duration="8990000" />
-      <workItem from="1563263441975" duration="7208000" />
+      <workItem from="1563263441975" duration="7723000" />
     </task>
     <task id="LOCAL-00001" summary="船新版本">
       <created>1562588385579</created>
@@ -812,7 +808,14 @@
       <option name="project" value="LOCAL" />
       <updated>1563275714628</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="7.16">
+      <created>1563276992384</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1563276992384</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -848,7 +851,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="104939000" />
+    <option name="totallyTimeSpent" value="105454000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -1366,8 +1369,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/MeetingSigninMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="278" column="79" lean-forward="true" selection-start-line="278" selection-start-column="79" selection-end-line="278" selection-end-column="79" />
+        <state relative-caret-position="336">
+          <caret line="285" column="9" lean-forward="true" selection-start-line="285" selection-start-column="9" selection-end-line="285" selection-end-column="9" />
         </state>
       </provider>
     </entry>
