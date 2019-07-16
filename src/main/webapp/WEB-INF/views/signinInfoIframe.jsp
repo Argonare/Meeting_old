@@ -22,6 +22,7 @@
     }
 </style>
 <body>
+<div id="main" style="width: 600px;height: 400px";margin-left:300px></div>
 <table class="layui-hide" id="test" lay-filter="test"></table>
 <script type="text/html" id="selectGxmc" >
     <select name='jtcyGxmc' lay-filter='testSelect' lay-search=''>
@@ -31,11 +32,19 @@
         <option value="请假">请假</option>
     </select>
 </script>
+
+
 </body>
+
 <script src="${APP_PATH}/static/js/jquery-3.0.0.min.js"></script>
 <script src="${APP_PATH}/static/css/layui/layui.js"></script>
 <script>
     var data="";
+    var meetingName="";
+    function setMeetingName(val) {
+        meetingName=val;
+        console.log(meetingName)
+    }
     function get_meeting_id(){
         var str=location.href;
         return str.split("=")[1];
@@ -55,6 +64,8 @@
             table.render({
                 elem: '#test',
                 data: data,
+                page:false,
+                limit:1000,
                 cols: [[
                     {field: 'id', width: 40, title: 'ID', sort: true}
                     , {field: 'username', title: '工号'}
@@ -95,6 +106,73 @@
         return tableCache;
     }
     init_table();
+
 </script>
 
+<script src="${APP_PATH}/static/js/echarts.min.js"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts-all-3.js"></script>
+<script type="text/javascript">
+    // console.log(data);
+    var myChart = echarts.init(document.getElementById('main'));
+    var x1=0,x2=0,x3=0,x4=0;
+    for (var i=0;i<data.length;i++){
+        if (data[i].status=='已到')
+            x1++;
+        else if(data[i].status=='迟到')
+            x2++;
+        else if(data[i].status=='未到')
+            x3++;
+        else
+            x4++;
+    }
+    console.log(data)
+    option = {
+        // title:{
+        //     text:"1"+meetingName,
+        //     x:'center'
+        // },
+        tooltip: {
+            trigger: 'item',
+            formatter: "{a} <br/>{b}: {c} ({d}%)"
+        },
+        legend: {
+            orient: 'vertical',
+            x: 'left',
+            data:['已到','迟到','未到','请假']
+        },
+        series: [
+            {
+                name:'签到情况',
+                type:'pie',
+                radius: ['50%', '70%'],
+                data:[
+                    {value:x1,name:'已到'},
+                    {value:x2, name:'迟到'},
+                    {value:x3, name:'未到'},
+                    {value:x4, name:'请假'},
+                ]
+                // , avoidLabelOverlap: false,
+                // label: {
+                //     normal: {
+                //         show: false,
+                //         position: 'center'
+                //     },
+                //     emphasis: {
+                //         show: true,
+                //         textStyle: {
+                //             fontSize: '30',
+                //             fontWeight: 'bold'
+                //         }
+                //     }
+                // }
+                // ,labelLine: {
+                //     normal: {
+                //         show: true
+                //     }
+                // }
+            }
+        ]
+    };
+    myChart.setOption(option);
+</script>
 </html>

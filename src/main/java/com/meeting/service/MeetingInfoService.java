@@ -50,6 +50,15 @@ public class MeetingInfoService {
         return meetingInfoMapper.selectByPrimaryKey(id);
     }
 
+    public int deleteByExampleMeetingInfo(List<Integer> del_ids) {
+        MeetingInfoExample example = new MeetingInfoExample();
+        MeetingInfoExample.Criteria criteria = example.createCriteria();
+        criteria.andIdIn(del_ids);
+        MeetingInfo meetingInfo = new MeetingInfo();
+        meetingInfo.setDeleteFlag(true);
+        return meetingInfoMapper.updateByExampleSelective(meetingInfo, example);
+    }
+
     public List<wxMeetingInfo> getAfterTimeMeetingInfoByUser(String username,String type){
         int userid = userInfoMapper.getUidByUsername(username);
         List<Integer> myMeetingInfoIds = meetingSigninMapper.getMeetingIdsByUserId(userid);//查找和自己有关的会议

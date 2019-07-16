@@ -6,10 +6,7 @@ import com.meeting.bean.*;
 import com.meeting.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -192,6 +189,31 @@ public class MeetingInfoController {
     public Msg getQcodeType(int meetingId){
         Boolean status=meetingInfoService.selectMeetingInfoById(meetingId).getRefreshQcode();
         return Msg.success().add("type",status?1:0);
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/deleteByExampleSelectiveMeetingInfo/{ids}",method = RequestMethod.POST)
+    public Msg updateByExampleSelectiveUser(@PathVariable("ids")String ids){
+        List<Integer> del_ids = new ArrayList<Integer>();
+        String str_ids[] = ids.split(",");
+        for (String string: str_ids){
+            del_ids.add(Integer.parseInt(string));
+        }
+        meetingInfoService.deleteByExampleMeetingInfo(del_ids);
+        return Msg.success();
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/deleteMeetingInfo",method = RequestMethod.POST)
+    public Msg deleteMeetingInfo(MeetingInfo meetingInfo){
+        MeetingInfoExample example = new MeetingInfoExample();
+        MeetingInfoExample.Criteria criteria = example.createCriteria();
+        criteria.andIdEqualTo(meetingInfo.getId());
+        meetingInfo.setDeleteFlag(true);
+        if (meetingInfoService.updateMeetingInfo(meetingInfo, example))
+            return Msg.success().add("msg", "删除成功");
+        else
+            return Msg.fail().add("msg", "删除失败");
     }
 
 }
