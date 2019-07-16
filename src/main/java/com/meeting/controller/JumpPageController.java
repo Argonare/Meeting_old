@@ -73,10 +73,4 @@ public class JumpPageController {
     public String updateMeetingTeamIframe(){
         return "updateMeetingTeamIframe";
     }
-
-    @RequestMapping(value = "/ECharts")
-    public String ECharts(){
-        return "ECharts";
-    }
-
 }
