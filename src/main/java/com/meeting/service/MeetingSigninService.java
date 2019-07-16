@@ -25,6 +25,7 @@ public class MeetingSigninService {
         MeetingSigninExample meetingSigninExample = new MeetingSigninExample();
         MeetingSigninExample.Criteria criteria = meetingSigninExample.createCriteria();
         criteria.andMeetingIdEqualTo(meetId);
+        criteria.andDeleteFlagEqualTo(false);
         return meetingSigninMapper.selectByExample(meetingSigninExample);
     }
     public boolean updateMeetingSignin(MeetingSignin meetingSignin, MeetingSigninExample example) {
