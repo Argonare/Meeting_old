@@ -6,6 +6,7 @@ import com.meeting.bean.MeetingInfo;
 import com.meeting.bean.MeetingTeam;
 import com.meeting.bean.UserInfoReturn;
 import com.meeting.dao.MeetingInfoMapper;
+import com.meeting.dao.MeetingSigninMapper;
 import com.meeting.dao.MeetingTeamMapper;
 import com.meeting.dao.UserInfoMapper;
 import org.junit.Before;
@@ -22,6 +23,14 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
+import javax.xml.crypto.Data;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -42,6 +51,11 @@ public class MvcTest {
     @Autowired
     MeetingInfoMapper meetingInfoMapper;
     //虚拟mvc请求，获取到处理结果
+
+    @Autowired
+    MeetingSigninMapper meetingSigninMapper;
+
+
     MockMvc mockMvc;
 
     @Before
@@ -52,16 +66,6 @@ public class MvcTest {
     @Test
     public void getDateGetTime(){
         System.out.println(new Date().getTime());
-    }
-
-    @Test
-    public void test1(){
-
-        List<MeetingInfo> allMeetingInfo = meetingInfoMapper.findAllMeetingInfo();
-        System.out.println(allMeetingInfo.size());
-        PageHelper.startPage(2,15);
-        PageInfo page = new PageInfo(allMeetingInfo,1);
-        System.out.println(page.getList().size());
     }
 
 //    @Test
@@ -89,6 +93,51 @@ public class MvcTest {
         Integer userType = userInfoMapper.getUserTypeByUsername("0");
         System.out.println(userType);
     }
+
+    @Test
+    public void getAfterCurrentTimeMeetingInfo() throws Exception {
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/meetingInfo/wx_newMeeting.do")
+            .param("username","1")
+//            .param("type","after")
+            .param("type","after")
+            ).andReturn();
+    }
+
+    @Test
+    public void getMeetingIdsByUserId(){
+        List<Integer> meetingIdsByUserId = meetingSigninMapper.getMeetingIdsByUserId(2);
+        System.out.println(meetingIdsByUserId);
+    }
+
+    @Test
+    public void test1(){
+        long time = new Date().getTime();
+        String format = new SimpleDateFormat("MM月dd日").format(time);
+        String format1 = new SimpleDateFormat("HH:mm").format(time);
+        System.out.println(format);
+        System.out.println(format1);
+    }
+
+//    @Test
+//    public void httpTest(){
+//        String url = "https://api.weixin.qq.com/sns/jscode2session?appid=wxbe64818bb84ee91a&secret=232dd0dc137c8ffe8e84749e1df0140b&js_code=081HonW91tM3MN1NizW91F0mW91HonWu";
+//        StringBuilder json = new StringBuilder();
+//        try {
+//            URL urlObj = new URL(url);
+//            URLConnection uc = urlObj.openConnection();
+//            BufferedReader in = new BufferedReader(new InputStreamReader(uc.getInputStream()));
+//            String inputLine = null;
+//            while((inputLine = in.readLine()) != null){
+//                json.append(inputLine);
+//            }
+//            in.close();
+//        } catch (MalformedURLException e) {
+//            e.printStackTrace();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        System.out.println(json.toString());
+//    }
 
     //findAllByExample
 //    @Test

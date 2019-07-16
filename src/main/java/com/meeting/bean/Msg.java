@@ -33,7 +33,16 @@ public class Msg {
 		this.getExtend().put(key, value);
 		return this;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Msg{" +
+				"code=" + code +
+				", msg='" + msg + '\'' +
+				", extend=" + extend +
+				'}';
+	}
+
 	public int getCode() {
 		return code;
 	}

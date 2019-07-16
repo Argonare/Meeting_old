@@ -29,13 +29,22 @@ public class MeetingInfoController {
     MeetingSigninService meetingSigninService;
 
     @ResponseBody
+    @RequestMapping("/wx_newMeeting.do")
+    public Msg wx_newmeeting(HttpServletRequest request){
+        String username = request.getParameter("username");
+        String type = request.getParameter("type");
+
+        List<wxMeetingInfo> wxMeetingInfos = meetingInfoService.getAfterTimeMeetingInfoByUser(username,type);
+        return Msg.success().add("wxMeetingInfo",wxMeetingInfos).add("count",wxMeetingInfos.size());
+    }
+
+    @ResponseBody
     @RequestMapping(value = "/findAllMeetingInfo",method = RequestMethod.GET)
     public Msg MeetingInfo(@RequestParam(value="page",defaultValue="1")Integer pn){
         PageHelper.startPage(pn,15);
         List<MeetingInfo> meetingInfo  = meetingInfoService.findAllMeetingInfo();
         PageInfo page = new PageInfo(meetingInfo,1);
         List<MeetingInfoRetrun>list=new ArrayList<MeetingInfoRetrun>();
-        System.out.println(meetingInfo.size());
         for (MeetingInfo lis:meetingInfo){
             String place="";
             MeetingInfoRetrun meetingInfoRetrun=new MeetingInfoRetrun();
@@ -74,7 +83,6 @@ public class MeetingInfoController {
         }
         meetingInfo.setDepartIds(deptIds.substring(0,deptIds.length()-1));
         meetingInfo.setInsertUsername(session.getAttribute("username").toString());
-        System.out.println(meetingInfo);
 
         MeetingInfoExample example = new MeetingInfoExample();
         MeetingInfoExample.Criteria criteria = example.createCriteria();
@@ -183,7 +191,6 @@ public class MeetingInfoController {
         return Msg.success().add("type",status?1:0);
     }
 
-
     @ResponseBody
     @RequestMapping(value = "/deleteByExampleSelectiveMeetingInfo/{ids}",method = RequestMethod.POST)
     public Msg updateByExampleSelectiveUser(@PathVariable("ids")String ids){
@@ -208,4 +215,5 @@ public class MeetingInfoController {
         else
             return Msg.fail().add("msg", "删除失败");
     }
+
 }

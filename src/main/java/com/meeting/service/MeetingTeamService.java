@@ -1,11 +1,9 @@
 package com.meeting.service;
 
-import com.meeting.bean.MeetingInfoExample;
 import com.meeting.bean.MeetingTeam;
 import com.meeting.bean.MeetingTeamExample;
 import com.meeting.bean.MeetingTeamReturn;
 import com.meeting.dao.MeetingTeamMapper;
-import com.sun.deploy.panel.ITreeNode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
