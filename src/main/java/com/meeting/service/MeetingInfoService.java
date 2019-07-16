@@ -37,4 +37,14 @@ public class MeetingInfoService {
         return meetingInfoMapper.selectByPrimaryKey(id);
     }
 
+    public int deleteByExampleMeetingInfo(List<Integer> del_ids) {
+        MeetingInfoExample example = new MeetingInfoExample();
+        MeetingInfoExample.Criteria criteria = example.createCriteria();
+        criteria.andIdIn(del_ids);
+        MeetingInfo meetingInfo = new MeetingInfo();
+        meetingInfo.setDeleteFlag(true);
+        return meetingInfoMapper.updateByExampleSelective(meetingInfo, example);
+    }
+
+
 }

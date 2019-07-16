@@ -462,6 +462,7 @@ function meetinginfo_table(){
                             iframeWin.setQcode(JSON.stringify(data.qcode?0:1))
                             iframeWin.setType(JSON.stringify(data.meetingType))
                             iframeWin.setType(JSON.stringify(data.meetingType))
+
                         },
                         yes:function (index,layero) {
                             var body = layer.getChildFrame('body', index);
@@ -499,7 +500,7 @@ function meetinginfo_table(){
                                 ids.push(id);
                             }
                             //提交创建会议的信息
-                            console.log(data)
+                            // console.log(data)
                             $.ajax({
                                 url:APP_PATH+"/meetingInfo/updateMeetingInfoAndSignin",
                                 type:"POST"
@@ -537,14 +538,18 @@ function meetinginfo_table(){
                     layer.open({
                         type: 2,
                         btn: ['保存', '取消'],
-                        content: APP_PATH + '/jumpPage/signinInfoIframe',
-                        area: ['80%', '50%'],
+                        content: APP_PATH + '/jumpPage/signinInfoIframe?meeting_id='+data.id,
+                        area: ['50%', '80%'],
                         success: function(layero, index) {
+                            var body = layer.getChildFrame('body', index);
+                            var iframeWin = window[layero.find('iframe')[0]['name']]; //得到iframe页的窗口对象，执行iframe页的方法：
+                            iframeWin.setMeetingName(JSON.stringify(data.name));
                         },
                         yes: function(index, layero) {
                             var body = layer.getChildFrame('body', index);
                             var iframeWin = window[layero.find('iframe')[0]['name']];
                             var cache_data=iframeWin.layui.table.cache
+                            // console.log(cache_data)
                             cache_data=cache_data.test
                             for(var i=0;i<cache_data.length;i++){
                                 if (cache_data[i].status=="已到")
@@ -555,7 +560,6 @@ function meetinginfo_table(){
                                     cache_data[i].status='leave'
                                 else cache_data[i].status="late"
                             }
-                            console.log(cache_data)
                             $.ajax({
                                 url:APP_PATH+"/meetingSignin/updateSignByUserAndMeeting",
                                 data:{ids:JSON.stringify(cache_data)},
@@ -567,6 +571,7 @@ function meetinginfo_table(){
                                     }
                                 }
                             })
+
                             layer.close(index);
                         }
                     });
@@ -1155,9 +1160,41 @@ function checkUsername(username){
         }
     })
 }
-//********************************我的小组*********************************
+//JavaScript代码区域
+layui.use('element', function(){
+    var element = layui.element;
+});
+//JavaScript代码区域
+layui.use('element', function(){
+    var element = layui.element;
+});
+//获取用户名
+var username = ""
+$(document).ready(function() {
+    $.ajax({
+        url: APP_PATH + '/userInfo/getUsername.do',
+        type: 'GET',
+        async:false,
+        success: function(result) {
+            // console.log(result)
+            username = result.extend.userInfo.name
+            $("#username").html('<img src="http://t.cn/RCzsdCq" class="layui-nav-img">' + username)
+        }
+    })
+})
+//退出
+$("#log_out").click(function() {
+    $.ajax({
+        url: APP_PATH + '/userInfo/log_out.do',
+        type: 'GET',
+        success: function(result) {
+            window.location.href = "/"
+        }
+    })
+})
 function teaminfo_table() {
     layui.use('table', function bb() {
+
         var table = layui.table;
         table.render({
             elem: '#demo',
@@ -1185,6 +1222,7 @@ function teaminfo_table() {
                 , {fixed: 'right', title: '操作', toolbar: '#team_barDemo', width: 150, align: 'center'}
             ]]
         });
+
         table.on('tool(test)', function(obj){ //注：tool是工具条事件名，test是table原始容器的属性 lay-filter="对应的值"
             var data = obj.data; //获得当前行数据
             var layEvent = obj.event; //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）
@@ -1224,6 +1262,7 @@ function teaminfo_table() {
                             $(body).find("#meetingTeanUsername").val(data.name);
                             // iframeWin.child(JSON.stringify(data.deptName))
                         },
+
                         yes:function (index,layero) {
                             var body = layer.getChildFrame('body', index);
                             var iframeWin = window[layero.find('iframe')[0]['name']]; //得到iframe页的窗口对象，执行iframe页的方法：
@@ -1289,6 +1328,10 @@ function teaminfo_table() {
             }
         });
 
+
+
+
+
         table.on('toolbar(test)', function (obj) {
             var checkStatus = table.checkStatus(obj.config.id);
             switch (obj.event) {
@@ -1310,6 +1353,7 @@ function teaminfo_table() {
                                 var body = layer.getChildFrame('body',index);
                                 var username = $(body).find("#meetingTeanUsername").val();
                                 console.log(username);
+
                                 //（***************获取参会人员id开始**************
                                 var rightTable = body.find("tbody:eq(2)");//获得右边的表格
                                 // var t= $(rightTable).find("[data-field='id'] div").text();
@@ -1357,7 +1401,8 @@ function teaminfo_table() {
                                             layer.msg("小组以存在",{icon:5})
                                         }
                                     }
-                                });
+                                })
+
                             }
                         })
                     });
@@ -1366,38 +1411,9 @@ function teaminfo_table() {
                     aa();
                     break;
             }
+
         });
     });
+
+
 }
-//JavaScript代码区域
-layui.use('element', function(){
-    var element = layui.element;
-});
-//JavaScript代码区域
-layui.use('element', function(){
-    var element = layui.element;
-});
-//获取用户名
-var username = ""
-$(document).ready(function() {
-    $.ajax({
-        url: APP_PATH + '/userInfo/getUsername.do',
-        type: 'GET',
-        async:false,
-        success: function(result) {
-            // console.log(result)
-            username = result.extend.userInfo.name
-            $("#username").html('<img src="http://t.cn/RCzsdCq" class="layui-nav-img">' + username)
-        }
-    })
-})
-//退出
-$("#log_out").click(function() {
-    $.ajax({
-        url: APP_PATH + '/userInfo/log_out.do',
-        type: 'GET',
-        success: function(result) {
-            window.location.href = "/"
-        }
-    })
-})

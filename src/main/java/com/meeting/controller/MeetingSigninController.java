@@ -29,6 +29,7 @@ public class MeetingSigninController {
     MeetingRoomService meetingRoomService;
     @Autowired
     DepartmentService departmentService;
+    @ResponseBody
     @RequestMapping(value = "/findMeetingSignInfo")
     public Msg findMeetingSignInfo(int meetingId) throws UnsupportedEncodingException {
         List<UserSignInInfo> list=new ArrayList<UserSignInInfo>();
