@@ -90,10 +90,10 @@ public class MvcTest {
 
     @Test
     public void getAfterCurrentTimeMeetingInfo() throws Exception {
-        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/meetingInfo/wx_newMeeting")
-            .param("username","1716143223")
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/meetingInfo/wx_newMeeting.do")
+            .param("username","1")
 //            .param("type","after")
-            .param("type","before")
+            .param("type","after")
             ).andReturn();
     }
 
