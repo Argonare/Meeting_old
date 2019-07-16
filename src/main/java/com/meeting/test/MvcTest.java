@@ -24,6 +24,12 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
 import javax.xml.crypto.Data;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -111,6 +117,28 @@ public class MvcTest {
         System.out.println(format);
         System.out.println(format1);
     }
+
+//    @Test
+//    public void httpTest(){
+//        String url = "https://api.weixin.qq.com/sns/jscode2session?appid=wxbe64818bb84ee91a&secret=232dd0dc137c8ffe8e84749e1df0140b&js_code=081HonW91tM3MN1NizW91F0mW91HonWu";
+//        StringBuilder json = new StringBuilder();
+//        try {
+//            URL urlObj = new URL(url);
+//            URLConnection uc = urlObj.openConnection();
+//            BufferedReader in = new BufferedReader(new InputStreamReader(uc.getInputStream()));
+//            String inputLine = null;
+//            while((inputLine = in.readLine()) != null){
+//                json.append(inputLine);
+//            }
+//            in.close();
+//        } catch (MalformedURLException e) {
+//            e.printStackTrace();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        System.out.println(json.toString());
+//    }
+
     //findAllByExample
 //    @Test
 //    public void findAllByExample() throws Exception {

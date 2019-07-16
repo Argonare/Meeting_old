@@ -193,4 +193,5 @@ public class MeetingInfoController {
         Boolean status=meetingInfoService.selectMeetingInfoById(meetingId).getRefreshQcode();
         return Msg.success().add("type",status?1:0);
     }
+
 }

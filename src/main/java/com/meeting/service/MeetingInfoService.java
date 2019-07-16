@@ -91,4 +91,5 @@ public class MeetingInfoService {
         }
         return wxMeetingInfos;
     }
+
 }
