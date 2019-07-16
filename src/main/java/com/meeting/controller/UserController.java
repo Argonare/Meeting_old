@@ -15,6 +15,12 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -214,5 +220,29 @@ public class UserController {
         String username=getGuestUser.getname();
         List<UserInfoReturn> list = userInfoService.selectUserinfoByUsernameReturn(username);
         return Msg.success().add("userInfo", list.get(0));
+    }
+    @ResponseBody
+    @RequestMapping(value = "/onLogin.do")
+    public Msg OnLogin(String js_code){
+        String url = "https://api.weixin.qq.com/sns/jscode2session?appid=wxbe64818bb84ee91a&secret=232dd0dc137c8ffe8e84749e1df0140b&js_code="+js_code;
+        StringBuilder json = new StringBuilder();
+        try {
+            URL urlObj = new URL(url);
+            URLConnection uc = urlObj.openConnection();
+            BufferedReader in = new BufferedReader(new InputStreamReader(uc.getInputStream()));
+            String inputLine = null;
+            while((inputLine = in.readLine()) != null){
+                json.append(inputLine);
+            }
+            in.close();
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+            return Msg.fail();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return Msg.fail();
+        }
+//        getGuestUser(json)
+        return Msg.success().add("datas",json);
     }
 }

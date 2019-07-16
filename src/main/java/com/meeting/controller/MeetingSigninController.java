@@ -46,12 +46,12 @@ public class MeetingSigninController {
             userSignInInfo.setUserId(userId);
             String status="";
             if (lis.getLeaveFlag()==true)
-                status=new String("请假".getBytes(),"gbk");
+                status=new String("请假".getBytes(),"utf-8");
             else if (lis.getLateFlag()==true)
-                status=new String("迟到".getBytes(),"gbk");
+                status=new String("迟到".getBytes(),"utf-8");
             else if (lis.getSigninFlag()==false)
-                status=new String("已到".getBytes(),"gbk");
-            else status=new String("未到".getBytes(),"gbk");
+                status=new String("未到".getBytes(),"utf-8");
+            else status=new String("已到".getBytes(),"utf-8");
             userSignInInfo.setStatus(status);
             id++;
             list.add(userSignInInfo);

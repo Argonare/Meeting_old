@@ -28,5 +28,7 @@ public interface MeetingSigninMapper {
 
     int updateByPrimaryKey(MeetingSignin record);
 
-    int deleteByUidMeetingid(MeetingSignin delMeetingSignin);//����MeetingSignin����Ϣɾ����Ϣ
+    int deleteByUidMeetingid(MeetingSignin delMeetingSignin);//????MeetingSignin???????????
+
+    List<Integer> getMeetingIdsByUserId(int userid);
 }

@@ -260,4 +260,9 @@
      set delete_flag=#{deleteFlag,jdbcType=BIT}
     WHERE user_id =#{userId,jdbcType=INTEGER} AND meeting_id=#{meetingId,jdbcType=INTEGER}
   </update>
+
+  <select id="getMeetingIdsByUserId" resultType="Integer">
+    select meeting_id from meeting_signin where user_id = #{userid} and delete_flag = 0
+  </select>
+
 </mapper>
