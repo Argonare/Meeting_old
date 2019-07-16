@@ -1,60 +1,60 @@
 package com.meeting.bean;
 
 public class UserSiginDeptInfo {
-    private String Dept;
-    private String leave;
-    private String signin;
-    private String notSigin;
-    private String late;
+    private String dept;
+    private int leave;
+    private int signin;
+    private int notSigin;
+    private int late;
 
     @Override
     public String toString() {
         return "UserSiginDeptInfo{" +
-                "Dept='" + Dept + '\'' +
-                ", leave='" + leave + '\'' +
-                ", signin='" + signin + '\'' +
-                ", notSigin='" + notSigin + '\'' +
-                ", late='" + late + '\'' +
+                "dept='" + dept + '\'' +
+                ", leave=" + leave +
+                ", signin=" + signin +
+                ", notSigin=" + notSigin +
+                ", late=" + late +
                 '}';
     }
 
     public String getDept() {
-        return Dept;
+        return dept;
     }
 
     public void setDept(String dept) {
-        Dept = dept;
+        this.dept = dept;
     }
 
-    public String getLeave() {
+    public int getLeave() {
         return leave;
     }
 
-    public void setLeave(String leave) {
+    public void setLeave(int leave) {
         this.leave = leave;
     }
 
-    public String getSignin() {
+    public int getSignin() {
         return signin;
     }
 
-    public void setSignin(String signin) {
+    public void setSignin(int signin) {
         this.signin = signin;
     }
 
-    public String getNotSigin() {
+    public int getNotSigin() {
         return notSigin;
     }
 
-    public void setNotSigin(String notSigin) {
+    public void setNotSigin(int notSigin) {
         this.notSigin = notSigin;
     }
 
-    public String getLate() {
+    public int getLate() {
         return late;
     }
 
-    public void setLate(String late) {
+    public void setLate(int late) {
         this.late = late;
     }
 }

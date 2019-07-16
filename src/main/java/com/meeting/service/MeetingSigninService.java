@@ -2,6 +2,7 @@ package com.meeting.service;
 
 import com.meeting.bean.MeetingSignin;
 import com.meeting.bean.MeetingSigninExample;
+import com.meeting.bean.UserSiginDeptInfo;
 import com.meeting.dao.MeetingSigninMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -41,5 +42,8 @@ public class MeetingSigninService {
         return meetingSigninMapper.selectByExample(meetingSigninExample);
     }
 
+    public List<UserSiginDeptInfo>selectDepartSiginInfo(Integer meeting_id){
+        return meetingSigninMapper.selectDepartSiginInfo(meeting_id);
+    }
 
 }
