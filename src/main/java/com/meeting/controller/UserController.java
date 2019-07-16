@@ -220,7 +220,7 @@ public class UserController {
         return Msg.success().add("userInfo", list.get(0));
     }
     @ResponseBody
-    @RequestMapping(value = "/OnLogin.do")
+    @RequestMapping(value = "/onLogin.do")
     public Msg OnLogin(String js_code){
         String url = "https://api.weixin.qq.com/sns/jscode2session?appid=wxbe64818bb84ee91a&secret=232dd0dc137c8ffe8e84749e1df0140b&js_code="+js_code;
         StringBuilder json = new StringBuilder();
