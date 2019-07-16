@@ -243,4 +243,12 @@ public class UserController {
 //        getGuestUser(json)
         return Msg.success().add("datas",json);
     }
+    @ResponseBody
+    @RequestMapping(value = "/log_out.do")
+    public Msg log_out(HttpSession session){
+        session.removeAttribute("username");
+        session.removeAttribute("user_id");
+        return Msg.success().add("msg", "退出成功");
+    }
+
 }

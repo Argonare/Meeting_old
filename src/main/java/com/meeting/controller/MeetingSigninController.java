@@ -145,4 +145,11 @@ public class MeetingSigninController {
         }
         return Msg.success().add("meetInfo",meetInfo);
     }
+    @ResponseBody
+    @RequestMapping(value = "/getPic.do")
+    public Msg getPic(int meetingId){
+        List<MeetingSignin>meetingSignin=meetingSigninService.selectMeetingSigninByMeetingId(meetingId);
+
+        return Msg.success();
+    }
 }
