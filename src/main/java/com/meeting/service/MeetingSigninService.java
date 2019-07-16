@@ -40,4 +40,6 @@ public class MeetingSigninService {
         criteria.andUserIdEqualTo(userId);
         return meetingSigninMapper.selectByExample(meetingSigninExample);
     }
+
+
 }

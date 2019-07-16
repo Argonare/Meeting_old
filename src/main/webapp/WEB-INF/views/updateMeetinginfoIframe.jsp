@@ -213,6 +213,7 @@
     var qcode="";
     var tp="";
     var latetime="";
+
     function setQcode(index){
         qcode=index;
         if (index==1)
@@ -324,6 +325,7 @@
             ,height: 450 //容器高度
             ,width:540
             ,page:false
+            ,limit:1000
             ,cols: [[{type: 'checkbox', fixed: 'left'}
                 ,{field: 'id', title: 'ID',style:'display:none'}
                 ,{field: 'username', title: '工号', width: 122}
@@ -407,8 +409,8 @@
         $('#selectAddBtn').on('click', function(){
             var leftTableData = layui.table.cache.leftTable;//获取左表数据
             var rightTableData = layui.table.cache.rightTable;//获取右表数据
-            // console.log(leftTableData)
-            // console.log(rightTableData)
+            console.log(leftTableData)
+            console.log(rightTableData)
             for(var i = 0 ;i<leftTableData.length ; i++){
                 // console.log(leftTableData[i].LAY_CHECKED==true && leftTableData[i].flag != 1);
                 // console.log(leftTableData[i].LAY_CHECKED!=true && leftTableData[i].flag == 1)
@@ -427,8 +429,9 @@
                     }
                 }
             }
-            // console.log(leftTableData)
-            // console.log(rightTableData)
+            console.log("---------")
+            console.log(leftTableData)
+            console.log(rightTableData)
 
             table.reload("leftTable", {
                 data : leftTableData

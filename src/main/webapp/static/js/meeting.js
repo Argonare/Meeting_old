@@ -462,6 +462,7 @@ function meetinginfo_table(){
                             iframeWin.setQcode(JSON.stringify(data.qcode?0:1))
                             iframeWin.setType(JSON.stringify(data.meetingType))
                             iframeWin.setType(JSON.stringify(data.meetingType))
+
                         },
                         yes:function (index,layero) {
                             var body = layer.getChildFrame('body', index);
@@ -499,7 +500,7 @@ function meetinginfo_table(){
                                 ids.push(id);
                             }
                             //提交创建会议的信息
-                            console.log(data)
+                            // console.log(data)
                             $.ajax({
                                 url:APP_PATH+"/meetingInfo/updateMeetingInfoAndSignin",
                                 type:"POST"
@@ -538,13 +539,17 @@ function meetinginfo_table(){
                         type: 2,
                         btn: ['保存', '取消'],
                         content: APP_PATH + '/jumpPage/signinInfoIframe?meeting_id='+data.id,
-                        area: ['1000px', '700px'],
+                        area: ['50%', '80%'],
                         success: function(layero, index) {
+                            var body = layer.getChildFrame('body', index);
+                            var iframeWin = window[layero.find('iframe')[0]['name']]; //得到iframe页的窗口对象，执行iframe页的方法：
+                            iframeWin.setMeetingName(JSON.stringify(data.name));
                         },
                         yes: function(index, layero) {
                             var body = layer.getChildFrame('body', index);
                             var iframeWin = window[layero.find('iframe')[0]['name']];
                             var cache_data=iframeWin.layui.table.cache
+                            // console.log(cache_data)
                             cache_data=cache_data.test
                             for(var i=0;i<cache_data.length;i++){
                                 if (cache_data[i].status=="已到")
@@ -555,7 +560,6 @@ function meetinginfo_table(){
                                     cache_data[i].status='leave'
                                 else cache_data[i].status="late"
                             }
-                            console.log(cache_data)
                             $.ajax({
                                 url:APP_PATH+"/meetingSignin/updateSignByUserAndMeeting",
                                 data:{ids:JSON.stringify(cache_data)},
@@ -567,6 +571,7 @@ function meetinginfo_table(){
                                     }
                                 }
                             })
+
                             layer.close(index);
                         }
                     });
