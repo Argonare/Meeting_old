@@ -79,10 +79,10 @@ public class MeetingInfoService {
 
         //处理成需要的数据
         List<wxMeetingInfo> wxMeetingInfos = new ArrayList<>();
-        wxMeetingInfo wxMeetingInfo = new wxMeetingInfo();
         SimpleDateFormat date = new SimpleDateFormat("MM月dd日");
         SimpleDateFormat time = new SimpleDateFormat("HH:mm");
         for (MeetingInfo m:meetingInfoRetruns){
+            wxMeetingInfo wxMeetingInfo = new wxMeetingInfo();
             wxMeetingInfo.setName(m.getName());
             wxMeetingInfo.setAddr(roomMap.get(m.getRoomId()));
             wxMeetingInfo.setDate(date.format(m.getStartTime()));
