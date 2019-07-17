@@ -274,13 +274,13 @@
     select meeting_id from meeting_signin where user_id = #{userid} and delete_flag = 0
   </select>
   <select id="selectDepartSiginInfo" resultMap="DepartSiginInfoMap">
-    select department.name as dept,
-    sum(case when leave_flag=1 then 1 else 0 end) as 'leave',
-    sum(case when signin_flag=1 and late_flag=0 then 1 else 0 end) as 'signin',
-    sum(case when late_flag=1 then 1 else 0 end) as 'late',
-    sum(case when signin_flag=0 and late_flag=0 and leave_flag=0 then 1 else 0 end) as 'notsignin'
-    from meeting_signin,user_info,department
-    where meeting_id=#{meeting_id} and user_info.id=meeting_signin.user_id and department.id=user_info.depart_id
+    SELECT department.name AS dept,
+    SUM(CASE WHEN leave_flag=1 THEN 1 ELSE 0 END) AS 'leave',
+    SUM(CASE WHEN signin_flag=1 AND late_flag=0 THEN 1 ELSE 0 END) AS 'signin',
+    SUM(CASE WHEN late_flag=1 THEN 1 ELSE 0 END) AS 'late',
+    SUM(CASE WHEN signin_flag=0 AND late_flag=0 AND leave_flag=0 THEN 1 ELSE 0 END) AS 'notsignin'
+    FROM meeting_signin,user_info,department
+    WHERE meeting_id=#{meeting_id} AND user_info.id=meeting_signin.user_id AND department.id=user_info.depart_id AND user_info.delete_flag=0 AND meeting_signin.delete_flag=0 AND department.`delete_flag`=0
     GROUP BY department.name
   </select>
 </mapper>

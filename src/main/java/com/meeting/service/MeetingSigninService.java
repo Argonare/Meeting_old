@@ -43,6 +43,7 @@ public class MeetingSigninService {
     }
 
     public List<UserSiginDeptInfo>selectDepartSiginInfo(Integer meeting_id){
+        System.out.println(meetingSigninMapper.selectDepartSiginInfo(meeting_id));
         return meetingSigninMapper.selectDepartSiginInfo(meeting_id);
     }
 

@@ -6,6 +6,16 @@
     <%
         pageContext.setAttribute("APP_PATH", request.getContextPath());
     %>
+
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/simplex.js"></script>
+
 <link href="${APP_PATH}/static/css/layui/css/layui.css" rel="stylesheet" type="text/css">
 <link href="${APP_PATH}/static/css/mycss/layui/login.css" rel="stylesheet" type="text/css">
 <link href="${APP_PATH}/static/css/mycss/layui/admin.css" rel="stylesheet" type="text/css">
@@ -20,6 +30,7 @@
     .layui-table-view .layui-table-box .layui-table-body{
         height: 100%;
     }
+
 </style>
 <body>
 <div class="layui-tab">
@@ -28,15 +39,15 @@
         <li>部门签到情况</li>
     </ul>
     <div class="layui-tab-content">
-
         <div class="layui-tab-item layui-show">
             <div id="main" style="width: 600px;height: 400px;margin: 0 auto;margin-top: 20px"></div>
             <%--<table class="layui-hide" id="test" lay-filter="test"></table>--%>
-            <table id="arrivedTable" lay-filter="arrivedTable"></table>
+            <table id="arrivedTable" lay-filter="arrivedTable" ></table>
         </div>
 
-
-        <div class="layui-tab-item">内容2</div>
+        <div class="layui-tab-item">
+            <div id="depart" style="width: 600px;height: 400px;margin: 0 auto;margin-top: 20px"></div>
+        </div>
     </div>
 </div>
 </body>
@@ -105,6 +116,7 @@
 <script src="${APP_PATH}/static/js/echarts.min.js"></script>
 <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts-all-3.js"></script>
 <script type="text/javascript">
+    //Tab切换
     layui.use('element', function(){
       var element = layui.element;
     });
@@ -127,12 +139,11 @@
         async:false,
         data:{"meetingId":get_meeting_id()},
         success:function (result) {
+            // console.log(result)
             data=result.extend.signinInfo
+            // console.log(data)
         }
     });
-
-
-
     // console.log(data);
     var myChart = echarts.init(document.getElementById('main'));
     var arrived=0;//已到
@@ -174,7 +185,6 @@
             }
         ]
     };
-
     myChart.on('click', function (param) {
         // alert(param.seriesName);  //legend的名称
         // alert(param.name);  //X轴的值
@@ -185,13 +195,13 @@
                 table.render({
                     elem:'#arrivedTable'
                     ,id:'arrivedTable'
-                    ,height: 450 //容器高度
-                    ,width:540
+                    ,height: 500 //容器高度
+                    ,width:805
                     ,cols:[[
-                        {field: 'id', title: 'ID'}
-                        ,{field: 'username', title: '工号'}
-                        ,{field: 'name', title: '姓名'}
-                        ,{field: 'status', title: '签到情况'}
+                        {field: 'id', title: 'ID',width:200}
+                        ,{field: 'username', title: '工号',width:200}
+                        ,{field: 'name', title: '姓名',width:200}
+                        ,{field: 'status', title: '签到情况',width:200}
                     ]]
                 });
                 for (var i=0;i<data.length;i++){
@@ -204,7 +214,6 @@
                     data:arrivedData
                 });
             });
-
         }else if (param.name=='迟到'){
             layui.use('table',function () {
                 var be_lateData=[];
@@ -212,8 +221,8 @@
                 table.render({
                     elem:'#arrivedTable'
                     ,id:'arrivedTable'
-                    ,height: 450 //容器高度
-                    ,width:540
+                    ,height: 500 //容器高度
+                    ,width:805
                     ,cols:[[
                         {field: 'id', title: 'ID'}
                         ,{field: 'username', title: '工号'}
@@ -238,8 +247,8 @@
                 table.render({
                     elem:'#arrivedTable'
                     ,id:'arrivedTable'
-                    ,height: 450 //容器高度
-                    ,width:540
+                    ,height: 500 //容器高度
+                    ,width:805
                     ,cols:[[
                         {field: 'id', title: 'ID'}
                         ,{field: 'username', title: '工号'}
@@ -264,8 +273,8 @@
                 table.render({
                     elem:'#arrivedTable'
                     ,id:'arrivedTable'
-                    ,height: 450 //容器高度
-                    ,width:540
+                    ,height: 500 //容器高度
+                    ,width:805
                     ,cols:[[
                         {field: 'id', title: 'ID'}
                         ,{field: 'username', title: '工号'}
@@ -286,5 +295,191 @@
         }
     });
     myChart.setOption(option);
+</script>
+
+<script type="text/javascript">
+    var data2=[];
+    var dataarrived=[];//已到
+    var databe_late=[];//迟到
+    var datanot_arrived=[];//未到
+    var dataleave=[];//请假
+    $.ajax({
+        url:"${APP_PATH}/meetingSignin/getDepartSiginInfo",
+        type:"GET",
+        async: false,
+        data:{meetingId:get_meeting_id()},
+        success:function (res) {
+            // console.log(res);
+            // data2=res.extend.data
+
+            for (var i in res.extend.data){
+                data2.push(res.extend.data[i].dept)
+                dataarrived.push(res.extend.data[i].signin)
+                databe_late.push(res.extend.data[i].late)
+                datanot_arrived.push(res.extend.data[i].notsignin)
+                dataleave.push(res.extend.data[i].leave);
+            }
+            console.log(data2+"!!!!!!!!!!!!!!!!!!")
+        }
+    });
+
+    var mydepart = echarts.init(document.getElementById('depart'));
+    // var arr = []
+    // arr.push()
+
+    var posList = [
+        'left', 'right', 'top', 'bottom',
+        'inside',
+        'insideTop', 'insideLeft', 'insideRight', 'insideBottom',
+        'insideTopLeft', 'insideTopRight', 'insideBottomLeft', 'insideBottomRight'
+    ];
+
+    mydepart.configParameters = {
+        rotate: {
+            min: -90,
+            max: 90
+        },
+        align: {
+            options: {
+                left: 'left',
+                center: 'center',
+                right: 'right'
+            }
+        },
+        verticalAlign: {
+            options: {
+                top: 'top',
+                middle: 'middle',
+                bottom: 'bottom'
+            }
+        },
+        position: {
+            options: echarts.util.reduce(posList, function (map, pos) {
+                map[pos] = pos;
+                return map;
+            }, {})
+        },
+        distance: {
+            min: 0,
+            max: 100
+        }
+    };
+
+    mydepart.config = {
+        rotate: 90,
+        align: 'left',
+        verticalAlign: 'middle',
+        position: 'insideBottom',
+        distance: 15,
+        onChange: function () {
+            var labelOption = {
+                normal: {
+                    rotate: app.config.rotate,
+                    align: app.config.align,
+                    verticalAlign: app.config.verticalAlign,
+                    position: app.config.position,
+                    distance: app.config.distance
+                }
+            };
+            myChart.setOption({
+                series: [{
+                    label: labelOption
+                }, {
+                    label: labelOption
+                }, {
+                    label: labelOption
+                }, {
+                    label: labelOption
+                }]
+            });
+        }
+    };
+
+
+    var labelOption = {
+        normal: {
+            show: true,
+            position: mydepart.config.position,
+            distance: mydepart.config.distance,
+            align: mydepart.config.align,
+            verticalAlign: mydepart.config.verticalAlign,
+            rotate: mydepart.config.rotate,
+            formatter: '{c}  {name|{a}}',
+            fontSize: 16,
+            rich: {
+                name: {
+                    textBorderColor: '#fff'
+                }
+            }
+        }
+    };
+
+    option = {
+        color: ['#003366', '#006699', '#4cabce', '#e5323e'],
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'shadow'
+            }
+        },
+        legend: {
+            data: ['已到','迟到', '未到',  '请假']
+        },
+        toolbox: {
+            show: true,
+            orient: 'vertical',
+            left: 'right',
+            top: 'center',
+            feature: {
+                mark: {show: true},
+                dataView: {show: true, readOnly: false},
+                magicType: {show: true, type: ['line', 'bar', 'stack', 'tiled']},
+                restore: {show: true},
+                saveAsImage: {show: true}
+            }
+        },
+        calculable: true,
+        xAxis: [
+            {
+                type: 'category',
+                axisTick: {show: false},
+                data: data2
+            }
+        ],
+        yAxis: [
+            {
+                type: 'value'
+            }
+        ],
+        series: [
+            {
+                name: '已到',
+                type: 'bar',
+                barGap: 0,
+                label: labelOption,
+                data: dataarrived
+            },
+            {
+                name: '迟到',
+                type: 'bar',
+                label: labelOption,
+                data: databe_late
+            },
+            {
+                name: '未到',
+                type: 'bar',
+                label: labelOption,
+                data: datanot_arrived
+            },
+            {
+                name: '请假',
+                type: 'bar',
+                label: labelOption,
+                data: dataleave
+            }
+        ]
+    };
+
+    mydepart.setOption(option);
 </script>
 </html>
