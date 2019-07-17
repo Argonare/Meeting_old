@@ -461,16 +461,16 @@
                 // ,{field: 'leftTable_barDemo', title: '操作',toolbar: '#leftTable_barDemo', align:'center'}]
             ]]
             ,parseData:function(res){
-                var leftTableData = res.extend.userInfoReturn.list;
-                var rightTableData = layui.table.cache.rightTable;
-                for (var i =0 ; i<leftTableData.length ; i++){
-                    for(var j = 0 ; j<rightTableData.length; j++){
-                        if(leftTableData[i].id==rightTableData[j].id){//rightTableData中已有数据
-                            leftTableData[i].LAY_CHECKED=true;//将复选框置为选中状态
-                            leftTableData[i].flag = 1;//并标记为1，表示是因为rightTableData中已有数据而选中
+                    var leftTableData = res.extend.userInfoReturn.list;
+                    var rightTableData = layui.table.cache.rightTable;
+                    for (var i =0 ; i<leftTableData.length ; i++){
+                        for(var j = 0 ; j<rightTableData.length; j++){
+                            if(leftTableData[i].id==rightTableData[j].id){//rightTableData中已有数据
+                                leftTableData[i].LAY_CHECKED=true;//将复选框置为选中状态
+                                leftTableData[i].flag = 1;//并标记为1，表示是因为rightTableData中已有数据而选中
+                            }
                         }
                     }
-                }
                 // console.log(rightTableData);
                 return {
                     "code": res.code == 100 ? 0: 1, //解析接口状态
