@@ -36,4 +36,5 @@ public interface MeetingInfoMapper {
 
     Long selectMeetingInfo(MeetingInfo meetingInfo);
 
+    List<Integer> getMeetingIdByUserDeptidAndMeetingType(int userDeptid);
 }
