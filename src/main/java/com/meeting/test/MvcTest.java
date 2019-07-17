@@ -118,6 +118,11 @@ public class MvcTest {
         System.out.println(format1);
     }
 
+    @Test
+    public void test2(){
+        System.out.println("xph测试");
+    }
+
 //    @Test
 //    public void httpTest(){
 //        String url = "https://api.weixin.qq.com/sns/jscode2session?appid=wxbe64818bb84ee91a&secret=232dd0dc137c8ffe8e84749e1df0140b&js_code=081HonW91tM3MN1NizW91F0mW91HonWu";
