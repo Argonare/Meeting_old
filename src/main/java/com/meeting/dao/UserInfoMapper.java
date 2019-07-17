@@ -46,4 +46,6 @@ public interface UserInfoMapper {
     List<UserInfoReturn> findAllByExample(@Param("username") String username,@Param("name") String name,@Param("departName") String departName);
 
     Integer getUserTypeByUsername(String username);
+
+    int getDeptidByUsername(String username);
 }
