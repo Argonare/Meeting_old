@@ -4,7 +4,7 @@ public class UserSiginDeptInfo {
     private String dept;
     private int leave;
     private int signin;
-    private int notSigin;
+    private int notsignin;
     private int late;
 
     @Override
@@ -13,7 +13,7 @@ public class UserSiginDeptInfo {
                 "dept='" + dept + '\'' +
                 ", leave=" + leave +
                 ", signin=" + signin +
-                ", notSigin=" + notSigin +
+                ", notsignin=" + notsignin +
                 ", late=" + late +
                 '}';
     }
@@ -42,12 +42,12 @@ public class UserSiginDeptInfo {
         this.signin = signin;
     }
 
-    public int getNotSigin() {
-        return notSigin;
+    public int getNotsignin() {
+        return notsignin;
     }
 
-    public void setNotSigin(int notSigin) {
-        this.notSigin = notSigin;
+    public void setNotsignin(int notsignin) {
+        this.notsignin = notsignin;
     }
 
     public int getLate() {
