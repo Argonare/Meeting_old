@@ -283,4 +283,8 @@
     WHERE meeting_id=#{meeting_id} AND user_info.id=meeting_signin.user_id AND department.id=user_info.depart_id AND user_info.delete_flag=0 AND meeting_signin.delete_flag=0 AND department.`delete_flag`=0
     GROUP BY department.name
   </select>
+
+  <select id="getIsSignin" resultType="Boolean">
+    select signin_flag from meeting_signin where meeting_id = #{meetingId} and user_id = #{userId} and delete_flag = 0
+  </select>
 </mapper>

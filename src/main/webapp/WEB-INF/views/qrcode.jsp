@@ -64,15 +64,9 @@ $(document).ready(function () {
     })
 
     function get_img(){
-        $.ajax({
-            url:"${APP_PATH}/meetingRoom/getPrcode",
-            type:"GET",
-            success:function (result) {
-                if (result.code==100)
-                    $("#qrcode_img").html("<img id=\"qrcode_img\"src=\"https://bshare.optimix.asia/barCode?site=weixin&url=http://"+result.extend.url+"?meeting_id="+get_meeting_id()+"%26timestamp="+Date.parse(new Date())+"\"style=\"width: 50%\">")
-            }
-        })
+        $("#qrcode_img").html("<img src=\"${APP_PATH}/meetingRoom/getPrcode?meetingid="+get_meeting_id()+"\">");
     }
+
     timers = setInterval(get_signuser,5000);
     function get_signuser(){
         $.ajax({
