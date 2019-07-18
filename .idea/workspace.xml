@@ -8,11 +8,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d5316ccd-bfac-4735-b49f-0fc70ae88bb6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/meeting/bean/UserSiginDeptInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/meeting/bean/UserSiginDeptInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/meeting/service/MeetingSigninService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/meeting/service/MeetingSigninService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/meeting/test/MvcTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/meeting/test/MvcTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/MeetingSigninMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/MeetingSigninMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/signinInfoIframe.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/signinInfoIframe.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/js/meeting.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/meeting.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -44,8 +41,8 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="java" value="18" />
-          <entry key="js" value="2" />
-          <entry key="jsp" value="7" />
+          <entry key="js" value="3" />
+          <entry key="jsp" value="9" />
           <entry key="properties" value="1" />
           <entry key="ts" value="1" />
           <entry key="xml" value="3" />
@@ -54,8 +51,8 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="JAVA" value="18" />
-          <entry key="JSP" value="7" />
-          <entry key="JavaScript" value="2" />
+          <entry key="JSP" value="9" />
+          <entry key="JavaScript" value="3" />
           <entry key="Properties" value="1" />
           <entry key="TypeScript" value="1" />
           <entry key="XML" value="3" />
@@ -64,46 +61,76 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="java" value="79" />
-          <entry key="js" value="29" />
-          <entry key="jsp" value="1251" />
-          <entry key="txt" value="8" />
+          <entry key="js" value="52" />
+          <entry key="jsp" value="2566" />
+          <entry key="txt" value="14" />
           <entry key="xml" value="17" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JAVA" value="79" />
-          <entry key="JSP" value="1251" />
-          <entry key="JavaScript" value="29" />
-          <entry key="PLAIN_TEXT" value="8" />
+          <entry key="JSP" value="2566" />
+          <entry key="JavaScript" value="52" />
+          <entry key="PLAIN_TEXT" value="14" />
           <entry key="XML" value="17" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="3" />
+          <entry key="project.open.time.6" value="2" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.opened" value="3" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/signinInfoIframe.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="506">
-              <caret line="322" column="9" lean-forward="true" selection-start-line="322" selection-start-column="9" selection-end-line="322" selection-end-column="9" />
+            <state relative-caret-position="302">
+              <caret line="361" column="39" lean-forward="true" selection-start-line="361" selection-start-column="39" selection-end-line="361" selection-end-column="39" />
               <folding>
                 <element signature="e#117#198#0#JSP" />
-                <element signature="n#style#0;n#html#0;n#!!top" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#script#0;n#html#0;n#!!top" />
-                <element signature="n#script#3;n#html#0;n#!!top" />
-                <element signature="e#4175#4240#0#HTML" />
+                <element signature="n#script#8;n#html#0;n#!!top" />
+                <element signature="n#script#11;n#html#0;n#!!top" />
+                <element signature="n#script#14;n#html#0;n#!!top" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/static/js/meeting.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="395">
+              <caret line="548" column="47" selection-start-line="548" selection-start-column="47" selection-end-line="548" selection-end-column="47" />
+              <folding>
+                <element signature="n#!!block;n#showBody#0" />
+                <element signature="n#!!block;n#validate_UserInfo#0" />
+                <element signature="n#!!block;n#validate_MeetingRoom#0" />
+                <element signature="n#!!block;n#validate_Department#0" />
+                <element signature="n#!!block;n#validate_MeetingTeam#0" />
+                <element signature="n#!!block;n#getDate#0" />
+                <element signature="n#!!block;n#userinfo_table#0" />
+                <element signature="n#!!block;n#meetingroom_table#0" />
+                <element signature="n#!!block;n#deptinfo_table#0" />
+                <element signature="n#!!block;n#checkUsername#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/insertMeetinginfoIframe.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="10189">
+              <caret line="443" column="10" selection-start-line="443" selection-start-column="10" selection-end-line="443" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -119,7 +146,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>departId</find>
       <find>departIds</find>
       <find>selectMeetingInfo</find>
       <find>insert</find>
@@ -149,6 +175,7 @@
       <find>meetingId</find>
       <find>depart</find>
       <find>data2</find>
+      <find>signin</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -202,13 +229,13 @@
         <option value="$PROJECT_DIR$/src/main/java/com/meeting/service/MeetingInfoService.java" />
         <option value="$PROJECT_DIR$/src/main/resources/dbconfig.properties" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/insertMeetinginfoIframe.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/static/js/meeting.js" />
         <option value="$PROJECT_DIR$/src/main/java/com/meeting/test/MvcTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/meeting/service/MeetingSigninService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/meeting/controller/MeetingSigninController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/MeetingSigninMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/meeting/bean/UserSiginDeptInfo.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/signinInfoIframe.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/static/js/meeting.js" />
       </list>
     </option>
   </component>
@@ -255,8 +282,8 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="574" />
-    <option name="y" value="4" />
+    <option name="x" value="557" />
+    <option name="y" value="18" />
     <option name="width" value="1385" />
     <option name="height" value="1095" />
   </component>
@@ -267,6 +294,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -399,7 +427,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -408,7 +435,7 @@
     <property name="SearchEverywhereHistoryKey" value="getDepartSiginInfo&#9;null&#9;null" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1563349485004" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1563367593377" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../1/Meeting" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -636,7 +663,9 @@
       <workItem from="1562997989359" duration="4897000" />
       <workItem from="1563154384651" duration="8990000" />
       <workItem from="1563263441975" duration="7723000" />
-      <workItem from="1563327441197" duration="14673000" />
+      <workItem from="1563327441197" duration="16405000" />
+      <workItem from="1563359282284" duration="8051000" />
+      <workItem from="1563413975895" duration="1607000" />
     </task>
     <task id="LOCAL-00001" summary="船新版本">
       <created>1562588385579</created>
@@ -841,7 +870,14 @@
       <option name="project" value="LOCAL" />
       <updated>1563333602715</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="7.17">
+      <created>1563349639214</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1563349639214</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -877,13 +913,13 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="121734000" />
+    <option name="totallyTimeSpent" value="133124000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.18176973" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18550107" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -907,7 +943,6 @@
       <window_info anchor="bottom" id="Java Enterprise" order="13" />
       <window_info anchor="bottom" id="Database Changes" order="14" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="15" sideWeight="0.49865952" weight="0.30802602" />
-      <window_info anchor="right" id="Maven Projects" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -918,6 +953,7 @@
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info anchor="right" id="Bean Validation" order="9" weight="0.3297587" />
+      <window_info anchor="right" id="Maven Projects" order="10" />
     </layout>
     <layout-to-restore>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18188679" />
@@ -1321,43 +1357,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/insertMeetinginfoIframe.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-460">
-          <caret line="443" column="10" lean-forward="true" selection-start-line="443" selection-start-column="10" selection-end-line="443" selection-end-column="10" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.dom.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="297">
           <caret line="16936" column="12" selection-start-line="16936" selection-start-column="12" selection-end-line="16936" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/static/js/meeting.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-916">
-          <caret line="1221" column="84" selection-start-line="1221" selection-start-column="84" selection-end-line="1221" selection-end-column="84" />
-          <folding>
-            <element signature="n#!!block;n#showBody#0" />
-            <element signature="n#!!block;n#validate_UserInfo#0" />
-            <element signature="n#!!block;n#validate_MeetingRoom#0" />
-            <element signature="n#!!block;n#validate_Department#0" />
-            <element signature="n#!!block;n#validate_MeetingTeam#0" />
-            <element signature="n#!!block;n#getDate#0" />
-            <element signature="n#!!block;n#userinfo_table#0" />
-            <element signature="n#!!block;n#meetingroom_table#0" />
-            <element signature="n#!!block;n#deptinfo_table#0" />
-            <element signature="n#!!block;n#checkUsername#0" />
-            <element signature="e#56811#56847#0" />
-            <element signature="e#56898#56934#0" />
-            <element signature="e#56992#57341#0" />
-            <element signature="e#57379#57556#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1433,16 +1436,41 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/signinInfoIframe.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="322" column="9" lean-forward="true" selection-start-line="322" selection-start-column="9" selection-end-line="322" selection-end-column="9" />
+        <state relative-caret-position="302">
+          <caret line="361" column="39" lean-forward="true" selection-start-line="361" selection-start-column="39" selection-end-line="361" selection-end-column="39" />
           <folding>
             <element signature="e#117#198#0#JSP" />
-            <element signature="n#style#0;n#html#0;n#!!top" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#script#0;n#html#0;n#!!top" />
-            <element signature="n#script#3;n#html#0;n#!!top" />
-            <element signature="e#4175#4240#0#HTML" />
+            <element signature="n#script#8;n#html#0;n#!!top" />
+            <element signature="n#script#11;n#html#0;n#!!top" />
+            <element signature="n#script#14;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/insertMeetinginfoIframe.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="10189">
+          <caret line="443" column="10" selection-start-line="443" selection-start-column="10" selection-end-line="443" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/static/js/meeting.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="395">
+          <caret line="548" column="47" selection-start-line="548" selection-start-column="47" selection-end-line="548" selection-end-column="47" />
+          <folding>
+            <element signature="n#!!block;n#showBody#0" />
+            <element signature="n#!!block;n#validate_UserInfo#0" />
+            <element signature="n#!!block;n#validate_MeetingRoom#0" />
+            <element signature="n#!!block;n#validate_Department#0" />
+            <element signature="n#!!block;n#validate_MeetingTeam#0" />
+            <element signature="n#!!block;n#getDate#0" />
+            <element signature="n#!!block;n#userinfo_table#0" />
+            <element signature="n#!!block;n#meetingroom_table#0" />
+            <element signature="n#!!block;n#deptinfo_table#0" />
+            <element signature="n#!!block;n#checkUsername#0" />
           </folding>
         </state>
       </provider>
