@@ -5,13 +5,16 @@ import com.github.pagehelper.PageInfo;
 import com.meeting.bean.*;
 import com.meeting.service.MeetingRoomService;
 import com.meeting.service.UserInfoService;
+import com.meeting.utils.QRcode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -157,8 +160,10 @@ public class MeetingRoomController {
     //返回二维码的网址
     @ResponseBody
     @RequestMapping(value = "/getPrcode",method = RequestMethod.GET)
-    public Msg getPrcode(HttpServletRequest request){
-        return Msg.success().add("url", request.getLocalAddr()+":"+request.getLocalPort()+"/jumpPage/qrcode_success");//传入目标网址的url
+    public Msg getPrcode(HttpServletResponse response, Integer meetingid, HttpServletRequest request){
+        QRcode.creatRrCode("http://"+request.getLocalAddr()+":"+request.getLocalPort()+"/jumpPage/qrcode_success?meeting_id="+meetingid+"&timestamp="+new Date().getTime(), 200,200,response);
+//        System.out.println("https://"+request.getLocalAddr()+":"+request.getLocalPort()+"/jumpPage/qrcode_success?meeting_id="+meetingid+"&timestamp="+new Date().getTime());
+        return Msg.success();
     }
 
     @ResponseBody
