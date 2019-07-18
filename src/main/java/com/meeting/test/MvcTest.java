@@ -10,6 +10,7 @@ import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 import com.meeting.bean.MeetingInfo;
 import com.meeting.bean.MeetingTeam;
+import com.meeting.bean.Msg;
 import com.meeting.bean.UserInfoReturn;
 import com.meeting.dao.MeetingInfoMapper;
 import com.meeting.dao.MeetingSigninMapper;
@@ -205,4 +206,9 @@ public class MvcTest {
 //        MockHttpServletRequest request = result.getRequest();
 //    }
 //
+    @Test
+    public void getDepartSiginInfo() throws Exception {
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/meetingSignin/getDepartSiginInfo")
+                .param("meetingId","2")).andReturn();
+    }
 }

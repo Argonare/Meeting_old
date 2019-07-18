@@ -97,7 +97,7 @@ public class MeetingInfoService {
         MeetingRoomExample.Criteria roomCriteria = roomExample.createCriteria();
         roomCriteria.andDeleteFlagEqualTo(false);
         List<MeetingRoom> meetingRooms = meetingRoomMapper.selectByExample(roomExample);
-        Map<Integer,String> roomMap = new HashMap<>();
+        Map<Integer,String> roomMap = new HashMap<Integer,String>();
         for (MeetingRoom m: meetingRooms)
             roomMap.put(m.getId(),m.getAddress());
 
