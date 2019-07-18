@@ -74,7 +74,7 @@ public class SigninListemer implements ServletRequestListener, ServletContextLis
                 WebApplicationContext.ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE);
         //initialize service when spring context initialized,
         //建立对应的service当spring上下文初始化之后
-        //使用spring框架中已经初始化的memberService
+        //使用spring框架中已经初始化的Service
         userInfoService = (UserInfoService)context.getBean(UserInfoService.class);
 
     }

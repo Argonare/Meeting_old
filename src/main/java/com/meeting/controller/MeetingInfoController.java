@@ -59,7 +59,7 @@ public class MeetingInfoController {
             meetingInfoRetrun.setId(lis.getId());
             meetingInfoRetrun.setEndTime(lis.getEndTime());
             meetingInfoRetrun.setStartTime(lis.getStartTime());
-            meetingInfoRetrun.setDeptName(place.substring(0,place.length()-1));
+            meetingInfoRetrun.setDeptName(place.substring(1,place.length()-1));
             meetingInfoRetrun.setName(lis.getName());
             meetingInfoRetrun.setQcode(lis.getRefreshQcode());
             meetingInfoRetrun.setMeetingType(lis.getType());
