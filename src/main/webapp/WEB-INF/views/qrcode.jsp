@@ -46,10 +46,10 @@
 <script src="${APP_PATH}/static/js/jquery-3.0.0.min.js"></script>
 <script src="${APP_PATH}/static/css/layui/layui.js"></script>
 <script>
-    function get_meeting_id(){
-        var str=location.href;
-        return str.split("=")[1];
-    }
+function get_meeting_id(){
+    var str=location.href;
+    return str.split("=")[1];
+}
 $(document).ready(function () {
     get_img();
     $.ajax({
@@ -89,7 +89,6 @@ $(document).ready(function () {
             }
         })
     }
-
     $("#refresh").click(function () {
         get_signuser();
     })

@@ -63,7 +63,6 @@ public class MeetingRoomController {
     @RequestMapping(value = "/insertMeetingRoom")
     public Msg insertMeetingRoom(MeetingRoom meetingRoom, UserInfo userInfo, HttpSession session){
         Integer a = meetingRoomService.selectByNameByID(userInfo);//获取ID
-//        System.out.println(a);
         meetingRoom.setUserId(a);
 //        meetingRoom.setInsertUid();
         String username = (String) session.getAttribute("username");
@@ -73,7 +72,6 @@ public class MeetingRoomController {
         meetingRoom.setDeleteFlag(false);
 //
         int  a1 = meetingRoomService.insertMeetingRoom(meetingRoom);//添加数据条数
-//        System.out.println(a1);
         return Msg.success();
     }
 
