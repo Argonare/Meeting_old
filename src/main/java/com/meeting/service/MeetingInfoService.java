@@ -107,10 +107,15 @@ public class MeetingInfoService {
         SimpleDateFormat format2 = new SimpleDateFormat("HH:mm");
         for (MeetingInfo m:meetingInfoRetruns){
             wxMeetingInfo wxMeetingInfo = new wxMeetingInfo();
-            wxMeetingInfo.setName(m.getName());
-            wxMeetingInfo.setAddr(roomMap.get(m.getRoomId()));
-            wxMeetingInfo.setDate(format1.format(m.getStartTime()));
-            wxMeetingInfo.setTime(format2.format(m.getStartTime()));
+            wxMeetingInfo.setName(m.getName());//会议名称
+            wxMeetingInfo.setAddr(roomMap.get(m.getRoomId()));//会议室
+            wxMeetingInfo.setDate(format1.format(m.getStartTime()));//会议日期
+            wxMeetingInfo.setTime(format2.format(m.getStartTime()));//会议时间
+
+            Boolean isSignin = meetingSigninMapper.getIsSignin(m.getId(),userid);
+            //应为讲座形式会议在签到前signin表中示无数据的所以需要判断是否为null，为null时表示未签到返回false，否则返回isSignin原来的值
+            wxMeetingInfo.setIsSignin(isSignin==null?false:isSignin);
+
             wxMeetingInfos.add(wxMeetingInfo);
         }
         return wxMeetingInfos;
