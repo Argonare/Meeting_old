@@ -98,9 +98,10 @@ public class UserInfoService {
         return userInfoMapper.updateByExampleSelective(temp, example);
     }
 
-    public int getUidByUsername(String username) {
+    public Integer getUidByUsername(String username) {
         return userInfoMapper.getUidByUsername(username);
     }
+
 
 
     public List<UserInfoReturn> selectUserinfoByNameReturn(String name) {

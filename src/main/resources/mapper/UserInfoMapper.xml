@@ -289,7 +289,7 @@
       SELECT * FROM user_info	WHERE user_info.phone=#{phone,jdbcType=VARCHAR}
     </select>
 
-  <select id="getUidByUsername" resultType="int">
+  <select id="getUidByUsername" resultType="INTEGER">
     SELECT id FROM user_info WHERE username =#{username,jdbcType=VARCHAR}
   </select>
 
@@ -322,7 +322,11 @@
   </select>
 
   <select id="getUserTypeByUsername" resultType="java.lang.Integer">
-    select type from user_info where username = #{usernmae,jdbcType=VARCHAR}
+    select type from user_info where username = #{usernmae,jdbcType=VARCHAR} and delete_flag = 0
+  </select>
+
+    <select id="getDeptidByUsername" resultType="Integer">
+    select depart_id from user_info where username = #{usernmae,jdbcType=VARCHAR} and delete_flag = 0
   </select>
 
 </mapper>

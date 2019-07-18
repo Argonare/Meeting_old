@@ -33,8 +33,11 @@ public class MeetingInfoController {
     public Msg wx_newmeeting(HttpServletRequest request){
         String username = request.getParameter("username");
         String type = request.getParameter("type");
+        String date = request.getParameter("date");
+        String date2 = request.getParameter("date2");
 
-        List<wxMeetingInfo> wxMeetingInfos = meetingInfoService.getAfterTimeMeetingInfoByUser(username,type);
+        List<wxMeetingInfo> wxMeetingInfos = meetingInfoService.getAfterTimeMeetingInfoByUser(username,type,date,date2);
+
         return Msg.success().add("wxMeetingInfo",wxMeetingInfos).add("count",wxMeetingInfos.size());
     }
 
@@ -46,10 +49,10 @@ public class MeetingInfoController {
         PageInfo page = new PageInfo(meetingInfo,1);
         List<MeetingInfoRetrun>list=new ArrayList<MeetingInfoRetrun>();
         for (MeetingInfo lis:meetingInfo){
-            String place="";
+            String place=",";
             MeetingInfoRetrun meetingInfoRetrun=new MeetingInfoRetrun();
             meetingInfoRetrun.setLateTime(lis.getLateTime());
-            for (String id:lis.getDepartIds().split(","))
+            for (String id:lis.getDepartIds().substring(1,lis.getDepartIds().length()-1).split(","))
                 place+=departmentService.selectByPrimaryKey(Integer.parseInt(id)).getName()+",";
             String address=meetingRoomService.selectByPrimaryKey(lis.getRoomId()).getAddress();
             meetingInfoRetrun.setAddress(address);
@@ -77,11 +80,16 @@ public class MeetingInfoController {
     @ResponseBody
     @RequestMapping(value = "/updateMeetingInfoAndSignin")
     public Msg updateMeetingInfoAndSignin(HttpServletRequest request, HttpSession session, MeetingInfo meetingInfo,String departNames){
-        String deptIds="";
+        String deptIds=",";
+        boolean flag = false;
         for (String dep:departNames.split(",")) {
             deptIds+=departmentService.getDepartId(dep).toString()+',';
+            if(flag)deptIds+=',';
+            flag = true;
+            deptIds+=departmentService.getDepartId(dep).toString();
         }
-        meetingInfo.setDepartIds(deptIds.substring(0,deptIds.length()-1));
+        deptIds+=',';
+        meetingInfo.setDepartIds(deptIds);
         meetingInfo.setInsertUsername(session.getAttribute("username").toString());
 
         MeetingInfoExample example = new MeetingInfoExample();
@@ -161,13 +169,16 @@ public class MeetingInfoController {
     @ResponseBody
     @RequestMapping(value = "/insertMeetingInfo")
     public Msg insertMeetingInfo(HttpServletRequest request, HttpSession session,MeetingInfo meetingInfo,String departName){
-        String deptIds="";
+        String deptIds=",";
+        boolean flag = false;
         for (String dep:departName.split(",")) {
-            deptIds+=departmentService.getDepartId(dep).toString()+',';
+            if(flag)deptIds+=',';
+            flag = true;
+            deptIds+=departmentService.getDepartId(dep).toString();
         }
         String username = (String) session.getAttribute("username");
         meetingInfo.setInsertUsername(username);
-        meetingInfo.setDepartIds(deptIds.substring(0,deptIds.length()-1));
+        meetingInfo.setDepartIds(deptIds+',');
         meetingInfo.setDeleteFlag(false);
         String[] ids = request.getParameterValues("ids[]");
         MeetingSignin meetingSignin = new MeetingSignin();

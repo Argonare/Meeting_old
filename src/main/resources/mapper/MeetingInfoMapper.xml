@@ -348,4 +348,9 @@
     </where>
   </select>
 
+  <select id="getMeetingIdByUserDeptidAndMeetingType" resultType="Integer">
+    select id
+    from meeting_info
+    where delete_flag = 0 and type = 2 and depart_ids like concat(',',#{userDeptid},',')
+  </select>
 </mapper>
