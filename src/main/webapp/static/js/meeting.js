@@ -537,14 +537,17 @@ function meetinginfo_table(){
                     layui.code
                     layer.open({
                         type: 2,
-                        btn: ['保存', '取消'],
+                        btn: ["关闭"],
                         content: APP_PATH + '/jumpPage/signinInfoIframe?meeting_id='+data.id,
-                        area: ['50%', '80%'],
+                        area: ['80%', '90%'],
                         success: function(layero, index) {
                             var body = layer.getChildFrame('body', index);
                             var iframeWin = window[layero.find('iframe')[0]['name']]; //得到iframe页的窗口对象，执行iframe页的方法：
                             iframeWin.setMeetingName(JSON.stringify(data.name));
                         },
+                        yes:function (index,layero) {
+                            layer.close(index);
+                        }
                         // yes: function(index, layero) {
                         //     var body = layer.getChildFrame('body', index);
                         //     var iframeWin = window[layero.find('iframe')[0]['name']];

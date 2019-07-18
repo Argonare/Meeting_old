@@ -42,11 +42,13 @@
         <div class="layui-tab-item layui-show">
             <div id="main" style="width: 600px;height: 400px;margin: 0 auto;margin-top: 20px"></div>
             <%--<table class="layui-hide" id="test" lay-filter="test"></table>--%>
-            <table id="arrivedTable" lay-filter="arrivedTable" ></table>
+            <div style="margin: 0 auto;width: 50%" >
+                <table id="arrivedTable" lay-filter="arrivedTable"></table>
+            </div>
         </div>
 
         <div class="layui-tab-item">
-            <div id="depart" style="width: 600px;height: 400px;margin: 0 auto;margin-top: 20px"></div>
+            <table id="depart" style="width: 1000px;height: 700px;margin: 0 auto;"></table>
         </div>
     </div>
 </div>
@@ -298,11 +300,10 @@
 </script>
 
 <script type="text/javascript">
-    var data2=[];
-    var dataarrived=[];//已到
-    var databe_late=[];//迟到
-    var datanot_arrived=[];//未到
-    var dataleave=[];//请假
+    var meetingSinginInfo=[];
+    var legendData = [];
+    var series1Data = []
+    var series2Data = []
     $.ajax({
         url:"${APP_PATH}/meetingSignin/getDepartSiginInfo",
         type:"GET",
@@ -311,175 +312,119 @@
         success:function (res) {
             // console.log(res);
             // data2=res.extend.data
+            res = res.extend.data;
+            // console.log(res);
+            for(var i=0 ;i<res.length ;i++){
+                res[i]["total"]=res[i].signin+res[i].late+res[i].notsignin+res[i].leave;
+                legendData.push(res[i].dept);
+                if (i == 0)
+                    series1Data.push({"value":res[i].total,"name":res[i].dept,"selected":true});
+                else
+                    series1Data.push({"value":res[i].total,"name":res[i].dept,"selected":false});
 
-            for (var i in res.extend.data){
-                data2.push(res.extend.data[i].dept)
-                dataarrived.push(res.extend.data[i].signin)
-                databe_late.push(res.extend.data[i].late)
-                datanot_arrived.push(res.extend.data[i].notsignin)
-                dataleave.push(res.extend.data[i].leave);
+                var tempData = []
+                tempData.push({"value":res[i].signin,"name":"已到"});
+                tempData.push({"value":res[i].notsignin,"name":"未到"});
+                tempData.push({"value":res[i].late,"name":"迟到"});
+                tempData.push({"value":res[i].leave,"name":"请假"});
+                series2Data.push(tempData)
             }
-            console.log(data2+"!!!!!!!!!!!!!!!!!!")
+            meetingSinginInfo=res;
         }
     });
 
+
     var mydepart = echarts.init(document.getElementById('depart'));
-    // var arr = []
-    // arr.push()
+    function getDeptEcharts(legendData,series1Data,series2Data){
+        option = {
+            tooltip: {
+                trigger: 'item',
+                formatter: "{a} <br/>{b}: {c} ({d}%)"
+            },
+            legend: {
+                orient: 'vertical',
+                x: 'left',
+                data:legendData
+            },
+            series: [
+                {
+                    type:'pie',
+                    selectedMode: 'single',
+                    radius: [0, '40%'],
 
-    var posList = [
-        'left', 'right', 'top', 'bottom',
-        'inside',
-        'insideTop', 'insideLeft', 'insideRight', 'insideBottom',
-        'insideTopLeft', 'insideTopRight', 'insideBottomLeft', 'insideBottomRight'
-    ];
-
-    mydepart.configParameters = {
-        rotate: {
-            min: -90,
-            max: 90
-        },
-        align: {
-            options: {
-                left: 'left',
-                center: 'center',
-                right: 'right'
-            }
-        },
-        verticalAlign: {
-            options: {
-                top: 'top',
-                middle: 'middle',
-                bottom: 'bottom'
-            }
-        },
-        position: {
-            options: echarts.util.reduce(posList, function (map, pos) {
-                map[pos] = pos;
-                return map;
-            }, {})
-        },
-        distance: {
-            min: 0,
-            max: 100
-        }
-    };
-
-    mydepart.config = {
-        rotate: 90,
-        align: 'left',
-        verticalAlign: 'middle',
-        position: 'insideBottom',
-        distance: 15,
-        onChange: function () {
-            var labelOption = {
-                normal: {
-                    rotate: app.config.rotate,
-                    align: app.config.align,
-                    verticalAlign: app.config.verticalAlign,
-                    position: app.config.position,
-                    distance: app.config.distance
+                    label: {
+                        normal: {
+                            position: 'inner'
+                        }
+                    },
+                    labelLine: {
+                        normal: {
+                            show: false
+                        }
+                    },
+                    data:series1Data
+                },
+                {
+                    name:'签到情况',
+                    type:'pie',
+                    radius: ['65%', '50%'],
+                    label: {
+                        normal: {
+                            formatter: '{a|{a}}{abg|}\n{hr|}\n  {b|{b}：}{c}  {per|{d}%}  ',
+                            backgroundColor: '#eee',
+                            borderColor: '#aaa',
+                            borderWidth: 1,
+                            borderRadius: 4,
+                            rich: {
+                                a: {
+                                    color: '#999',
+                                    lineHeight: 22,
+                                    align: 'center'
+                                },
+                                hr: {
+                                    borderColor: '#aaa',
+                                    width: '100%',
+                                    borderWidth: 0.5,
+                                    height: 0
+                                },
+                                b: {
+                                    fontSize: 16,
+                                    lineHeight: 33
+                                },
+                                per: {
+                                    color: '#eee',
+                                    backgroundColor: '#334455',
+                                    padding: [2, 4],
+                                    borderRadius: 2
+                                }
+                            }
+                        }
+                    },
+                    data:series2Data //初始显示第一个
                 }
-            };
-            myChart.setOption({
-                series: [{
-                    label: labelOption
-                }, {
-                    label: labelOption
-                }, {
-                    label: labelOption
-                }, {
-                    label: labelOption
-                }]
-            });
-        }
-    };
+            ]
+        };
+        return option
+    }
 
+    mydepart.setOption(getDeptEcharts(legendData,series1Data,series2Data[0]));
 
-    var labelOption = {
-        normal: {
-            show: true,
-            position: mydepart.config.position,
-            distance: mydepart.config.distance,
-            align: mydepart.config.align,
-            verticalAlign: mydepart.config.verticalAlign,
-            rotate: mydepart.config.rotate,
-            formatter: '{c}  {name|{a}}',
-            fontSize: 16,
-            rich: {
-                name: {
-                    textBorderColor: '#fff'
-                }
+    mydepart.on('click',function (param) {
+        // alert(param.name)
+        // console.log(meetingSinginInfo);
+        // console.log(series1Data);
+        var flag = true;
+        var index = 0
+        for (var i=0 ; i<series1Data.length ; i++){
+            series1Data[i].selected = false;
+            if(param.name == series1Data[i].name){
+                flag = false;
+                index = i;
             }
         }
-    };
-
-    option = {
-        color: ['#003366', '#006699', '#4cabce', '#e5323e'],
-        tooltip: {
-            trigger: 'axis',
-            axisPointer: {
-                type: 'shadow'
-            }
-        },
-        legend: {
-            data: ['已到','迟到', '未到',  '请假']
-        },
-        toolbox: {
-            show: true,
-            orient: 'vertical',
-            left: 'right',
-            top: 'center',
-            feature: {
-                mark: {show: true},
-                dataView: {show: true, readOnly: false},
-                magicType: {show: true, type: ['line', 'bar', 'stack', 'tiled']},
-                restore: {show: true},
-                saveAsImage: {show: true}
-            }
-        },
-        calculable: true,
-        xAxis: [
-            {
-                type: 'category',
-                axisTick: {show: false},
-                data: data2
-            }
-        ],
-        yAxis: [
-            {
-                type: 'value'
-            }
-        ],
-        series: [
-            {
-                name: '已到',
-                type: 'bar',
-                barGap: 0,
-                label: labelOption,
-                data: dataarrived
-            },
-            {
-                name: '迟到',
-                type: 'bar',
-                label: labelOption,
-                data: databe_late
-            },
-            {
-                name: '未到',
-                type: 'bar',
-                label: labelOption,
-                data: datanot_arrived
-            },
-            {
-                name: '请假',
-                type: 'bar',
-                label: labelOption,
-                data: dataleave
-            }
-        ]
-    };
-
-    mydepart.setOption(option);
+        if (flag) return false;
+        series1Data[index].selected = true;
+        mydepart.setOption(getDeptEcharts(legendData,series1Data,series2Data[index]));
+    })
 </script>
 </html>
