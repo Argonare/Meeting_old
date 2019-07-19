@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="${APP_PATH}/static/css/layui/css/layui.css">
     <link rel="stylesheet" href="${APP_PATH}/static/css/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="${APP_PATH}/static/css/bootstrap/css/bootstrap_tagsinput.css">
+    <link rel="stylesheet" href="${APP_PATH}/static/css/select2.css">
     <style>
         a{text-decoration: none;}
         .box {
@@ -86,8 +87,9 @@
                     <div class="layui-form-item">
                         <label class="layui-form-label">会议模式：</label>
                         <div class="layui-input-block" id="meetingTypeSelect">
-                            <input type="radio" name="team" lay-filter="meeting" value="1" title="普通会议" checked="">
-                            <input type="radio" name="team" lay-filter="meeting" value="2" title="讲座形式会议">
+                            <input type="radio" name="team" lay-filter="meeting" value="1" title="固定人员会议" checked="">
+                            <input type="radio" name="team" lay-filter="meeting" value="2" title="固定部门不固定人员">
+                            <input type="radio" name="team" lay-filter="meeting" value="3" title="不固定人员">
                         </div>
                     </div>
                     <div  class="layui-form-item box">
@@ -100,13 +102,12 @@
                             </div>
                         </div>
                     </div>
-<%--                    <div class="layui-form-item">--%>
-<%--                        <label class="layui-form-label">会议部门：</label>--%>
-<%--                        <div class="layui-input-block" style="width: 450px">--%>
-<%--                            <select name="city" lay-verify="required" id="dept_select" multiple data-role="tagsinput">--%>
-<%--                            </select>--%>
-<%--                        </div>--%>
-<%--                    </div>--%>
+                    <select class="js-example-basic-multiple" name="states[]" multiple="multiple">
+                        <option value="AL">Alabama</option>
+                        ...
+                        <option value="WY">Wyoming</option>
+                    </select>
+                    <input type="hidden" id="select_id" name="select_id"/>
 
                     <div class="layui-form-item">
                         <label class="layui-form-label">会议地点：</label>
@@ -206,6 +207,7 @@
 <script src="${APP_PATH}/static/js/xlsx.core.min.js"></script>
 <script src="${APP_PATH}/static/css/bootstrap/js/bootstrap-tagsinput.js"></script>
 <script src="${APP_PATH}/static/css/bootstrap/js/bootstrap.js"></script>
+<script src="${APP_PATH}/static/js/select2.full.js"></script>
 <%--<script type="text/html" id="leftTable_barDemo" lay-fi>--%>
 <%--<a class="layui-btn layui-btn-xs" lay-event="add">添加</a>--%>
 <%--</script>--%>
@@ -213,6 +215,22 @@
 <%--<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>--%>
 <%--</script>--%>
 <script>
+    // $('#id').change(function(){
+    //     var o=document.getElementById('id').getElementsByTagName('option');
+    //     var all="";
+    //     console.log(o[1]);
+    //     for(var i=0;i<o.length;i++){
+    //         if(o[i].selected){
+    //             all+=o[i].value+",";
+    //         }
+    //     }
+    //     all = all.substr(0, all.length - 1);//去掉末尾的逗号
+    //     $("#bumen").val(all);//赋值给隐藏的文本框
+    // })
+    $(document).ready(function() {
+        $('.js-example-basic-multiple').select2();
+    });
+
 
     function getDept_data(){
         return $("#tagsinputval").val();

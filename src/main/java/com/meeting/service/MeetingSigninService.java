@@ -46,5 +46,13 @@ public class MeetingSigninService {
         System.out.println(meetingSigninMapper.selectDepartSiginInfo(meeting_id));
         return meetingSigninMapper.selectDepartSiginInfo(meeting_id);
     }
+    public List<MeetingSignin> selectMeetingSigninByMeetingIdAndUserId(Integer meetId,Integer userId){
+        MeetingSigninExample meetingSigninExample = new MeetingSigninExample();
+        MeetingSigninExample.Criteria criteria = meetingSigninExample.createCriteria();
+        criteria.andMeetingIdEqualTo(meetId);
+        criteria.andUserIdEqualTo(userId);
+        criteria.andDeleteFlagEqualTo(false);
+        return meetingSigninMapper.selectByExample(meetingSigninExample);
+    }
 
 }

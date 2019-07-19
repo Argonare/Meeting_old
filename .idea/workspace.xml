@@ -6,7 +6,19 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5316ccd-bfac-4735-b49f-0fc70ae88bb6" name="Default Changelist" comment="" />
+    <list default="true" id="d5316ccd-bfac-4735-b49f-0fc70ae88bb6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/css/select2.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/js/select2.full.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/meeting/controller/MeetingSigninController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/meeting/controller/MeetingSigninController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/meeting/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/meeting/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/meeting/service/MeetingSigninService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/meeting/service/MeetingSigninService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/meeting/service/UserInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/meeting/service/UserInfoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dbconfig.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dbconfig.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/insertMeetinginfoIframe.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/insertMeetinginfoIframe.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/newhoutai.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/newhoutai.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/qrcode_success.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/qrcode_success.jsp" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,18 +44,30 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="Meeting" />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/static/js/meeting.js">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/controller/MeetingSigninController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1">
-              <caret line="525" column="23" lean-forward="true" selection-start-line="525" selection-start-column="23" selection-end-line="525" selection-end-column="23" />
+            <state relative-caret-position="358">
+              <caret line="91" column="5" lean-forward="true" selection-start-line="91" selection-start-column="5" selection-end-line="91" selection-end-column="5" />
               <folding>
-                <element signature="n#!!block;n#showBody#0" />
-                <element signature="n#!!block;n#validate_UserInfo#0" />
-                <element signature="n#!!block;n#validate_MeetingRoom#0" />
-                <element signature="n#!!block;n#validate_Department#0" />
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/service/MeetingSigninService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="6">
+              <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -52,76 +76,60 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/qrcode.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="443">
-              <caret line="78" column="55" selection-start-line="78" selection-start-column="41" selection-end-line="78" selection-end-column="55" />
-              <folding>
-                <element signature="n#style#0;n#img#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="135">
+              <caret line="73" column="16" selection-start-line="73" selection-start-column="12" selection-end-line="73" selection-end-column="16" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/utils/SigninListemer.java">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/qrcode_success.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="448">
-              <caret line="85" column="1" lean-forward="true" selection-start-line="85" selection-start-column="1" selection-end-line="85" selection-end-column="1" />
+            <state relative-caret-position="-168">
+              <caret line="39" column="51" selection-start-line="39" selection-start-column="51" selection-end-line="39" selection-end-column="51" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/controller/UserController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-180">
+              <caret line="127" column="35" selection-start-line="127" selection-start-column="35" selection-end-line="127" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1551#1559#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/controller/MeetingInfoController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="63" column="61" selection-start-line="63" selection-start-column="61" selection-end-line="63" selection-end-column="61" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/signinInfoIframe.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="42" column="46" lean-forward="true" selection-start-line="42" selection-start-column="46" selection-end-line="42" selection-end-column="46" />
-              <folding>
-                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#table#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/insertMeetinginfoIframe.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="1349" column="41" lean-forward="true" selection-end-line="1558" selection-end-column="10" />
+            <state relative-caret-position="407">
+              <caret line="231" column="7" selection-start-line="231" selection-start-column="7" selection-end-line="231" selection-end-column="7" />
+              <folding>
+                <element signature="n#style#0;n#div#1;n#div#2;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/utils/login_filter.java">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/dbconfig.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
+            <state relative-caret-position="140">
+              <caret line="5" column="23" lean-forward="true" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/newhoutai.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="196">
               <caret line="10" column="6" lean-forward="true" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-957">
-              <caret line="14" column="14" lean-forward="true" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -137,8 +145,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>bootstrap-tagsinput</find>
-      <find>console</find>
       <find>mvc</find>
       <find>insertMeetinginfo_btn</find>
       <find>insertMeetingInfo</find>
@@ -167,6 +173,8 @@
       <find>getUid</find>
       <find>system</find>
       <find>sig</find>
+      <find>userInfoExample</find>
+      <find>selectByExample</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -188,38 +196,29 @@
         <option value="$PROJECT_DIR$/src/main/java/com/meeting/bean/MeetingInfo.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/static/css/bootstrap/js/bootstrap-tagsinput.js" />
         <option value="$PROJECT_DIR$/src/main/java/com/meeting/controller/MeetingSgninController.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/newhoutai.jsp" />
         <option value="$PROJECT_DIR$/src/main/resources/mybatis-config.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/meeting/controller/MeetingTeamController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/meeting/dao/MeetingTeamMapper.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/MeetingTeamMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/insertMeetinginfoIframe.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/updateMeetinginfoIframe.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/meeting/bean/MeetingInfoRetrun.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/meeting/controller/JumpPageController.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/qrcode_success.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/meeting/service/MeetingRoomService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/meeting/service/DepartmentService.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/static/js/meeting.js" />
         <option value="$PROJECT_DIR$/src/main/java/com/meeting/service/MeetingTeamService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/meeting/test/MvcTest.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/dbconfig.properties" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/meeting/utils/getGuestUser.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/meeting/test/ttt.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/meeting/controller/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/meeting/bean/UserSiginDeptInfo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/meeting/dao/MeetingSigninMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/meeting/service/MeetingSigninService.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/MeetingSigninMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/meeting/controller/MeetingSigninController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/meeting/dao/MeetingInfoMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/meeting/dao/UserInfoMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/meeting/service/UserInfoService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/meeting/utils/DateCalculation.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/MeetingInfoMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/UserInfoMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/meeting/service/MeetingInfoService.java" />
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/qrcode.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
@@ -227,6 +226,15 @@
         <option value="$PROJECT_DIR$/src/main/java/com/meeting/utils/SigninListemer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/meeting/controller/MeetingInfoController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/signinInfoIframe.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/meeting/service/UserInfoService.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/dbconfig.properties" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/qrcode_success.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/meeting/service/MeetingInfoService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/meeting/service/MeetingSigninService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/meeting/controller/UserController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/meeting/controller/MeetingSigninController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/newhoutai.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/insertMeetinginfoIframe.jsp" />
       </list>
     </option>
   </component>
@@ -290,11 +298,6 @@
             <path>
               <item name="Meeting" type="b2602c69:ProjectViewProjectNode" />
               <item name="Meeting" type="462c0819:PsiDirectoryNode" />
-              <item name=".idea" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Meeting" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Meeting" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -325,7 +328,23 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="meeting" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Meeting" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Meeting" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="meeting" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Meeting" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Meeting" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Meeting" type="b2602c69:ProjectViewProjectNode" />
@@ -341,6 +360,15 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Meeting" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Meeting" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Meeting" type="b2602c69:ProjectViewProjectNode" />
@@ -368,6 +396,11 @@
               <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Meeting" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Meeting" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -379,7 +412,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/static/js" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -390,11 +423,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Meeting\src\main\webapp\static\js" />
+      <recent name="E:\Meeting\src\main\webapp\static\css" />
       <recent name="E:\Meeting\src\main\java\com\meeting\service" />
       <recent name="E:\Meeting\src\main\java\com\meeting\dao" />
       <recent name="E:\Meeting\src\main\java\com\meeting\controller" />
-      <recent name="E:\Meeting\src\main\java\com\meeting\bean" />
-      <recent name="E:\Meeting\src\main\resources\mapper" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.meeting.bean" />
@@ -841,7 +874,14 @@
       <option name="project" value="LOCAL" />
       <updated>1563426995771</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="7.18">
+      <created>1563427458105</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1563427458105</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -877,23 +917,23 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="118259000" />
+    <option name="totallyTimeSpent" value="130891000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22654155" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.712984" visible="true" weight="0.22654155" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="UI Designer" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info id="Favorites" order="6" sideWeight="0.28701594" side_tool="true" weight="0.22654155" />
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49865952" weight="0.4305949" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49865952" visible="true" weight="0.26912183" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -999,29 +1039,11 @@
     <MESSAGE value="7.18" />
     <option name="LAST_COMMIT_MESSAGE" value="7.18" />
   </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/MeetingTeamMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="219" column="11" selection-start-line="219" selection-start-column="11" selection-end-line="219" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/dao/MeetingTeamMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="36" column="71" selection-start-line="36" selection-start-column="71" selection-end-line="36" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/controller/MeetingTeamController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
@@ -1029,13 +1051,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis-config.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -1119,13 +1134,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/insertMeetinginfoIframe.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="132" column="44" selection-start-line="132" selection-start-column="44" selection-end-line="132" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/controller/JumpPageController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
@@ -1160,22 +1168,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/bean/MeetingSignin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/updateDepartmentIframe.jsp">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/qrcode_success.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="48" column="38" selection-start-line="48" selection-start-column="38" selection-end-line="48" selection-end-column="38" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/service/MeetingTeamService.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1192,13 +1186,6 @@
             <element signature="e#1939#1940#0" expanded="true" />
             <element signature="e#1995#1996#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/dbconfig.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="3" column="38" lean-forward="true" selection-start-line="3" selection-start-column="38" selection-end-line="3" selection-end-column="38" />
         </state>
       </provider>
     </entry>
@@ -1226,16 +1213,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1731">
-          <caret line="228" column="34" lean-forward="true" selection-start-line="228" selection-start-column="34" selection-end-line="228" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/utils/getGuestUser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
@@ -1254,16 +1231,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="261">
           <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/service/MeetingSigninService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="31" column="81" lean-forward="true" selection-start-line="31" selection-start-column="81" selection-end-line="31" selection-end-column="81" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1329,30 +1296,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/controller/MeetingSigninController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="135" column="31" selection-start-line="135" selection-start-column="31" selection-end-line="135" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/dao/MeetingInfoMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="38" column="73" selection-start-line="38" selection-start-column="73" selection-end-line="38" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/dao/UserInfoMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="49" column="45" selection-start-line="49" selection-start-column="45" selection-end-line="49" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/utils/DateCalculation.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="223">
@@ -1377,37 +1320,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/service/UserInfoService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="103" selection-start-line="103" selection-end-line="103" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/service/MeetingInfoService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="57" column="40" selection-start-line="57" selection-start-column="40" selection-end-line="57" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.idea/encodings.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
           <caret line="18" column="41" selection-end-line="29" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/qrcode.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="443">
-          <caret line="78" column="55" selection-start-line="78" selection-start-column="41" selection-end-line="78" selection-end-column="55" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1446,16 +1362,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/controller/MeetingInfoController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="63" column="61" selection-start-line="63" selection-start-column="61" selection-end-line="63" selection-end-column="61" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/static/js/meeting.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1">
@@ -1482,8 +1388,144 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="1349" column="41" lean-forward="true" selection-end-line="1558" selection-end-column="10" />
+        <state relative-caret-position="145">
+          <caret line="1358" column="55" lean-forward="true" selection-start-line="1358" selection-start-column="55" selection-end-line="1358" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis-config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="7" column="23" lean-forward="true" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/controller/MeetingInfoController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="30" column="17" lean-forward="true" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/bean/MeetingSignin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="56">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/dao/MeetingInfoMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="20" column="65" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/service/MeetingInfoService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="482">
+          <caret line="117" lean-forward="true" selection-start-line="117" selection-end-line="117" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1265#1266#0" expanded="true" />
+            <element signature="e#1336#1337#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/qrcode.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="73" column="16" selection-start-line="73" selection-start-column="12" selection-end-line="73" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/service/MeetingSigninService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6">
+          <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/qrcode_success.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-168">
+          <caret line="39" column="51" selection-start-line="39" selection-start-column="51" selection-end-line="39" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/controller/MeetingSigninController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="358">
+          <caret line="91" column="5" lean-forward="true" selection-start-line="91" selection-start-column="5" selection-end-line="91" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/dbconfig.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="5" column="23" lean-forward="true" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/newhoutai.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="10" column="6" lean-forward="true" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/dao/UserInfoMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="35" column="25" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/service/UserInfoService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="38" column="38" selection-start-line="38" selection-start-column="38" selection-end-line="38" selection-end-column="38" />
+          <folding>
+            <element signature="e#1041#1042#0" expanded="true" />
+            <element signature="e#1097#1098#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/meeting/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-180">
+          <caret line="127" column="35" selection-start-line="127" selection-start-column="35" selection-end-line="127" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/static/js/select2.full.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/static/css/select2.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/insertMeetinginfoIframe.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="407">
+          <caret line="231" column="7" selection-start-line="231" selection-start-column="7" selection-end-line="231" selection-end-column="7" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#2;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

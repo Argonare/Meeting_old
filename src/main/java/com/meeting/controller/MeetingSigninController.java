@@ -60,29 +60,35 @@ public class MeetingSigninController {
         return Msg.success().add("signinInfo",list);
     }
     @ResponseBody
-    @RequestMapping(value = "/updateMeetingSigninByMySelf",method = RequestMethod.POST)
+    @RequestMapping(value = "/updateMeetingSigninByMySelf.do")
     public Msg updateMeetingSigninByMySelf(MeetingSignin meetingSignin){
-        MeetingSigninExample example = new MeetingSigninExample();
-        MeetingSigninExample.Criteria criteria = example.createCriteria();
-        criteria.andUserIdEqualTo(meetingSignin.getUserId());
-        criteria.andMeetingIdEqualTo(meetingSignin.getMeetingId());
-        MeetingInfo meetingSigninCheck = meetingInfoService.selectMeetingInfoById(meetingSignin.getMeetingId());
-
-        Long checkTime=meetingSignin.getSigninTime()-meetingSigninCheck.getStartTime();
-        if (checkTime<meetingSigninCheck.getLateTime()*6000+150000){
-            if (meetingSigninService.updateMeetingSignin(meetingSignin, example))
-                return Msg.success().add("msg", "success");
-            else
-                return Msg.fail().add("msg", "服务器异常");
-        }else if(meetingSigninCheck.getEndTime()-meetingSignin.getSigninTime()>0){
-            meetingSignin.setLateFlag(true);
-            if (meetingSigninService.updateMeetingSignin(meetingSignin, example))
-                return Msg.success().add("msg", "success");
-            else
-                return Msg.fail().add("msg", "服务器异常");
-        }else{
-            return Msg.fail().add("msg", "非法请求");
+        if (meetingSigninService.selectMeetingSigninByMeetingIdAndUserId(meetingSignin.getMeetingId(),meetingSignin.getUserId())!=null){
+            MeetingSigninExample example = new MeetingSigninExample();
+            MeetingSigninExample.Criteria criteria = example.createCriteria();
+            criteria.andUserIdEqualTo(meetingSignin.getUserId());
+            criteria.andMeetingIdEqualTo(meetingSignin.getMeetingId());
+            MeetingInfo meetingSigninCheck = meetingInfoService.selectMeetingInfoById(meetingSignin.getMeetingId());
+            Long checkTime=meetingSignin.getSigninTime()-meetingSigninCheck.getStartTime();
+            if (checkTime<meetingSigninCheck.getLateTime()*6000+150000){
+                if (meetingSigninService.updateMeetingSignin(meetingSignin, example))
+                    return Msg.success().add("msg", "签到成功");
+                else
+                    return Msg.fail().add("msg", "服务器异常");
+            }else if(meetingSigninCheck.getEndTime()-meetingSignin.getSigninTime()>0){
+                meetingSignin.setLateFlag(true);
+                if (meetingSigninService.updateMeetingSignin(meetingSignin, example))
+                    return Msg.success().add("msg", "签到成功");
+                else
+                    return Msg.fail().add("msg", "服务器异常");
+            }else{
+                return Msg.fail().add("msg", "非法请求");
+            }
         }
+        else return Msg.success().add("msg", "您不在此次会议中");
+        // msg 0 签到成功
+        // msg 1 服务器异常
+        // msg 2 非法请求
+        // msg 3 您不在此次会议中
     }
     @ResponseBody
     @RequestMapping(value = "/updateSignByUserAndMeeting")

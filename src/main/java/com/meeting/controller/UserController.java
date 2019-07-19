@@ -1,5 +1,7 @@
 package com.meeting.controller;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.meeting.bean.Msg;
@@ -242,8 +244,15 @@ public class UserController {
             e.printStackTrace();
             return Msg.fail();
         }
-//        getGuestUser(json)
-        return Msg.success().add("datas",json);
+        JSONObject jsonObject= JSON.parseObject(json.toString());
+        System.out.println(jsonObject);
+        List<UserInfo> userInfos=userInfoService.selectUserInfoExample(jsonObject.getString("openid"));
+        // type 0 用户不存在
+        // type 1 用户存在
+        if (userInfos.size()!=0)
+            return Msg.success().add("type",1).add("userId",userInfos.get(0).getId());
+        else
+            return Msg.success().add("type",0);
     }
     @ResponseBody
     @RequestMapping(value = "/log_out.do")
