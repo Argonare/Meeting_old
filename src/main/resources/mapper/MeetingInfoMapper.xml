@@ -305,7 +305,7 @@
   </update>
   <!--***********************************************自定义区域st***********************************************-->
   <select id="findAllMeetingInfo" resultType="com.meeting.bean.MeetingInfo">
-    select * from meeting_info where delete_flag = 0
+    select * from meeting_info where delete_flag = 0 order by id desc
   </select>
   <select id="selectMeetingInfoSelected" resultType="int">
         SELECT user_id FROM meeting_signin WHERE meeting_id=#{meetingId} and delete_flag = 0

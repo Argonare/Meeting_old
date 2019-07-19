@@ -178,18 +178,19 @@ function userinfo_table() {
                     layer.open({
                         type: 2, //
                         btn: ['保存', '取消'],
-                        content: APP_PATH+'/jumpPage/updateUserinfoIframe',
+                        content: APP_PATH+'/jumpPage/updateUserinfoIframe?&departName='+data.departName,
                         area: ['800px', '500px'],
                         success: function(layero, index){//成功打开子窗口
+                            console.log(data);
                             var body = layer.getChildFrame('body', index);
                             var iframeWin = window[layero.find('iframe')[0]['name']]; //得到iframe页的窗口对象，执行iframe页的方法：
                             iframeWin.method;
                             body.find('#LAY-user-login-id').val(data.id);
                             body.find('#LAY-user-login-username').val(data.username)    // console.log(body.html()) //得到iframe页的body内容
                             body.find('#LAY-user-login-name').val(data.name)
-                            body.find('#LAY-user-login-wechat').val(data.wechar)
+                            // body.find('#LAY-user-login-wechat').val(data.wechar)
                             body.find('#LAY-user-login-phone').val(data.phone)
-                            body.find('#LAY-user-login-dept').val(data.departId)
+                            // body.find('#selectDeptName').val(data.departName)
                             body.find('#LAY-user-login-type').val(data.type)
                         },
                         yes: function(index, layero){//单击保存按钮
@@ -198,7 +199,7 @@ function userinfo_table() {
                             var id = body.find('#LAY-user-login-id').val();
                             var iframeWin = window[layero.find('iframe')[0]['name']]; //得到iframe页的窗口对象，执行iframe页的方法：
                             var username =  body.find("#LAY-user-login-username").val();
-                            var wechar=  body.find("#LAY-user-login-wechat").val();
+                            // var wechar=  body.find("#LAY-user-login-wechat").val();
                             var name=  body.find("#LAY-user-login-name").val();
                             var phone =  body.find("#LAY-user-login-phone").val();
                             var departId = body.find("#dept_select").parent().find(".layui-this").attr("lay-value");

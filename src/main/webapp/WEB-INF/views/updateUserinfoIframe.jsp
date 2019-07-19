@@ -46,20 +46,21 @@
                 <div class="layui-form-item">
                     <label class="layui-form-label">所在部门：</label>
                     <div class="layui-input-block">
+                        <%--<div id="selectDeptName" style="display: none"></div>--%>
                         <select lay-verify="required" id="dept_select">
                         </select>
                     </div>
                 </div>
 
-                <div class="layui-form-item">
-                    <label class="layui-form-label">用户类型：</label>
-                    <div class="layui-input-block">
-                        <select lay-verify="required" id="type_select">
-                            <option value="3">普通用户</option>
-                            <option value="2">管理员</option>
-                        </select>
-                    </div>
-                </div>
+                <%--<div class="layui-form-item">--%>
+                    <%--<label class="layui-form-label">用户类型：</label>--%>
+                    <%--<div class="layui-input-block">--%>
+                        <%--<select lay-verify="required" id="type_select">--%>
+                            <%--<option value="3">普通用户</option>--%>
+                            <%--<option value="2">管理员</option>--%>
+                        <%--</select>--%>
+                    <%--</div>--%>
+                <%--</div>--%>
 
             </form>
         </div>
@@ -76,8 +77,14 @@
         success:function (res) {
             // console.log(res);
             var depts = res.extend.depts;
+            // console.log(depts)
+            var selectDeptName = decodeURI(window.location.toString().split("=")[1]);
+
             for(var i=0 ; i<depts.length ; i++){
-                $("<option></option>").attr("value",depts[i].id).text(depts[i].name).appendTo("#dept_select");
+                if (selectDeptName == depts[i].name)
+                    $("<option></option>").attr("value",depts[i].id).text(depts[i].name).attr("selected","").appendTo("#dept_select");
+                else
+                    $("<option></option>").attr("value",depts[i].id).text(depts[i].name).appendTo("#dept_select");
             }
         }
     })
