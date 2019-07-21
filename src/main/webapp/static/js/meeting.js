@@ -17,7 +17,7 @@ function showBody(flag){
         $(".layui-body h1").text("部门信息");
         deptinfo_table();
     }else if(flag=="myteam"){
-        $(".layui-body h1").text("我的分组");
+        $(".layui-body h1").text("我的小组");
         teaminfo_table();
     }
 }
@@ -113,7 +113,6 @@ function getDate(val) {
 function userinfo_table() {
     layui.use('table', function aa() {
         var table = layui.table;
-
         table.render({
             elem: '#demo',
             url:APP_PATH+"/userInfo/findAll",
@@ -247,8 +246,6 @@ function userinfo_table() {
             }
         });
 
-
-
         //头工具栏事件
         table.on('toolbar(test)', function(obj){
             var checkStatus = table.checkStatus(obj.config.id);
@@ -360,7 +357,6 @@ function userinfo_table() {
                                         }
                                     }
                                 });
-
                             }
                         });
                     });
@@ -368,7 +364,6 @@ function userinfo_table() {
                 case 'refresh':
                     aa();
                     break;
-
             };
         });
     })
@@ -539,11 +534,12 @@ function meetinginfo_table(){
                         type: 2,
                         btn: ["关闭"],
                         content: APP_PATH + '/jumpPage/signinInfoIframe?meeting_id='+data.id,
-                        area: ['80%', '90%'],
+                        area: ['70%', '75%'],
                         success: function(layero, index) {
                             var body = layer.getChildFrame('body', index);
                             var iframeWin = window[layero.find('iframe')[0]['name']]; //得到iframe页的窗口对象，执行iframe页的方法：
                             iframeWin.setMeetingName(JSON.stringify(data.name));
+
                         },
                         yes:function (index,layero) {
                             layer.close(index);
@@ -1417,6 +1413,4 @@ function teaminfo_table() {
 
         });
     });
-
-
 }
