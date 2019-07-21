@@ -1,5 +1,6 @@
 package com.meeting.dao;
 
+import com.meeting.bean.MeetingInfo;
 import com.meeting.bean.MeetingSignin;
 import com.meeting.bean.MeetingSigninExample;
 import java.util.List;
@@ -35,4 +36,6 @@ public interface MeetingSigninMapper {
     List<Integer> getMeetingIdsByUserId(int userid);
 
     List<UserSiginDeptInfo>selectDepartSiginInfo(Integer meeting_id);
+
+    Boolean getIsSignin(@Param("meetingId") Integer meetingId,@Param("userId") int userId);
 }

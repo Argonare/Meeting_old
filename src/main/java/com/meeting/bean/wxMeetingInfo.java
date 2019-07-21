@@ -5,15 +5,17 @@ public class wxMeetingInfo {
     String addr;
     String date;
     String time;
+    Boolean isSignin;
 
     public wxMeetingInfo() {
     }
 
-    public wxMeetingInfo(String name, String addr, String date, String time) {
+    public wxMeetingInfo(String name, String addr, String date, String time, Boolean isSignin) {
         this.name = name;
         this.addr = addr;
         this.date = date;
         this.time = time;
+        this.isSignin = isSignin;
     }
 
     @Override
@@ -23,6 +25,7 @@ public class wxMeetingInfo {
                 ", addr='" + addr + '\'' +
                 ", date='" + date + '\'' +
                 ", time='" + time + '\'' +
+                ", isSignin='" + isSignin + '\'' +
                 '}';
     }
 
@@ -56,5 +59,13 @@ public class wxMeetingInfo {
 
     public void setTime(String time) {
         this.time = time;
+    }
+
+    public Boolean getIsSignin() {
+        return isSignin;
+    }
+
+    public void setIsSignin(Boolean isSignin) {
+        this.isSignin = isSignin;
     }
 }

@@ -46,10 +46,10 @@
 <script src="${APP_PATH}/static/js/jquery-3.0.0.min.js"></script>
 <script src="${APP_PATH}/static/css/layui/layui.js"></script>
 <script>
-    function get_meeting_id(){
-        var str=location.href;
-        return str.split("=")[1];
-    }
+function get_meeting_id(){
+    var str=location.href;
+    return str.split("=")[1];
+}
 $(document).ready(function () {
     get_img();
     $.ajax({
@@ -64,15 +64,9 @@ $(document).ready(function () {
     })
 
     function get_img(){
-        $.ajax({
-            url:"${APP_PATH}/meetingRoom/getPrcode",
-            type:"GET",
-            success:function (result) {
-                if (result.code==100)
-                    $("#qrcode_img").html("<img id=\"qrcode_img\"src=\"https://bshare.optimix.asia/barCode?site=weixin&url=http://"+result.extend.url+"?meeting_id="+get_meeting_id()+"%26timestamp="+Date.parse(new Date())+"\"style=\"width: 50%\">")
-            }
-        })
+        $("#qrcode_img").html("<img src=\"${APP_PATH}/meetingRoom/getPrcode?meetingid="+get_meeting_id()+"\">");
     }
+
     timers = setInterval(get_signuser,5000);
     function get_signuser(){
         $.ajax({
@@ -95,7 +89,6 @@ $(document).ready(function () {
             }
         })
     }
-
     $("#refresh").click(function () {
         get_signuser();
     })
