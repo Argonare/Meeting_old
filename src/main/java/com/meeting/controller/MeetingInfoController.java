@@ -7,9 +7,12 @@ import com.meeting.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -225,6 +228,22 @@ public class MeetingInfoController {
             return Msg.success().add("msg", "删除成功");
         else
             return Msg.fail().add("msg", "删除失败");
+    }
+    @ResponseBody
+    @RequestMapping(value = "/fileUpload",method = RequestMethod.POST)
+    public Msg fileUpload(@RequestParam("file") CommonsMultipartFile file, HttpSession session){
+        String path = "E:/" + new Date().getTime() + file.getOriginalFilename();
+        String filename = file.getOriginalFilename();
+        System.out.println(path);
+        System.out.println(filename);
+//        userDao.insertUpload(name, path, filename);
+        File newFile = new File(path);
+        try {
+            file.transferTo(newFile);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return Msg.success();
     }
 
 }

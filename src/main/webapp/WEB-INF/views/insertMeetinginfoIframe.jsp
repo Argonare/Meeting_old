@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="${APP_PATH}/static/css/layui/css/layui.css">
     <link rel="stylesheet" href="${APP_PATH}/static/css/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="${APP_PATH}/static/css/bootstrap/css/bootstrap_tagsinput.css">
-    <link rel="stylesheet" href="${APP_PATH}/static/css/select2.css">
     <style>
         a{text-decoration: none;}
         .box {
@@ -66,7 +65,22 @@
         .layui-form-label {
             padding: 9px 8px;
         }
+        .box>div>div{
+            display: none;
+        }
+        .select2-selection{
+            border:1px solid #e6e6e6 !important;
+            border-radius: 2px !important;
+        }
+        .select2-search__field{
+            /*margin-top: 10px !important;*/
+            padding: 5px !important;
+        }
+        .select2-selection__choice{
+            line-height: 25px;
+        }
     </style>
+    <link rel="stylesheet" href="${APP_PATH}/static/css/select2.css">
 </head>
 <body>
 <div class="layui-tab">
@@ -94,24 +108,14 @@
                     </div>
                     <div  class="layui-form-item box">
                         <label class="layui-form-label">会议部门：</label>
-                        <div class="layui-input-block tagsinput-primary" style="width: 450px">
-                            <input name="tagsinput" id="tagsinputval" class=" layui-input" data-role="tagsinput" readonly="true"/>
-                        </div>
-                        <div style="margin-left: 110px;margin-top: -15px;" id="meeting_box">
-                            <div id="big_box">
-                            </div>
+                        <div class="layui-input-block" style="width: 450px">
+                            <select id="meetingDept" class="js-example-placeholder-multiple-two js-states form-control select2" multiple="multiple"></select>
                         </div>
                     </div>
-                    <select class="js-example-basic-multiple" name="states[]" multiple="multiple">
-                        <option value="AL">Alabama</option>
-                        ...
-                        <option value="WY">Wyoming</option>
-                    </select>
-                    <input type="hidden" id="select_id" name="select_id"/>
 
                     <div class="layui-form-item">
                         <label class="layui-form-label">会议地点：</label>
-                        <div class="layui-input-block" style="width: 450px">
+                        <div class="layui-input-block">
                             <select name="city" lay-verify="required" id="address_select">
                             </select>
                         </div>
@@ -122,15 +126,15 @@
                         <div class="layui-input-block" style="">
                             <input type="text" name="date" id="date1" lay-verify="date" placeholder="yyyy-MM-dd HH-mm-ss" autocomplete="off" class="layui-input">
                         </div>
-<%--                        <div class="layui-form-mid layui-word-aux">选择开始时间</div>--%>
                     </div>
                     <div class="layui-form-item">
                         <label class="layui-form-label">结束时间：</label>
                         <div class="layui-input-block">
                             <input type="text" name="date" id="date2" lay-verify="date" placeholder="yyyy-MM-dd HH-mm-ss" autocomplete="off" class="layui-input">
                         </div>
-<%--                        <div class="layui-form-mid layui-word-aux">选择结束时间</div>--%>
+<%--                        <i class="layui-icon layui-icon-tips" lay-tips="aaa" lay-offset="5"></i>--%>
                     </div>
+
                     <div class="layui-form-item">
                         <label class="layui-form-label">迟到时间：</label>
                         <div class="layui-input-block">
@@ -153,6 +157,12 @@
                             <input type="radio"  name="qcode" lay-filter="qcode" value="0" title="是" checked="">
                             <input type="radio"  name="qcode" lay-filter="qcode" value="1" title="否">
                         </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">添加附件：</label>
+                        <button type="button" class="layui-btn" id="fileUpLoad">
+                            <i class="layui-icon">&#xe67c;</i>上传文件
+                        </button>
                     </div>
 
                 </form>
@@ -215,27 +225,23 @@
 <%--<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>--%>
 <%--</script>--%>
 <script>
-    // $('#id').change(function(){
-    //     var o=document.getElementById('id').getElementsByTagName('option');
-    //     var all="";
-    //     console.log(o[1]);
-    //     for(var i=0;i<o.length;i++){
-    //         if(o[i].selected){
-    //             all+=o[i].value+",";
-    //         }
-    //     }
-    //     all = all.substr(0, all.length - 1);//去掉末尾的逗号
-    //     $("#bumen").val(all);//赋值给隐藏的文本框
-    // })
-    $(document).ready(function() {
-        $('.js-example-basic-multiple').select2();
-    });
-
-
+    $(".js-example-placeholder-multiple-two").select2({
+        placeholder : '请选择部门',
+        multiple : true,
+        height: '40px',
+        allowClear : true,
+        language: "zh-CN",
+    })
     function getDept_data(){
-        return $("#tagsinputval").val();
+        var strtext = $('#meetingDept').select2('data');
+        var str="";
+        for (var i=0;i<strtext.length;i++){
+            str+=strtext[i].text+","
+        }
+        str=str.substring(0,str.length-1)
+        console.log(str)
+        return str;
     }
-
     $(".box").mouseover(function(){
         $("#big_box").show();
     });
@@ -255,7 +261,6 @@
             }
         }
     })
-
     //会议人员（加载部门列表）
     $.ajax({
         url:"${APP_PATH}/department/findAllDept",
@@ -264,12 +269,11 @@
         success:function (res) {
             var depts = res.extend.depts;
             var context="";
+            console.log(res)
             for(var i=0 ; i<depts.length ; i++){
-                // $("<div></div>").attr("value",)
-                context+="<div class=\"box_div tag label label-info\"><span style='cursor: pointer;' class='click_span'>"+depts[i].name+"</span></div>"
-                $("<option></option>").text(depts[i].name).appendTo("#dept_select1");
+                context+="<option value=\""+depts[i].id+"\">"+depts[i].name+"</option>"
             }
-            $("#big_box").html(context);
+            $("#meetingDept").html(context);
         }
     })
 
@@ -384,13 +388,37 @@
             return 5;
         else return 10;
     }
-    layui.use(['form','element','laydate','table','layer','transfer'], function(){
+    layui.use(['form','element','laydate','table','layer','transfer','upload'], function(){
         var element = layui.element;
         var laydate = layui.laydate;
         var form = layui.form;
         var table = layui.table;
         var transfer = layui.transfer;
         var layer = layui.layer;
+        var upload = layui.upload;
+        var $ = layui.$
+
+        $(".layui-icon-tips").hover(function() {
+            var tips=$(this).attr("lay-tips");
+            openMsg(tips);
+        }, function() {
+            layer.close(subtips);
+        });
+        function openMsg(tips) {
+            subtips = layer.tips(tips, ".layui-icon-tips",{tips:[2,'#000'],time: 30000});
+    }
+
+        var uploadInst = upload.render({
+            elem: '#fileUpLoad' //绑定元素
+            ,url: '/meetingInfo/fileUpload/' //上传接口
+            ,done: function(res){
+                //上传完毕回调
+            }
+            ,error: function(){
+                layer.msg("服务器异常",{icon:5});
+                //请求异常回调
+            }
+        });
 
         form.on('select(meetingLate)',function (data) {
             latetime=data.value;
@@ -421,7 +449,6 @@
                 data:{teamId:data.value},
                 type:"GET",
                 success:function (res) {
-                    console.log(res);
                     if(res.code == 100){
                         // var datas = res.extend.userInfoReturns
                         layui.table.reload("rightTable", {

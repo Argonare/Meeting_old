@@ -620,7 +620,9 @@ function meetinginfo_table(){
                                     // console.log(bootstrap_tagsinput[i].innerText);
                                     meetingDeptNames.push(bootstrap_tagsinput[i].innerText);
                                 }
-                                if(meetingDeptNames.length == 0){//会议部门校验
+                                var meetingDept=iframeWin.getDept_data();
+                                console.log(meetingDept)
+                                if(meetingDept.length == 0){//会议部门校验
                                     layer.msg("请选择会议面向的部门！",{icon:5});
                                     return false;
                                 }
@@ -651,7 +653,6 @@ function meetinginfo_table(){
                                         break;
                                     }
                                 }
-                                var meetingDept=iframeWin.getDept_data();
                                 var qcode_refresh=iframeWin.getQcode();//获取二维码是否刷新
                                 var tp=iframeWin.getType();
                                 var latetime=iframeWin.getLateTime();
