@@ -40,15 +40,14 @@
     </ul>
     <div class="layui-tab-content">
         <div class="layui-tab-item layui-show">
-            <div id="main" style="width: 600px;height: 400px;margin: 0 auto;margin-top: 20px"></div>
             <%--<table class="layui-hide" id="test" lay-filter="test"></table>--%>
-            <div style="margin: 0 auto;width: 50%" >
-                <table id="arrivedTable" lay-filter="arrivedTable"></table>
-            </div>
+                <div style="float: left;"><table id="arrivedTable" lay-filter="arrivedTable"></table></div>
+                <div id="main" style="width: 800px;height: 400px;margin-top: 20px;float: right"></div>
         </div>
 
         <div class="layui-tab-item">
-            <table id="depart" style="width: 1000px;height: 700px;margin: 0 auto;"></table>
+            <div style="float: left"><table id="deptTable" lay-filter="deptTable"></table></div>
+            <div id="depart" style="width: 850px;height: 500px;float: right"></div>
         </div>
     </div>
 </div>
@@ -118,6 +117,28 @@
 <script src="${APP_PATH}/static/js/echarts.min.js"></script>
 <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts-all-3.js"></script>
 <script type="text/javascript">
+    layui.use('table',function () {
+        var not_arrivedData=[];
+        var table = layui.table;
+        table.render({
+            elem:'#arrivedTable'
+            ,id:'arrivedTable'
+            ,height: 500 //容器高度
+            ,width:375
+            ,limit: 1000
+            ,cols:[[
+                {field: 'id', title: 'ID',width:70}
+                ,{field: 'username', title: '工号',width:120}
+                ,{field: 'name', title: '姓名',width:80}
+                ,{field: 'status', title: '签到情况',width:100}
+            ]]
+            ,page:true
+        });
+        table.reload("arrivedTable",{
+            data:not_arrivedData
+        });
+    })
+
     //Tab切换
     layui.use('element', function(){
       var element = layui.element;
@@ -128,7 +149,6 @@
     //会议名称
     function setMeetingName(val) {
         meetingName=val;
-        // console.log(meetingName)
     }
 
     function get_meeting_id(){
@@ -198,13 +218,13 @@
                     elem:'#arrivedTable'
                     ,id:'arrivedTable'
                     ,height: 500 //容器高度
-                    ,width:805
+                    ,width:375
                     ,cols:[[
-                        {field: 'id', title: 'ID',width:200}
-                        ,{field: 'username', title: '工号',width:200}
-                        ,{field: 'name', title: '姓名',width:200}
-                        ,{field: 'status', title: '签到情况',width:200}
-                    ]]
+                        {field: 'id', title: 'ID',width:70}
+                        ,{field: 'username', title: '工号',width:120}
+                        ,{field: 'name', title: '姓名',width:80}
+                        ,{field: 'status', title: '签到情况',width:100}
+                    ]]            ,page:true
                 });
                 for (var i=0;i<data.length;i++){
                     if (data[i].status=='已到'){
@@ -224,13 +244,13 @@
                     elem:'#arrivedTable'
                     ,id:'arrivedTable'
                     ,height: 500 //容器高度
-                    ,width:805
+                    ,width:375
                     ,cols:[[
-                        {field: 'id', title: 'ID'}
-                        ,{field: 'username', title: '工号'}
-                        ,{field: 'name', title: '姓名'}
-                        ,{field: 'status', title: '签到情况'}
-                    ]]
+                        {field: 'id', title: 'ID',width:70}
+                        ,{field: 'username', title: '工号',width:120}
+                        ,{field: 'name', title: '姓名',width:80}
+                        ,{field: 'status', title: '签到情况',width:100}
+                    ]]            ,page:true
                 });
                 for (var i=0;i<data.length;i++){
                     if (data[i].status=='迟到'){
@@ -250,13 +270,13 @@
                     elem:'#arrivedTable'
                     ,id:'arrivedTable'
                     ,height: 500 //容器高度
-                    ,width:805
+                    ,width:375
                     ,cols:[[
-                        {field: 'id', title: 'ID'}
-                        ,{field: 'username', title: '工号'}
-                        ,{field: 'name', title: '姓名'}
-                        ,{field: 'status', title: '签到情况'}
-                    ]]
+                        {field: 'id', title: 'ID',width:70}
+                        ,{field: 'username', title: '工号',width:120}
+                        ,{field: 'name', title: '姓名',width:80}
+                        ,{field: 'status', title: '签到情况',width:100}
+                    ]]            ,page:true
                 });
                 for (var i=0;i<data.length;i++){
                     if (data[i].status=='未到'){
@@ -276,13 +296,13 @@
                     elem:'#arrivedTable'
                     ,id:'arrivedTable'
                     ,height: 500 //容器高度
-                    ,width:805
+                    ,width:375
                     ,cols:[[
-                        {field: 'id', title: 'ID'}
-                        ,{field: 'username', title: '工号'}
-                        ,{field: 'name', title: '姓名'}
-                        ,{field: 'status', title: '签到情况'}
-                    ]]
+                        {field: 'id', title: 'ID',width:70}
+                        ,{field: 'username', title: '工号',width:120}
+                        ,{field: 'name', title: '姓名',width:80}
+                        ,{field: 'status', title: '签到情况',width:100}
+                    ]]            ,page:true
                 });
                 for (var i=0;i<data.length;i++){
                     if (data[i].status=='请假'){
@@ -310,12 +330,9 @@
         async: false,
         data:{meetingId:get_meeting_id()},
         success:function (res) {
-            // console.log(res);
-            // data2=res.extend.data
             res = res.extend.data;
-            // console.log(res);
             for(var i=0 ;i<res.length ;i++){
-                res[i]["total"]=res[i].signin+res[i].late+res[i].notsignin+res[i].leave;
+                res[i]["total"]=res[i].signin+res[i].late+res[i].notsignin+res[i].leave;//总人数
                 legendData.push(res[i].dept);
                 if (i == 0)
                     series1Data.push({"value":res[i].total,"name":res[i].dept,"selected":true});
@@ -333,8 +350,34 @@
         }
     });
 
+    // console.log(meetingSinginInfo)
+
+    layui.use('table',function () {
+        var not_deptData=[];
+        var table = layui.table;
+        table.render({
+            elem:'#deptTable'
+            ,id:'deptTable'
+            ,height: 500 //容器高度
+            ,width:421
+            ,limit: 1000
+            ,cols:[[
+                {field:'dept',title:'部门',width:135}
+                ,{field:'signin',title:'已到',width:70}
+                ,{field:'notsignin',title:'未到',width:70}
+                ,{field:'late',title:'迟到',width:70}
+                ,{field:'leave',title:'请假',width:70}
+            ]]
+            ,page:true
+        });
+        table.reload("deptTable",{
+            data:meetingSinginInfo
+        });
+    })
+
 
     var mydepart = echarts.init(document.getElementById('depart'));
+
     function getDeptEcharts(legendData,series1Data,series2Data){
         option = {
             tooltip: {
@@ -348,6 +391,7 @@
             },
             series: [
                 {
+                    name:'学院：总人数',
                     type:'pie',
                     selectedMode: 'single',
                     radius: [0, '40%'],
@@ -365,16 +409,21 @@
                     data:series1Data
                 },
                 {
-                    name:'签到情况',
+                    name:'签到情况：人数',
                     type:'pie',
                     radius: ['65%', '50%'],
+                    labelLine:{
+                        normal:{
+                            length:50,
+                        }
+                    },
                     label: {
                         normal: {
-                            formatter: '{a|{a}}{abg|}\n{hr|}\n  {b|{b}：}{c}  {per|{d}%}  ',
-                            backgroundColor: '#eee',
-                            borderColor: '#aaa',
-                            borderWidth: 1,
-                            borderRadius: 4,
+                            // formatter: '{a|{a}}{abg|}\n{hr|}\n  {b|{b}：}{c}  {per|{d}%}  ',
+                            // backgroundColor: '#eee',
+                            // borderColor: '#aaa',
+                            // borderWidth: 1,
+                            // borderRadius: 4,
                             rich: {
                                 a: {
                                     color: '#999',
@@ -410,9 +459,6 @@
     mydepart.setOption(getDeptEcharts(legendData,series1Data,series2Data[0]));
 
     mydepart.on('click',function (param) {
-        // alert(param.name)
-        // console.log(meetingSinginInfo);
-        // console.log(series1Data);
         var flag = true;
         var index = 0
         for (var i=0 ; i<series1Data.length ; i++){
@@ -420,6 +466,8 @@
             if(param.name == series1Data[i].name){
                 flag = false;
                 index = i;
+                // alert(param.name)
+
             }
         }
         if (flag) return false;

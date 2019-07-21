@@ -4,9 +4,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.meeting.bean.Msg;
 import com.meeting.bean.UserInfo;
-import com.meeting.bean.UserInfoExample;
 import com.meeting.bean.UserInfoReturn;
-import com.meeting.dao.UserInfoMapper;
 import com.meeting.service.UserInfoService;
 import com.meeting.utils.getGuestUser;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +20,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Controller
