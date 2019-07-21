@@ -63,7 +63,7 @@
         }
         if (get_timestamp()==true) {
             $.ajax({
-                url:"${APP_PATH}/meetingSignin/updateMeetingSigninByMySelf",
+                url:"${APP_PATH}/meetingSignin/updateMeetingSigninByMySelf.do",
                 async: false,
                 type: "POST",
                 data:{

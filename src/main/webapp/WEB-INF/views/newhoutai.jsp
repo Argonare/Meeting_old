@@ -11,7 +11,7 @@
 <head>
     <%pageContext.setAttribute("APP_PATH", request.getContextPath());%>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<%--    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">--%>
     <title>会议系统</title>
     <link rel="stylesheet" href="${APP_PATH}/static/css/layui/css/layui.css">
 <%--    <link rel="stylesheet" href="${APP_PATH}/static/css/bootstrap/css/bootstrap_tagsinput.css">--%>

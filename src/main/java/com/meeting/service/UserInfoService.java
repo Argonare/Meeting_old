@@ -176,4 +176,12 @@ public class UserInfoService {
         else
             return 3;//普通用户
     }
+
+    public List<UserInfo> selectUserInfoExample(String token) {
+        UserInfoExample userInfoExample = new UserInfoExample();
+        UserInfoExample.Criteria criteria = userInfoExample.createCriteria();
+        criteria.andWechatTokenEqualTo(token);
+        List<UserInfo> userInfoList = userInfoMapper.selectByExample(userInfoExample);
+        return userInfoList;
+    }
 }
